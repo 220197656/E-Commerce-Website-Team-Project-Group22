@@ -1,0 +1,17 @@
+body,html {
+    scroll-behavior: smooth;
+    margin: 0;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: thin;
+    /* color: #2377F5; */
+  }
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+button, input{
+  font-family: 'Public Sans', sans-serif;
+}
