@@ -94,7 +94,6 @@ CREATE TABLE Reviews (
     FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
 );
 
----------------------- Additional Features ----------------------
  
 -- Shipments Table
 CREATE TABLE Shipments (

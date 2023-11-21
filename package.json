@@ -1,0 +1,19 @@
+{
+  "name": "e-commerce-website-team-project-group22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/220197656/E-Commerce-Website-Team-Project-Group22.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/220197656/E-Commerce-Website-Team-Project-Group22/issues"
+  },
+  "homepage": "https://github.com/220197656/E-Commerce-Website-Team-Project-Group22#readme"
+}
