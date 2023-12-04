@@ -1,0 +1,68 @@
+
+
+
+function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark }) {
+    if (localStorageTheme !== null) {
+      return localStorageTheme;
+    }
+  
+    if (systemSettingDark.matches) {
+      return "dark";
+    }
+  
+    return "light";
+  }
+  
+  const localStorageTheme = localStorage.getItem("theme");
+  const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
+  
+  let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
+
+
+
+const button = document.querySelector("[data-theme-toggle]");
+
+button.addEventListener("click", () => {
+    var newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+    if  (currentThemeSetting == "light") {
+      var newCta = newTheme = "dark";
+    }
+    else {
+      var newCta = newTheme = "light";
+    }
+
+  document.querySelector("html").setAttribute("data-theme", newTheme);
+
+  localStorage.setItem("theme", newTheme);
+  console.log(localStorageTheme)
+  console.log(newTheme)
+
+  currentThemeSetting = newTheme;
+});
+
+const button1 = document.querySelector("[data-theme-toggle1]");
+
+button1.addEventListener("click", () => {
+  var newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+  if  (currentThemeSetting == "light") {
+    var newCta = newTheme = "dark";
+  }
+  else {
+    var newCta = newTheme = "light";
+  }
+
+  // update the button text
+  var newCta = newTheme === "dark";
+
+
+  // update theme attribute on HTML to switch theme in CSS
+  document.querySelector("html").setAttribute("data-theme", newTheme);
+
+  // update in local storage
+  localStorage.setItem("theme", newTheme);
+  console.log(localStorageTheme)
+  console.log(newTheme)
+
+  // update the currentThemeSetting in memory
+  currentThemeSetting = newTheme;
+});
