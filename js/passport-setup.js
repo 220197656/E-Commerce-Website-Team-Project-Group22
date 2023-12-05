@@ -1,0 +1,1 @@
+//used to setup passport.js for authenticating users

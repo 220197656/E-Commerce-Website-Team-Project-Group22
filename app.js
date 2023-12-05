@@ -15,6 +15,10 @@ The server processes this request (e.g., authenticates the user)
 and sends back a response, which could be a redirection to another 
 page, JSON data, etc. */
 
+//Import the .env file
+require('dotenv').config();
+
+
 
 //Import the associations file here
 
