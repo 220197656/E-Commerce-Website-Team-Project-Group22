@@ -94,7 +94,6 @@ CREATE TABLE Reviews (
     FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
 );
 
----------------------- Additional Features ----------------------
  
 -- Shipments Table
 CREATE TABLE Shipments (
@@ -106,7 +105,7 @@ CREATE TABLE Shipments (
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
 );
 
---Inventory alerts
+-- Inventory alerts
 CREATE TABLE InventoryAlerts (
     AlertID INT PRIMARY KEY,
     ProductID INT NOT NULL,
@@ -115,19 +114,10 @@ CREATE TABLE InventoryAlerts (
     FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 );
 
---Categories table
+-- Categories table
 CREATE TABLE Categories (
     CategoryID INT PRIMARY KEY,
     CategoryName VARCHAR(255) NOT NULL,
     ParentCategoryID INT,
     FOREIGN KEY (ParentCategoryID) REFERENCES Categories(CategoryID)
-);
-
--- Junction Table to handle many-to-many relationship between products and categories
-CREATE TABLE Product_Categories (
-    ProductID INT NOT NULL,
-    CategoryID INT NOT NULL,
-    PRIMARY KEY (ProductID, CategoryID),
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
-    FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
 );
