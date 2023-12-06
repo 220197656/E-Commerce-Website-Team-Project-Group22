@@ -19,6 +19,28 @@
 
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
   </head>
+
+  <script>
+    // Search Script
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchForm = document.getElementById('searchForm');
+      const searchInput = document.getElementById('searchInput');
+  
+      searchForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const searchTerm = searchInput.value;
+  
+        fetch(`/api/products/search?term=${encodeURIComponent(searchTerm)}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data); // Handle the search result data
+            // You can update the DOM with search results here
+          })
+          .catch(error => console.error('Error:', error));
+      });
+    });
+  </script>
+  
   
   <!-- //......................................................
 //.BBBBBBBBB.......OOOOOO.....DDDDDDDDD...DYYY....YYYY..
@@ -52,7 +74,7 @@
             <li><a href="#"><i class="fa-regular fa-laptop"></i>Computers</a></li>
             <li><a href="#"><i class="fa-regular fa-game-console-handheld"></i>Consoles</a></li>
             <li><a href="#"><i class="fa-regular fa-folder-plus"></i>Other</a></li>
-            <li><a href="#"><i class="fa-regular fa-user"></i>Profile</a></li>
+            <li><a href="/html/login.html"><i class="fa-regular fa-user"></i>Profile</a></li>
             <li><a href="#" data-theme-toggle1><i class="fa-regular fa-sun light-theme"></i><i class="fa-regular fa-moon dark-theme"></i>Theme</a></li>
           </ul>
         </div>
@@ -74,7 +96,7 @@
         </div>
         <div class="main-menu">
           <a type="button" data-theme-toggle ><i class="fa-regular fa-sun light-theme"></i><i class="fa-regular fa-moon dark-theme"></i></a>
-          <a href=""><i class="fa-regular fa-user"></i></a>
+          <a href="./html/login.html"><i class="fa-regular fa-user"></i></a>
           <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
         </div>
       </nav>

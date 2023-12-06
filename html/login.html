@@ -1,0 +1,81 @@
+<!-- Frontend loging page -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login and Signup</title>
+    <!-- Add CSS for styling if needed -->
+</head>
+<body>
+    <div class="form-container">
+        <!-- Login Form -->
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" name="username" required><br>
+
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="password" required><br>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="signup-container">
+            <h2>Signup</h2>
+            <form id="signupForm">
+                <label for="signupUsername">Username:</label>
+                <input type="text" id="signupUsername" name="username" required><br>
+
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" name="password" required><br>
+
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+
+        <!-- Messages -->
+        <div id="message"></div>
+    </div>
+
+    <!-- JavaScript to handle form submission -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            const response = await fetch('/api/users/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            const data = await response.text();
+            document.getElementById('message').textContent = 'Login: ' + data;
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const username = document.getElementById('signupUsername').value;
+            const password = document.getElementById('signupPassword').value;
+
+            const response = await fetch('/api/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            const data = await response.text();
+            document.getElementById('message').textContent = 'Signup: ' + data;
+        });
+    </script>
+</body>
+</html>
