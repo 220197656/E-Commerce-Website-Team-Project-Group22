@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SBEX Market</title>
+    <title>My Website</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,28 +19,6 @@
 
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
   </head>
-
-  <script>
-    // Search Script
-    document.addEventListener('DOMContentLoaded', function() {
-      const searchForm = document.getElementById('searchForm');
-      const searchInput = document.getElementById('searchInput');
-  
-      searchForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const searchTerm = searchInput.value;
-  
-        fetch(`/api/products/search?term=${encodeURIComponent(searchTerm)}`)
-          .then(response => response.json())
-          .then(data => {
-            console.log(data); // Handle the search result data
-            // You can update the DOM with search results here
-          })
-          .catch(error => console.error('Error:', error));
-      });
-    });
-  </script>
-  
   
   <!-- //......................................................
 //.BBBBBBBBB.......OOOOOO.....DDDDDDDDD...DYYY....YYYY..
@@ -58,14 +36,14 @@
 //.BBBBBBBBBB......OOOOOO.....DDDDDDDDD.......YYYY......
 //...................................................... -->
   
-  <body>
+  <body id="body">
     <header>
       <div class="announcement-bar">
         SALE: USE CODE 50OFF FOR 50% OFF
       </div>
       <burger-nav>
         <i id="burger-button" class="fa-regular fa-bars"></i>
-        <a href="#"><img src="/source/logo-light.png" alt=""></a>
+        <a href="#"><img id="logo-light1" src="/source/logo-light.png"><img id="logo-dark1" src="/source/logo-dark.png" ></a>
         <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
         <div id="nav-menu" class="nav-menu">
           <ul class="menu">
@@ -74,8 +52,8 @@
             <li><a href="#"><i class="fa-regular fa-laptop"></i>Computers</a></li>
             <li><a href="#"><i class="fa-regular fa-game-console-handheld"></i>Consoles</a></li>
             <li><a href="#"><i class="fa-regular fa-folder-plus"></i>Other</a></li>
-            <li><a href="/html/login.html"><i class="fa-regular fa-user"></i>Profile</a></li>
-            <li><a href="#" data-theme-toggle1><i class="fa-regular fa-sun light-theme"></i><i class="fa-regular fa-moon dark-theme"></i>Theme</a></li>
+            <li><a href="#"><i class="fa-regular fa-user"></i>Profile</a></li>
+            <li><a href="#" data-theme-toggle1><i id="sun1" class="fa-regular fa-sun light-theme"></i><i id="moon1" class="fa-regular fa-moon dark-theme"></i>Theme</a></li>
           </ul>
         </div>
         <!-- <i class="fa-regular fa-moon"></i> MOOOOOONNNNNNN    -->
@@ -83,7 +61,7 @@
       </burger-nav>
       <nav id="nav">
         <div class="logo-menu">
-        <a href="#"><img src="/source/logo-light.png" alt=""></a>
+        <a href="#"><img id="logo-light2" src="/source/logo-light.png"><img id="logo-dark2" src="/source/logo-dark.png" ></a>
         <a href="#"><i class="fa-regular fa-magnifying-glass"></i></a>
         </div>
         <div class="main-header">
@@ -95,8 +73,8 @@
           
         </div>
         <div class="main-menu">
-          <a type="button" data-theme-toggle ><i class="fa-regular fa-sun light-theme"></i><i class="fa-regular fa-moon dark-theme"></i></a>
-          <a href="./html/login.html"><i class="fa-regular fa-user"></i></a>
+          <a data-theme-toggle ><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2" class="fa-regular fa-moon dark-theme"></i></a>
+          <a href=""><i class="fa-regular fa-user"></i></a>
           <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
         </div>
       </nav>
@@ -262,36 +240,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-    <!-- //....SSSSSS....LLL........III..DDDDDDDDD....EEEEEEEEEE...
-    //..SSSSSSSSS...LLL........III..DDDDDDDDDD...EEEEEEEEEE...
-    //..SSSSSSSSSS..LLL........III..DDDDDDDDDDD..EEEEEEEEEE...
-    //..SSS...SSSS..LLL........III..DDD....DDDD..EEE..........
-    //..SSSS........LLL........III..DDD.....DDD..EEE..........
-    //..SSSSSSS.....LLL........III..DDD.....DDDD.EEEEEEEEEE...
-    //...SSSSSSSS...LLL........III..DDD.....DDDD.EEEEEEEEEE...
-    //.....SSSSSSS..LLL........III..DDD.....DDDD.EEEEEEEEEE...
-    //.........SSSS.LLL........III..DDD.....DDD..EEE..........
-    //.SSSS....SSSS.LLL........III..DDD....DDDD..EEE..........
-    //..SSSSSSSSSS..LLLLLLLLLL.III..DDDDDDDDDDD..EEEEEEEEEEE..
-    //..SSSSSSSSSS..LLLLLLLLLL.III..DDDDDDDDDD...EEEEEEEEEEE..
-    //....SSSSSS....LLLLLLLLLL.III..DDDDDDDDD....EEEEEEEEEEE.. -->
-        <div class="slideshow-wrapper">
-          <figure class="slideshow-1"></figure>
-          <figure class="slideshow-2"></figure>
-          <figure class="slideshow-3"></figure>
-          <figure class="slideshow-4"></figure>
-        </div>
-        <div class="slideshow-spacer"></div>
-
         <!-- //.....CCCCCC.......OOOOOO.....NNNN....NNN..TTTTTTTTTTEEEEEEEEEEE..NNNN....NNN..TTTTTTTTTT..
         //...CCCCCCCCC....OOOOOOOOOO...NNNN....NNN..TTTTTTTTTTEEEEEEEEEEE..NNNN....NNN..TTTTTTTTTT..
         //..CCCCCCCCCCC..OOOOOOOOOOOO..NNNNN...NNN..TTTTTTTTTTEEEEEEEEEEE..NNNNN...NNN..TTTTTTTTTT..
@@ -306,6 +254,20 @@
         //...CCCCCCCCC....OOOOOOOOOO...NNN....NNNN......TTT....EEEEEEEEEEE.NNN....NNNN......TTT.....
         //.....CCCCCC.......OOOOOO.....NNN....NNNN......TTT....EEEEEEEEEEE.NNN....NNNN......TTT..... -->
 
+
+
+
+
+
+
+        <div class="slideshow-wrapper">
+          <figure class="slideshow-1"></figure>
+          <figure class="slideshow-2"></figure>
+          <figure class="slideshow-3"></figure>
+          <figure class="slideshow-4"></figure>
+        </div>
+        <div class="slideshow-spacer"></div>
+
         <!-- <script src="ts/index.js"></script> -->
         <h2 class="section-heading">Best Sellers</h2>
         <div class="pages">
@@ -317,10 +279,17 @@
 
 
 
-      </content>
-      
-    </main>
+
     
+
+
+
+
+
+
+
+
+
 <!-- //.............................................................................
 //.FFFFFFFFFF....OOOOOO........OOOOOO.....TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRR.....
 //.FFFFFFFFFF..OOOOOOOOOO....OOOOOOOOOO...TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
@@ -336,7 +305,9 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-
+      </content>
+      
+    </main>
     <footer>
       <content>
         <div class="horizontal-footer">
@@ -349,7 +320,6 @@
           <div class="vert">
             <a>FAQs</a>
             <a>Contact Us</a>
-            <a href="index.html">Return to home page</a>
           </div>
           <div class="vert">
             <a>Phones</a>
