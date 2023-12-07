@@ -1,13 +1,4 @@
-:root
-/* [data-theme="light"] */
- {
-  --text: rgb(18, 18, 18);
-  --background: rgb(237, 237, 237);
-  --primary: rgb(0, 173, 204);
-  --secondary: rgb(230, 230, 230);
-  --tertiary: rgb(225, 225, 225);
-  --accent: rgb(209, 0, 38);
-}
+
 
 :root[data-theme="light"]
  {
@@ -17,7 +8,8 @@
   --secondary: rgb(230, 230, 230);
   --tertiary: rgb(225, 225, 225);
   --accent: rgb(209, 0, 38);
-  --dropdown: (237, 237, 237, 0.75);
+  --dropdown: rgb(237, 237, 237, 0.75);
+  --nav-line: rgb(204, 204, 204);
 }
 
 :root[data-theme='dark'] {
@@ -27,10 +19,15 @@
   --secondary: rgb(26, 26, 26);
   --tertiary: rgb(30, 30, 30);
   --accent: rgb(255, 46, 84);
-  --dropdown: (18, 18, 18, 0.75);
+  --dropdown: rgb(18, 18, 18, 0.75);
+  --nav-line: rgb(51, 51, 51);
+
 
 }
 
+html {
+  transition: 0.5s ease-in-out;
+}
 
 body,html {
     scroll-behavior: smooth;
@@ -41,6 +38,23 @@ body,html {
     background-color: var(--background);
     overflow-x: hidden;
   }
+
+  .body-transition {
+    transition: 0.5s ease-in-out;
+  }
+
+  h1, h2, a {
+    transition: 0.5s ease-in-out;
+
+  }
+
+header {
+  transition: 0.5s ease-in-out;
+}
+
+main {
+
+}
 
 body {
   position: relative;
@@ -94,11 +108,13 @@ header .announcement-bar {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s ease-in-out;
 }
 
 header {
   justify-content: center;
   width: 100%;
+  z-index: 2;
 }
 
 @media( min-width:900px) {
@@ -109,7 +125,7 @@ header {
 
   nav {
     background-color: var(--background);
-    border-bottom: solid 1px #ccc;
+    border-bottom: solid 1px var(--nav-line);
     color: var(--text);
     flex-wrap: nowrap;
     display: flex;
@@ -119,6 +135,8 @@ header {
     font-size: 1.5em;
     align-items: center;
     width: 100%;
+    transition: 0.5s ease-in-out;
+    z-index: 20;
   }
   
   nav .main-header {
@@ -144,7 +162,7 @@ header {
     align-items: center;
     display: inherit;
     margin: 0px 0px;
-    border-bottom: 8px solid var(--background);
+    border-bottom: 8px solid rgb(0, 0, 0, 0);
     color: var(--text);
     text-decoration-line: none;
     text-decoration-color: var(--primary);
@@ -155,7 +173,7 @@ header {
     align-items: center;
     display: inherit;
     margin: 0px 0px;
-    border-bottom: 8px solid var(--background);
+    border-bottom: 8px solid rgb(0, 0, 0, 0);
     color: var(--text);
     text-decoration-line: none;
     text-decoration-color: var(--primary);
@@ -173,7 +191,7 @@ header {
     align-items: center;
     margin-left: 1em;
     margin-right: 0.7em;
-    border-bottom: solid 8px var(--background);
+    border-bottom: solid 8px rgb(0, 0, 0, 0);
   }
 
   /* nav .logo-menu i {
@@ -185,9 +203,9 @@ header {
     justify-content: space-between;
     width: 130px;
     margin-right: 1em;
-    border-bottom: solid 8px var(--background);
+    border-bottom: solid 8px rgb(0, 0, 0, 0);
     margin-left: 0.7em;
-
+    cursor: pointer;
   }
   
   
@@ -204,15 +222,21 @@ header {
     filter:   saturate(0%)  brightness(180%) contrast(200%);
     flex-wrap: nowrap;
     scale: 0.9;
+    color: var(--text);
+  }
 
+  nav .main-menu .fa-moon{
+    margin: 0px 3px;
   }
   
-  nav i:hover{
+  nav a:hover > i{
     /* filter: invert(10%) sepia(91%) saturate(5510%) hue-rotate(343deg) brightness(93%) contrast(106%); */
     filter:   saturate(0%)  brightness(100%) contrast(200%);
     transition: 150ms ease-in-out;
     scale: 1;
   }
+
+
   
   .hover-underline-animation {
     display: inline-block;
@@ -278,7 +302,6 @@ header {
 
   burger-nav i {
     padding: 0em 0.3em;
-    transition: 150ms ease-in-out;
     filter:   saturate(0%)  brightness(100%) contrast(200%);
     flex-wrap: nowrap;
     scale: 1;
@@ -290,10 +313,10 @@ header {
     top: 95px;
     left: -100vw;
     width: 100vw;
-    background-color: rgb(237, 237, 237, 0.75);
+    background-color: var(--dropdown);
     backdrop-filter: blur(8px);
     z-index: 3;
-    transition: 0.3s;
+    transition: 0.5s;
     justify-content: center;
     padding-bottom: 70px;
   }
@@ -328,8 +351,18 @@ header {
 
   burger-nav .show-nav {
     left: 0;
-    transition: 0.3s;
+    transition: 0.5s;
   }
+  
+  burger-nav .hide {
+    display: none;
+  }
+}
+
+
+nav .hide {
+  display: none;
+  transition: 0.5s ease-in-out;
 }
 
 /* //................................................
@@ -358,7 +391,7 @@ main {
 }
 
 content {
-  
+  display: flexbox;
   width: 97%;
 }
 
@@ -369,6 +402,7 @@ content {
 }
 
 dropdown {
+  /* top: 0; */
   width: 97%;
   transform: translateY(-9px);
   border-radius: 0em 0em 2em 1em;
@@ -376,7 +410,7 @@ dropdown {
   opacity: 0%;
   /* border-top: 8.75px solid  var(--background); */
   margin-top: 8.75px;
-  background-color: var(--secondary);
+  background-color: var(--dropdown);
   /* background-color: var(--tertiary); */
   backdrop-filter: blur(8px);
   position: absolute;
@@ -626,6 +660,7 @@ slideShow {  0% {
   justify-content: center;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  transition: 0.5s ease-in-out;
   
   
 }
@@ -646,7 +681,7 @@ slideShow {  0% {
   font-size: 1.5em;
   font-weight: 500;
   box-shadow: 0px 0px 0.4em var(--secondary);
-  transition: 250ms ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 
@@ -656,18 +691,18 @@ slideShow {  0% {
   scale: 80%;
   /* transform: scale(0.8); */
   padding-bottom: 1em;
-  transition: scale 250ms ease-in-out;
+  transition: scale 0.5s ease-in-out;
 }
 
 .pages a:hover img{
   scale: 100%;
-  transition: 250ms ease-in-out;
+  transition: 0.5s ease-in-out;
 
 }
 
 .pages a:hover {
   /* font-weight: 600; */
-  transition: 250ms ease-in-out;
+  transition: 0.5s ease-in-out;
   background-color: var(--background);
   box-shadow: 0px 0px 0.4em var(--primary);
 }
@@ -704,13 +739,15 @@ main {
 
 }
 
-content {
+footer content {
   
   width: 97%;
+  transition: 0.5s ease-in-out;
+
 }
 
 @media( min-width:1366px) {
-  content{ 
+  footer content{ 
     width: 1280px;
   }
 }
@@ -721,10 +758,10 @@ footer {
   display: flex;
   justify-content: center;
   margin: 25px 0px;
+  transition: 0.5s ease-in-out;
 }
 
 footer content {
-  width: 70%;
   /* background-image: linear-gradient(20deg, var(--primary), var(--accent)); */
   background-color: var(--tertiary);
   color: var(--text);
