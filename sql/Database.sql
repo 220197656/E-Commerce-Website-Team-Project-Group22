@@ -105,8 +105,6 @@ CREATE TABLE Shipments (
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
 );
 
--- Create shipment info table then daughter to shipments
-
 -- Inventory alerts
 CREATE TABLE InventoryAlerts (
     AlertID INT PRIMARY KEY,
