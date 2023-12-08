@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Op } = require('sequelize');
-const Product = require('../models/Product'); // Update the path as needed
+const Product = require('../models/Product'); 
 
 // Search products route
 router.get('/search', async (req, res) => {

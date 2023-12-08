@@ -1,21 +1,19 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const Client = require('../models/client'); // Update with the correct path
+const Client = require('../models/client'); 
 const router = express.Router();
 
 // Client registration route
 router.post('/register', async (req, res) => {
     try {
         // Validate request data
-        // Example: if (!req.body.username || !req.body.password) { ... }
-
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         // Store client with hashed password in the database
         await Client.create({
             Username: req.body.username,
             Password: hashedPassword,
-            // Add other fields as necessary
+            //Might need to store other parameters
         });
 
         // Redirect or respond for a SPA/AJAX frontend
@@ -53,8 +51,8 @@ function ensureAuthenticated(req, res, next) {
 
 // Protected route - Client profile
 router.get('/profile', ensureAuthenticated, (req, res) => {
-    // Send back client profile data (modify as needed)
-    res.json(req.user); // Ensure this aligns with your client data structure
+    // Send back client profile data
+    res.json(req.user); 
 });
 
 // Logout route
