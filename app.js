@@ -56,8 +56,6 @@ app.use('/api/users', usersRouter);
 app.use('/api/orders', ordersRouter);
 app.use('/api/admin', adminRouter);
 
-
-
 // Additional app configuration goes here
 
 // Start the server
@@ -69,13 +67,3 @@ module.exports = app;
 
 
 
-
-/*
-
-include admin routes 
-const adminOrdersRouter = require('./routes/admin/orders');
-const adminProductsRouter = require('./routes/admin/products');
-const adminUsersRouter = require('./routes/admin/users');
-
-
-*/
