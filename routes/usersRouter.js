@@ -4,16 +4,35 @@ const passport = require('passport');
 const Client = require('../models/client'); 
 const router = express.Router();
 
+// Password validation function
+const validatePassword = (password) => {
+    const minLength = 8; // Define minimum length
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password); // Check for special characters
+    return password.length >= minLength && hasSpecialChar;
+};
+
 // Client registration route
 router.post('/register', async (req, res) => {
     try {
         // Validate request data
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const { username, password, email, phoneNumber, firstName, lastName } = req.body;
+
+        // Validate password
+        if (!validatePassword(password)) {
+            return res.status(400).send('Password does not meet security requirements.');
+        }
+
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         // Store client with hashed password in the database
         await Client.create({
-            Username: req.body.username,
+            Username: username,
             Password: hashedPassword,
-            //Might need to store other parameters
+            Email: email,
+            PhoneNumber: phoneNumber,
+            FirstName: firstName,
+            LastName: lastName
         });
 
         // Redirect or respond for a SPA/AJAX frontend
@@ -22,6 +41,7 @@ router.post('/register', async (req, res) => {
         res.status(500).send("Failed to register client: " + error.message);
     }
 });
+
 
 // Client login route
 router.post('/login', (req, res, next) => {

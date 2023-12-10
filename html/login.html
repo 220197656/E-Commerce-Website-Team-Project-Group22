@@ -201,6 +201,7 @@
 
           </div>
       </dropdown>
+<!-- Frontend loging page -->
 
       <dropdown class="dd-dd5" id="dd-dd5">
           <div class="drop-column">
@@ -260,10 +261,17 @@
 
 
             
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login and Signup</title>
+</head>
+<body>
     <div class="form-container">
         <!-- Login Form -->
         <div class="login-container">
             <h1 class="login-header">Login</h1>
+            <h2>Login</h2>
             <form id="loginForm">
                 <input type="text" id="loginUsername" name="username" required placeholder="User">
                 <input type="password" id="loginPassword" name="password" required placeholder="Password">
@@ -272,22 +280,26 @@
                     <button class="forgot" type="button" href="../html/reset-password.html">Forgot Password?</i></button>
                     <button class="send" type="submit"><i class="fa-regular fa-arrow-right"></i></button>
                 </div>
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" name="username" required><br>
+
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="password" required><br>
+
+                <button type="submit">Login</button>
             </form>
         </div>
 
         <!-- 
+        <!-- Signup Form -->
         <div class="signup-container">
             <h2>Signup</h2>
             <form id="signupForm">
-                <label for="signupUsername">Username:</label>
-                <input type="text" id="signupUsername" name="username" required><br>
-
-                <label for="signupPassword">Password:</label>
-                <input type="password" id="signupPassword" name="password" required><br>
 
                 <button type="submit">Signup</button>
             </form>
         </div> -->
+        </div>
 
         <!-- Messages -->
         <div id="message"></div>
@@ -390,4 +402,5 @@
       </content>
     </footer>
   </body>
+</body>
 </html>
