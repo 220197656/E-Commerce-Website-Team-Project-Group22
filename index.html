@@ -63,7 +63,14 @@
       <nav id="nav">
         <div class="logo-menu">
         <a href="#"><img id="logo-light2" src="/source/logo-light.png"><img id="logo-dark2" src="/source/logo-dark.png" ></a>
-        <a href="#"><i class="fa-regular fa-magnifying-glass"></i></a>
+        <a href="#" id="search-button"><i class="fa-regular fa-magnifying-glass"></i></a>          
+        <search id="searchbox" class="">
+          <search-box>
+            <input placeholder="Search for products" type="text">
+            <a href="#" id="search-close"><i class="fa-regular fa-arrow-right"></i></a>          
+          </search-box>
+        </search>
+        <script src="../js/search-box.js"></script>
         </div>
         <div class="main-header">
           <a href="/products/phones/" class="hover-underline-animation" id="dd1">Phones</a>
@@ -229,7 +236,7 @@
             <a href="">Test Item long name blah</a>
             <a href="">Test Item long name blah</a>
             <a href="">Test Item long name blah</a>
-            
+
           </div>
           
       </dropdown>
