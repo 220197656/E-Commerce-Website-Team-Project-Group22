@@ -10,7 +10,7 @@
     font-weight: thin;
     overflow-x: hidden;
 }
-
+/* yes */
 :root[data-theme="light"]
  {
   --text: rgb(18, 18, 18);
