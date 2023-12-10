@@ -3,12 +3,10 @@ CREATE TABLE Clients (
     ClientID INT PRIMARY KEY,
     Username VARCHAR(255) UNIQUE NOT NULL,
     Password VARCHAR(255) NOT NULL,
-    Salt VARCHAR(255) NOT NULL,
     Email VARCHAR(255) UNIQUE NOT NULL,
     PhoneNumber VARCHAR(15),
     FirstName VARCHAR(255),
-    LastName VARCHAR(255),
-    Address TEXT
+    LastName VARCHAR(255)
 );
 
 -- Admins Table
@@ -16,7 +14,6 @@ CREATE TABLE Admins (
     AdminID INT PRIMARY KEY,
     Username VARCHAR(255) UNIQUE NOT NULL,
     Password VARCHAR(255) NOT NULL,
-    Salt VARCHAR(255) NOT NULL,
     Email VARCHAR(255) UNIQUE NOT NULL,
     PhoneNumber VARCHAR(15),
     LevelOfAdmin INT
@@ -66,9 +63,10 @@ CREATE TABLE Orders (
     OrderID INT PRIMARY KEY,
     ClientID INT NOT NULL,
     OrderDate DATETIME NOT NULL,
-    ShippingAddress TEXT NOT NULL,
     TotalAmount DECIMAL(10,2) NOT NULL,
-    FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
+    ShippingAddressID INT,
+    FOREIGN KEY (ClientID) REFERENCES Clients(ClientID),
+    FOREIGN KEY (ShippingAddressID) REFERENCES ShippingAddresses(AddressID)
 );
 
 -- OrderItems Table
@@ -103,6 +101,38 @@ CREATE TABLE Shipments (
     ShipmentDate DATETIME NOT NULL,
     EstimatedArrival DATETIME,
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
+
+--Shipping address table
+CREATE TABLE ShippingAddresses (
+    AddressID INT AUTO_INCREMENT PRIMARY KEY,
+    ClientID INT,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Company VARCHAR(255),
+    AddressLine1 VARCHAR(255),
+    AddressLine2 VARCHAR(255),
+    Country VARCHAR(255),
+    County VARCHAR(255),
+    City VARCHAR(255),
+    PostCode VARCHAR(20),
+    PhoneNumber VARCHAR(20),
+    FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
+);
+
+--billing address table
+CREATE TABLE BillingAddresses (
+    AddressID INT AUTO_INCREMENT PRIMARY KEY,
+    ClientID INT,
+    Company VARCHAR(255),
+    AddressLine1 VARCHAR(255),
+    AddressLine2 VARCHAR(255),
+    Country VARCHAR(255),
+    County VARCHAR(255),
+    City VARCHAR(255),
+    PostCode VARCHAR(20),
+    PhoneNumber VARCHAR(20),
+    FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
 );
 
 -- Inventory alerts
