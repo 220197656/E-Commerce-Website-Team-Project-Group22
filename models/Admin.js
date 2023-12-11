@@ -1,6 +1,7 @@
 // models/Admin.js
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../database');
+const sequelize = require('../js/database');
+
 
 class Admin extends Model {}
 

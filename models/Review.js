@@ -1,6 +1,7 @@
 // models/Review.js
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../database'); // Adjust the path as needed
+const sequelize = require('../js/database');
+
 
 class Review extends Model {}
 
