@@ -1,7 +1,7 @@
 //handles Routes for admin related fuctionality
 
 const express = require('express');
-const adminOrderController = require('../../controllers/admin/OrderController');
+const adminOrderController = require('../../controllers/admin/ordersController');
 const router = express.Router();
 
 router.get('/', adminOrderController.getAllOrders);
