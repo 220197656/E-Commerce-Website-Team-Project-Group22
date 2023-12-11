@@ -31,7 +31,9 @@ const morgan = require('morgan');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 const ordersRouter = require('./routes/ordersRouter');
-const adminRouter = require('./routes/adminRouter');
+const adminOrdersRouter = require('./routes/admin/orders');
+const adminProductsRouter = require('./routes/admin/products');
+const adminUsersRouter = require('./routes/admin/users');
 
 // Load environment variables
 require('dotenv').config();
@@ -70,7 +72,9 @@ app.use((err, req, res, next) => {
 app.use('/api/products', productsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/orders', ordersRouter);
-app.use('/api/admin', adminRouter);
+app.use('/admin/orders', adminOrdersRouter);
+app.use('/admin/products', adminProductsRouter);
+app.use('/admin/users', adminUsersRouter);
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
