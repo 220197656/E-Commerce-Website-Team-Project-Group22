@@ -50,6 +50,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+
 // Using routers
 app.use('/api/products', productsRouter);
 app.use('/api/users', usersRouter);

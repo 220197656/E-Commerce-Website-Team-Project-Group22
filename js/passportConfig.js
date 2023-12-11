@@ -1,38 +1,39 @@
-//used to setup passport.js for authenticating users
-
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const User = require('./models/user');
+const Client = require('./models/Client'); 
 
 module.exports = function(passport) {
     passport.use(
         new LocalStrategy({ usernameField: 'username' }, async (username, password, done) => {
-            // Match user
-            const user = await User.findOne({ where: { username } });
-            if (!user) {
-                return done(null, false, { message: 'That username is not registered' });
-            }
-
-            // Match password
             try {
-                if (await bcrypt.compare(password, user.passwordHash)) {
-                    return done(null, user);
+                // Match user 
+                const client = await Client.findOne({ where: { Username: username } });
+                if (!client) {
+                    return done(null, false, { message: 'That username is not registered' });
+                }
+
+                // Match password 
+                if (await bcrypt.compare(password, client.Password)) {
+                    return done(null, client);
                 } else {
                     return done(null, false, { message: 'Password incorrect' });
                 }
             } catch (e) {
+                // Handle errors 
                 return done(e);
             }
         })
     );
 
-    passport.serializeUser((user, done) => {
-        done(null, user.id);
+    // Serializing the user / data to store in session
+    passport.serializeUser((client, done) => {
+        done(null, client.ClientID); // Store user's ClientID in the session
     });
 
+    // Deserializing the user from the session
     passport.deserializeUser((id, done) => {
-        User.findById(id, (err, user) => {
-            done(err, user);
-        });
+        Client.findByPk(id).then((client) => {
+            done(null, client); // Retrieve user info from the db using ClientID
+        }).catch(done);
     });
 };
