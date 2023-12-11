@@ -1,5 +1,7 @@
+console.log('Client model is being loaded');
+
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../js/database'); // Adjust path as necessary
+const sequelize = require('../js/database');
 
 class Client extends Model {}
 
