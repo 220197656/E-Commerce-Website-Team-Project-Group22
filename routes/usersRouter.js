@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const { body, validationResult } = require('express-validator');
-const Client = require('../models/client');
+const Client = require('../models/Clients');
 const Admin = require('../models/Admin');
 const router = express.Router();
 
