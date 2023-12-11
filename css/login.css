@@ -1,5 +1,5 @@
 .form-container {
-    padding: 0em 2em 2em 2em;
+    padding: 2em 2em 0em 2em;
     margin: 2em 0em;
     border-radius: var(--border-radius);
     background-color: var(--tertiary);

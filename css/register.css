@@ -42,6 +42,7 @@
     filter: brightness(120%);
 }
 
+
 .register-container form {
     width: 100%;
     display: flex;
@@ -73,12 +74,6 @@
 
 }
 
-.button-container a {
-    background-color: var(--accent);
-    padding: 1em;
-    text-align: center;
-}
-
 .forgot {
     background-color: rgb(0, 0, 0, 0);
     margin: 1em 0em;
@@ -99,3 +94,4 @@ content {
     text-decoration: none;
     border-radius: 0.5em;
 }
+
