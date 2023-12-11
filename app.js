@@ -49,7 +49,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Passport Config
-require('./passportConfig')(passport);
+require('./js/passportConfig')(passport);
 
 // Express session setup
 app.use(session({
