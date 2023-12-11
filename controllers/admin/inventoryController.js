@@ -1,4 +1,14 @@
-const Product = require('../models/product');
+
+/*
+addInventoryItem: You can add new things to the inventory using this method. It differs from addProduct in productsController 
+in that it may alter an existing product's inventory status rather than adding a new product to the database.
+
+removeInventoryItem: This function eliminates an item from the inventory without actually erasing the product 
+from the database. Usually, this is done by setting the item's stock level to 0 (or another suitable level).
+Unlike deleteProduct in productsController, which would completely destroy the product record, this is not the same.
+*/
+
+const Product = require('../models/Product');
 
 const inventoryController = {
     getAllInventory: async (req, res) => {
