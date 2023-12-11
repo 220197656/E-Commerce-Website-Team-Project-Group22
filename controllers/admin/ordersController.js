@@ -19,11 +19,46 @@ const adminOrderController = {
         }
     },
 
-    updateOrder: async (req, res) => {
-        // Implement logic to update an order
+    createOrder: async (req, res) => {
+        try {
+            const newOrder = await Order.create(req.body);
+            res.status(201).json(newOrder);
+        } catch (error) {
+            res.status(500).send('Error creating order: ' + error.message);
+        }
     },
 
-    // Additional functionalities as needed...
+    updateOrder: async (req, res) => {
+        try {
+            const updatedOrder = await Order.update(req.body, {
+                where: { id: req.params.id }
+            });
+
+            if (updatedOrder[0]) {
+                res.send('Order updated successfully');
+            } else {
+                res.status(404).send('Order not found');
+            }
+        } catch (error) {
+            res.status(500).send('Error updating order: ' + error.message);
+        }
+    },
+
+    deleteOrder: async (req, res) => {
+        try {
+            const result = await Order.destroy({
+                where: { id: req.params.id }
+            });
+
+            if (result) {
+                res.send('Order deleted successfully');
+            } else {
+                res.status(404).send('Order not found');
+            }
+        } catch (error) {
+            res.status(500).send('Error deleting order: ' + error.message);
+        }
+    }
 };
 
 module.exports = adminOrderController;

@@ -1,6 +1,4 @@
-//handle admin functionalities related to users
-
-const User = require('../models/user'); 
+const User = require('../../models/user'); 
 
 const adminUserController = {
     getAllUsers: async (req, res) => {
@@ -21,7 +19,50 @@ const adminUserController = {
         }
     },
 
-    // Additional functionalities as needed...
+    createUser: async (req, res) => {
+        try {
+            // Extract user details from request body
+            const { username, password, email, ...otherDetails } = req.body;
+
+            // Create new user
+            const newUser = await User.create({ username, password, email, ...otherDetails });
+            res.status(201).json(newUser);
+        } catch (error) {
+            res.status(500).send('Error creating user: ' + error.message);
+        }
+    },
+
+    updateUser: async (req, res) => {
+        try {
+            const user = await User.findByPk(req.params.id);
+
+            if (!user) {
+                return res.status(404).send('User not found');
+            }
+
+            // Update user details
+            const updatedUser = await user.update(req.body);
+            res.json(updatedUser);
+        } catch (error) {
+            res.status(500).send('Error updating user: ' + error.message);
+        }
+    },
+
+    deleteUser: async (req, res) => {
+        try {
+            const user = await User.findByPk(req.params.id);
+
+            if (!user) {
+                return res.status(404).send('User not found');
+            }
+
+            // Delete user
+            await user.destroy();
+            res.send('User successfully deleted');
+        } catch (error) {
+            res.status(500).send('Error deleting user: ' + error.message);
+        }
+    }
 };
 
 module.exports = adminUserController;
