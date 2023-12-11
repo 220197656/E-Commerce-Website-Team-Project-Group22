@@ -8,7 +8,7 @@ from the database. Usually, this is done by setting the item's stock level to 0 
 Unlike deleteProduct in productsController, which would completely destroy the product record, this is not the same.
 */
 
-const Product = require('../models/Product');
+const Product = require('../../models/Product');
 
 const inventoryController = {
     getAllInventory: async (req, res) => {
