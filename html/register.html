@@ -79,6 +79,7 @@
         </div>
       </nav>
       <script src="../js/theme-toggle"></script>
+      <script src="/js/signup.js"></script>
       <div></div>
       <!-- Divs used for dropdown menus -->
       <dd-wrapper> 
@@ -273,60 +274,38 @@
             </form>
         </div> -->
 
-    <div class="form-container">
-        
-        <div class="signup-container">
-            <h2 class="register-header">Signup</h2>
-            <form id="signupForm">
-                <input type="text" id="signupUsername" name="username" required><br>
-                
-                <input type="text" id="signupUsername" name="username" required><br>
+        <div class="form-container">
+          <div class="signup-container">
+              <h2 class="register-header">Signup</h2>
+              <form id="signupForm">
+                  <label for="signupUsername">Username:</label>
+                  <input type="text" id="signupUsername" name="username" required><br>
+      
+                  <label for="signupEmail">Email:</label>
+                  <input type="email" id="signupEmail" name="email" required><br>
+      
+                  <label for="signupPhone">Phone Number:</label>
+                  <input type="tel" id="signupPhone" name="phoneNumber" required><br>
+      
+                  <label for="signupFirstName">First Name:</label>
+                  <input type="text" id="signupFirstName" name="firstName" required><br>
+      
+                  <label for="signupLastName">Last Name:</label>
+                  <input type="text" id="signupLastName" name="lastName" required><br>
+      
+                  <label for="signupPassword">Password:</label>
+                  <input type="password" id="signupPassword" name="password" required><br>
+      
+                  <label for="signupPasswordRepeat">Repeat Password:</label>
+                  <input type="password" id="signupPasswordRepeat" name="passwordRepeat" required><br>
+      
+                  <button type="submit">Signup</button>
+              </form>
+              <p id="message"></p>
+          </div>
+      </div>
 
-                <label for="signupPassword">Password:</label>
-                <input type="password" id="signupPassword" name="password" required><br>
-
-                <button type="submit">Signup</button>
-            </form>
-        </div>
-
-    </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
-
-            const response = await fetch('/api/users/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            });
-
-            const data = await response.text();
-            document.getElementById('message').textContent = 'Login: ' + data;
-        });
-
-        document.getElementById('signupForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const username = document.getElementById('signupUsername').value;
-            const password = document.getElementById('signupPassword').value;
-
-            const response = await fetch('/api/users/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            });
-
-            const data = await response.text();
-            document.getElementById('message').textContent = 'Signup: ' + data;
-        });
-    </script>
-
+    
 
 
 

@@ -1,7 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const Client = require('../models/client'); 
+const { body, validationResult } = require('express-validator');
+const Client = require('../models/client');
 const router = express.Router();
 
 // Password validation function
@@ -12,15 +13,23 @@ const validatePassword = (password) => {
 };
 
 // Client registration route
-router.post('/register', async (req, res) => {
-    try {
-        // Validate request data
-        const { username, password, email, phoneNumber, firstName, lastName } = req.body;
+router.post('/register', [
+    body('username').trim().escape(),
+    body('email').isEmail().normalizeEmail(),
+    body('phoneNumber').trim().escape(),
+    body('firstName').trim().escape(),
+    body('lastName').trim().escape(),
+    body('password').isLength({ min: 8 }).matches(/[!@#$%^&*(),.?":{}|<>]/),
+], async (req, res) => {
+    // Check for validation errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
 
-        // Validate password
-        if (!validatePassword(password)) {
-            return res.status(400).send('Password does not meet security requirements.');
-        }
+    try {
+        // Destructure sanitized values
+        const { username, password, email, phoneNumber, firstName, lastName } = req.body;
 
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -35,7 +44,6 @@ router.post('/register', async (req, res) => {
             LastName: lastName
         });
 
-        // Redirect or respond for a SPA/AJAX frontend
         res.status(201).send('Client registered successfully');
     } catch (error) {
         res.status(500).send("Failed to register client: " + error.message);
