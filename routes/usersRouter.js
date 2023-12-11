@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const { body, validationResult } = require('express-validator');
 const Client = require('../models/client');
+const Admin = require('../models/Admin');
 const router = express.Router();
 
 // Password validation function
@@ -53,20 +54,26 @@ router.post('/register', [
 
 // Client login route
 router.post('/login', (req, res, next) => {
-    passport.authenticate('local', (err, client, info) => {
+    passport.authenticate('local', async (err, client, info) => {
         if (err) { return next(err); }
         if (!client) { 
             // Respond with error for SPA/AJAX
             return res.status(401).json({ message: info.message || 'Login failed' }); 
         }
 
-        req.logIn(client, (err) => {
+        req.logIn(client, async (err) => {
             if (err) { return next(err); }
-            // Respond with success message
-            return res.json({ message: 'Logged in successfully' });
+
+            // Check if user is an admin
+            const admin = await Admin.findOne({ where: { Username: client.Username } });
+            const isAdmin = admin != null;
+
+            // Respond with success message and admin status
+            return res.json({ message: 'Logged in successfully', isAdmin });
         });
     })(req, res, next);
 });
+
 
 // Middleware to protect routes
 function ensureAuthenticated(req, res, next) {
