@@ -1,21 +1,18 @@
-// models/Review.js
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../js/database');
-
-
+const sequelize = require('../js/database'); 
 class Review extends Model {}
 
 Review.init({
-  ReviewID: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  ProductID: DataTypes.INTEGER,
-  ClientID: DataTypes.INTEGER,
-  Rating: DataTypes.INTEGER,
-  Comment: DataTypes.TEXT,
-  Timestamp: DataTypes.DATE
+    ReviewID: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    ProductID: DataTypes.INTEGER,
+    ClientID: DataTypes.INTEGER,
+    Rating: DataTypes.INTEGER,
+    Comment: DataTypes.TEXT,
+    Timestamp: DataTypes.DATE
 }, {
-  sequelize,
-  modelName: 'Review',
-  timestamps: false
+    sequelize,
+    modelName: 'Review',
+    timestamps: false
 });
 
 module.exports = Review;
