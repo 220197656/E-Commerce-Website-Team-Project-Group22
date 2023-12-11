@@ -1,4 +1,4 @@
-const User = require('../../models/Clients'); 
+const User = require('../../models/Client'); 
 
 const adminUserController = {
     getAllUsers: async (req, res) => {
