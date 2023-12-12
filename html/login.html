@@ -332,12 +332,8 @@
 
         const data = await response.json();
 
-        // Check if the user is an admin
-        if (data.isAdmin) {
-            window.location.href = '/admin.html'; // Redirect to the admin dashboard
-        } else {
-            window.location.href = '/index.html'; // Redirect to the homepage for clients
-        }
+        // Handle response here
+        // ...
     } catch (error) {
         console.error('Login failed:', error);
         document.getElementById('message').textContent = 'Login failed: ' + error.message;
