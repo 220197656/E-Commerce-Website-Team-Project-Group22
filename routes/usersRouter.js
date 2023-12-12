@@ -1,7 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const Client = require('../models/Client'); 
+const { body, validationResult } = require('express-validator');
+const Client = require('../models/client');
 const router = express.Router();
 
 // Password validation function
@@ -12,15 +13,23 @@ const validatePassword = (password) => {
 };
 
 // Client registration route
-router.post('/register', async (req, res) => {
-    try {
-        // Validate request data
-        const { username, password, email, phoneNumber, firstName, lastName } = req.body;
+router.post('/register', [
+    body('username').trim().escape(),
+    body('email').isEmail().normalizeEmail(),
+    body('phoneNumber').trim().escape(),
+    body('firstName').trim().escape(),
+    body('lastName').trim().escape(),
+    body('password').isLength({ min: 8 }).matches(/[!@#$%^&*(),.?":{}|<>]/),
+], async (req, res) => {
+    // Check for validation errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
 
-        // Validate password
-        if (!validatePassword(password)) {
-            return res.status(400).send('Password does not meet security requirements.');
-        }
+    try {
+        // Destructure sanitized values
+        const { username, password, email, phoneNumber, firstName, lastName } = req.body;
 
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -35,38 +44,28 @@ router.post('/register', async (req, res) => {
             LastName: lastName
         });
 
-        // Redirect or respond for a SPA/AJAX frontend
         res.status(201).send('Client registered successfully');
     } catch (error) {
         res.status(500).send("Failed to register client: " + error.message);
     }
 });
 
-// Define hardcoded admin and client credentials
-const adminCredentials = {
-    username: 'leadadmin',
-    password: 'eRvLwWTrU7pw',
-};
-
-const clientCredentials = {
-    username: 'testaccount',
-    password: 'testpassword123',
-};
 
 // Client login route
-router.post('/login', async (req, res) => {
-    const { username, password } = req.body;
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local', (err, client, info) => {
+        if (err) { return next(err); }
+        if (!client) { 
+            // Respond with error for SPA/AJAX
+            return res.status(401).json({ message: info.message || 'Login failed' }); 
+        }
 
-    if (username === adminCredentials.username && password === adminCredentials.password) {
-        // Admin login successful, redirect to admin dashboard
-        return res.redirect('/html/admin.html');
-    } else if (username === clientCredentials.username && password === clientCredentials.password) {
-        // Client login successful, redirect to the homepage
-        return res.redirect('/');
-    } else {
-        // Authentication failed, you can return an error message or redirect to a login page
-        return res.status(401).json({ message: 'Login failed' });
-    }
+        req.logIn(client, (err) => {
+            if (err) { return next(err); }
+            // Respond with success message
+            return res.json({ message: 'Logged in successfully' });
+        });
+    })(req, res, next);
 });
 
 // Middleware to protect routes

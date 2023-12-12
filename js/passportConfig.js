@@ -1,69 +1,38 @@
-/*-------------------------------------------------------------
----------------------------------------------------------------
----------------------------------------------------------------
-                       CURRENTLY DEPRECATED
----------------------------------------------------------------
----------------------------------------------------------------
--------------------------------------------------------------*/                
+//used to setup passport.js for authenticating users
 
-console.log(__dirname); //debug step
-console.log('Requiring bcrypt'); // Debug step
-const bcrypt = require('bcrypt');
-console.log('bcrypt required successfully'); // Debug step
-
-console.log('Requiring passport-local'); // Debug step
 const LocalStrategy = require('passport-local').Strategy;
-console.log('passport-local required successfully'); // Debug step
-
-console.log('Loading Client model from passportConfig'); // Debugging step
-const Client = require('../models/Client');
-
+const bcrypt = require('bcrypt');
+const User = require('./models/user'); // Update with the path to your User model
 
 module.exports = function(passport) {
-    console.log('Configuring passport'); // Debug step
-    passport.use(new LocalStrategy({ usernameField: 'username' }, async (username, password, done) => {
-        console.log('Local strategy called with', { username, password }); // Debug step
-        try {
+    passport.use(
+        new LocalStrategy({ usernameField: 'username' }, async (username, password, done) => {
             // Match user
-            console.log('Attempting to find client'); // Debug step
-            const client = await Client.findOne({ where: { Username: username } });
-            console.log('Client find result:', client); // Debug step
-
-            if (!client) {
-                console.log('Client not found'); // Debug step
+            const user = await User.findOne({ where: { username } });
+            if (!user) {
                 return done(null, false, { message: 'That username is not registered' });
             }
 
             // Match password
-            console.log('Matching password'); // Debug step
-            if (await bcrypt.compare(password, client.Password)) {
-                console.log('Password match successful'); // Debug step
-                return done(null, client);
-            } else {
-                console.log('Password match failed'); // Debug step
-                return done(null, false, { message: 'Password incorrect' });
+            try {
+                if (await bcrypt.compare(password, user.passwordHash)) {
+                    return done(null, user);
+                } else {
+                    return done(null, false, { message: 'Password incorrect' });
+                }
+            } catch (e) {
+                return done(e);
             }
-        } catch (e) {
-            console.error('Error in LocalStrategy:', e); // Debug step
-            return done(e);
-        }
-    }));
+        })
+    );
 
-    // Serializing the user / data to store in session
-    passport.serializeUser((client, done) => {
-        console.log('Serializing user:', client); // Debug step
-        done(null, client.ClientID); // Store user's ClientID in the session
+    passport.serializeUser((user, done) => {
+        done(null, user.id);
     });
 
-    // Deserializing the user from the session
     passport.deserializeUser((id, done) => {
-        console.log('Deserializing user by id:', id); // Debug step
-        Client.findByPk(id).then((client) => {
-            console.log('Deserialized user found:', client); // Debug step
-            done(null, client); // Retrieve user info from the db using ClientID
-        }).catch(error => {
-            console.error('Error deserializing user:', error); // Debug step
-            done(error);
+        User.findById(id, (err, user) => {
+            done(err, user);
         });
     });
 };
