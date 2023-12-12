@@ -1,6 +1,14 @@
-const LocalStrategy = require('passport-local').Strategy;
+
+console.log('Requiring bcrypt'); //debug setep
 const bcrypt = require('bcrypt');
-console.log('Loading Client model from passportConfig');
+console.log('bcrypt required successfully'); //debug step
+
+console.log('Requiring passport-local');
+const LocalStrategy = require('passport-local').Strategy;
+console.log('passport-local required successfully');
+
+console.log('Loading Client model from passportConfig'); //debugging step
+
 const Client = require('../models/Client'); 
 
 module.exports = function(passport) {
