@@ -18,12 +18,6 @@ page, JSON data, etc.
 helmet added for added security using https headers
 morgan request logger - sees incoming requests in dev env
  */
-
-app.get('/', (req, res) => {
-    res.send('Welcome to My Node.js App!');
-  });
-
-
 // Importing necessary modules
 const express = require('express');
 const session = require('express-session');
@@ -31,6 +25,11 @@ const session = require('express-session');
 const cors = require('cors'); 
 const helmet = require('helmet'); 
 const morgan = require('morgan');
+
+app.get('/', (req, res) => {
+    res.send('Welcome to My Node.js App!');
+  });
+
 
 // Routers
 const productsRouter = require('./routes/productsRouter');
@@ -88,7 +87,9 @@ app.use((req, res, next) => {
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 // Export app for testing purposes
 module.exports = app;
