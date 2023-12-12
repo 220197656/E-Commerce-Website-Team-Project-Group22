@@ -1,3 +1,11 @@
+/*-------------------------------------------------------------
+---------------------------------------------------------------
+---------------------------------------------------------------
+                       CURRENTLY DEPRECATED
+---------------------------------------------------------------
+---------------------------------------------------------------
+-------------------------------------------------------------*/                
+
 console.log(__dirname); //debug step
 console.log('Requiring bcrypt'); // Debug step
 const bcrypt = require('bcrypt');
@@ -9,6 +17,7 @@ console.log('passport-local required successfully'); // Debug step
 
 console.log('Loading Client model from passportConfig'); // Debugging step
 const Client = require('../models/Client');
+
 
 module.exports = function(passport) {
     console.log('Configuring passport'); // Debug step

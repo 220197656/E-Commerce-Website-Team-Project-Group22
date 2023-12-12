@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const passport = require('passport');
+//const passport = require('passport'); Commented out all passport 
 const { body, validationResult } = require('express-validator');
 const Client = require('../models/Client');
 const Admin = require('../models/Admin');
@@ -63,8 +63,52 @@ router.post('/register', [
     }
 });
 
+// Basic login route
+router.post('/login', async (req, res) => {
+    console.log('Login endpoint hit', req.body); // Debug code
 
-// Client login route
+    const { username, password } = req.body;
+    try {
+        const client = await Client.findOne({ where: { Username: username } });
+        if (client && await bcrypt.compare(password, client.Password)) {
+            // User authenticated, set user info in session
+            req.session.user = { id: client.ClientID, username: client.Username, isAdmin: false };
+
+            // Check if user is an admin
+            const admin = await Admin.findOne({ where: { Username: username } });
+            if (admin) {
+                req.session.user.isAdmin = true; // Set isAdmin flag in session
+            }
+
+            console.log('Login successful for user:', username); // Debug code
+            return res.json({ message: 'Logged in successfully', isAdmin: req.session.user.isAdmin });
+        } else {
+            console.log('Login failed for user:', username); // Debug code
+            res.status(401).json({ message: 'Login failed' });
+        }
+    } catch (error) {
+        console.error('Error during login:', error); // Debug code
+        res.status(500).json({ message: 'An error occurred during login' });
+    }
+});
+
+// Logout route
+router.get('/logout', (req, res) => {
+    console.log('Logout endpoint hit'); // Debug code
+    if (req.session) {
+        req.session.destroy(err => {
+            if (err) {
+                return res.status(500).send('Error occurred in logging out');
+            }
+            res.send('Logged out successfully');
+        });
+    } else {
+        res.end();
+    }
+});
+
+/*
+// Client login route passport version
 router.post('/login', (req, res, next) => {
     console.log('Login endpoint hit', req.body); // Debug code
 
@@ -98,6 +142,7 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
+
 // Middleware to protect routes
 function ensureAuthenticated(req, res, next) {
     console.log('ensureAuthenticated middleware called'); // Debug code
@@ -123,5 +168,5 @@ router.get('/logout', (req, res) => {
     req.logout();
     res.send('Logged out successfully');
 });
-
+*/
 module.exports = router;

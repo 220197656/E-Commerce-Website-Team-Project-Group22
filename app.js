@@ -22,7 +22,7 @@ morgan request logger - sees incoming requests in dev env
 // Importing necessary modules
 const express = require('express');
 const session = require('express-session');
-const passport = require('passport');
+//const passport = require('passport'); Commented out all passport 
 const cors = require('cors'); 
 const helmet = require('helmet'); 
 const morgan = require('morgan');
@@ -49,7 +49,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Passport Config
-require('./js/passportConfig')(passport);
+//require('./js/passportConfig')(passport); Commented out all passport 
 
 // Express session setup
 app.use(session({
@@ -59,8 +59,8 @@ app.use(session({
 }));
 
 // Passport middleware for authentication
-app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.initialize()); Commented out all passport 
+//app.use(passport.session()); Commented out all passport 
 
 // Error handling middleware
 app.use((err, req, res, next) => {
