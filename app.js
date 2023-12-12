@@ -46,7 +46,7 @@ app.use(session({
 
 // Root route
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + 'index.html'); // Serve  index.html file
+    res.sendFile(__dirname + '/public/index.html'); // Serve  index.html file
 });
 
 
