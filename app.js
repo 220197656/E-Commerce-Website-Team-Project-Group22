@@ -19,6 +19,11 @@ helmet added for added security using https headers
 morgan request logger - sees incoming requests in dev env
  */
 
+app.get('/', (req, res) => {
+    res.send('Welcome to My Node.js App!');
+  });
+
+
 // Importing necessary modules
 const express = require('express');
 const session = require('express-session');
