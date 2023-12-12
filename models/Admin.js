@@ -1,21 +1,21 @@
+// models/Admin.js
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../js/database');
+const sequelize = require('../database');
 
 class Admin extends Model {}
 
 Admin.init({
-    AdminID: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    Username: { type: DataTypes.STRING, unique: true },
-    Password: DataTypes.STRING,
-    Email: { type: DataTypes.STRING, unique: true },
-    PhoneNumber: DataTypes.STRING,
-    LevelOfAdmin: DataTypes.INTEGER
+  AdminID: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  Username: { type: DataTypes.STRING, unique: true },
+  Password: DataTypes.STRING,
+  Salt: DataTypes.STRING,
+  Email: { type: DataTypes.STRING, unique: true },
+  PhoneNumber: DataTypes.STRING,
+  LevelOfAdmin: DataTypes.INTEGER
 }, {
-    sequelize,
-    modelName: 'Admin',
-    timestamps: false
+  sequelize,
+  modelName: 'Admin',
+  timestamps: false
 });
-
-console.log('Admin model initialized'); // Debug code
 
 module.exports = Admin;

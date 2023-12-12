@@ -1,7 +1,7 @@
 // Handles the Routes for products admin 
 
 const express = require('express');
-const adminProductController = require('../../controllers/admin/productsController');
+const adminProductController = require('../../controllers/adminProductController');
 const router = express.Router();
 
 router.get('/', adminProductController.getAllProducts);

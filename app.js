@@ -13,85 +13,58 @@ a user submits a login form on the index.html page, it sends a
 request to a route on the server defined in app.js.
 The server processes this request (e.g., authenticates the user) 
 and sends back a response, which could be a redirection to another 
-page, JSON data, etc.
+page, JSON data, etc. */
 
-helmet added for added security using https headers
-morgan request logger - sees incoming requests in dev env
- */
+//Import the associations file here
+
+
 // Importing necessary modules
 const express = require('express');
 const session = require('express-session');
-const cors = require('cors'); 
-const helmet = require('helmet'); 
-const morgan = require('morgan');
+const passport = require('passport');
+const productsRouter = require('./routes/productsRouter');
+const usersRouter = require('./routes/usersRouter');
+const ordersRouter = require('./routes/ordersRouter');
+const adminRouter = require('./routes/adminRouter');
 
-// Load environment variables
+// Import the .env file
 require('dotenv').config();
 
 // Initialize Express app
 const app = express();
 
-// // Set up middlewares
-// app.use(helmet()); 
-// app.use(cors());
-// app.use(morgan('dev'));
-// app.use(express.json()); // Middleware for parsing JSON
+// Middlewares
+app.use(express.json());
 
-// // Express session setup
-// app.use(session({
-//     secret: process.env.SESSION_SECRET || 'secret', // Use environment variable for final submission
-//     resave: true,
-//     saveUninitialized: true
-// }));
+// Passport Configuration
+require('./passportConfig')(passport);
 
-// Root route
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html'); // Serve  index.html file
-});
+// Express session setup
+app.use(session({
+    secret: 'secret', // Replace with environment variable in production
+    resave: true,
+    saveUninitialized: true
+}));
 
-<<<<<<< HEAD
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
-// Routers
-const productsRouter = require('./routes/productsRouter');
-const usersRouter = require('./routes/usersRouter');
-const ordersRouter = require('./routes/ordersRouter');
-const adminOrdersRouter = require('./routes/admin/orders');
-const adminProductsRouter = require('./routes/admin/products');
-const adminUsersRouter = require('./routes/admin/users');
-=======
-// // Routers
-// const productsRouter = require('./routes/productsRouter');
-// const usersRouter = require('./routes/usersRouter');
-// const ordersRouter = require('./routes/ordersRouter');
-// const adminOrdersRouter = require('./routes/admin/orders');
-// const adminProductsRouter = require('./routes/admin/products');
-// const adminUsersRouter = require('./routes/admin/users');
->>>>>>> parent of 84a369c (Update app.js)
+// Using routers
+app.use('/api/products', productsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/orders', ordersRouter);
+app.use('/api/admin', adminRouter);
 
-// // Using routers
-// app.use('/api/products', productsRouter);
-// app.use('/api/users', usersRouter);
-// app.use('/api/orders', ordersRouter);
-// app.use('/admin/orders', adminOrdersRouter);
-// app.use('/admin/products', adminProductsRouter);
-// app.use('/admin/users', adminUsersRouter);
 
-// // Error handling middleware
-// app.use((err, req, res, next) => {
-//     console.error(err.stack);
-//     res.status(500).send('Something went wrong!');
-// });
 
-// Catch 404 and forward to error handler
-app.use((req, res, next) => {
-    res.status(404).send('Page not found');
-});
+// Additional app configuration goes here
 
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// Export app for testing purposes
+// Export app if needed for testing
 module.exports = app;
 
 

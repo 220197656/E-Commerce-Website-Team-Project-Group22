@@ -1,5 +1,5 @@
 //handle admin functionalities related to products
-const Product = require('../../models/Product'); 
+const Product = require('../models/product'); 
 
 const adminProductController = {
     getAllProducts: async (req, res) => {
