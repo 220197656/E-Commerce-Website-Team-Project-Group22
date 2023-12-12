@@ -1,5 +1,3 @@
-console.log('Client model is being loaded');
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../js/database');
 
@@ -18,5 +16,7 @@ Client.init({
     modelName: 'Client',
     timestamps: false
 });
+
+console.log('Client model initialized'); // Debug code
 
 module.exports = Client;

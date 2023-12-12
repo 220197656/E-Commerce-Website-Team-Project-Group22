@@ -22,6 +22,9 @@ router.post('/register', [
     body('lastName').trim().escape(),
     body('password').isLength({ min: 8 }).matches(/[!@#$%^&*(),.?":{}|<>]/),
 ], async (req, res) => {
+    // Debug code to log the request body
+    console.log('Register endpoint hit', req.body); 
+
     // Check for validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -35,6 +38,9 @@ router.post('/register', [
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        // Debug code to log before creating a new client
+        console.log('Attempting to create client:', { username, email });
+
         // Store client with hashed password in the database
         await Client.create({
             Username: username,
@@ -45,8 +51,14 @@ router.post('/register', [
             LastName: lastName
         });
 
+        // Debug code to confirm successful registration
+        console.log('Client registered successfully'); 
+
         res.status(201).send('Client registered successfully');
     } catch (error) {
+        // Debug code to log any errors during registration
+        console.error('Error registering client:', error);
+
         res.status(500).send("Failed to register client: " + error.message);
     }
 });
@@ -54,44 +66,60 @@ router.post('/register', [
 
 // Client login route
 router.post('/login', (req, res, next) => {
+    console.log('Login endpoint hit', req.body); // Debug code
+
     passport.authenticate('local', async (err, client, info) => {
-        if (err) { return next(err); }
+        console.log('Passport authenticate callback', { err, client, info }); // Debug code
+
+        if (err) { 
+            console.error('Error during authentication', err); // Debug code
+            return next(err); 
+        }
         if (!client) { 
-            // Respond with error for SPA/AJAX
+            console.log('Authentication failed, no client found'); // Debug code
             return res.status(401).json({ message: info.message || 'Login failed' }); 
         }
 
         req.logIn(client, async (err) => {
-            if (err) { return next(err); }
+            console.log('req.logIn callback', { err }); // Debug code
+
+            if (err) { 
+                console.error('Error during login session setup', err); // Debug code
+                return next(err); 
+            }
 
             // Check if user is an admin
             const admin = await Admin.findOne({ where: { Username: client.Username } });
-            const isAdmin = admin != null;
+            console.log('Admin check', { admin }); // Debug code
 
-            // Respond with success message and admin status
+            const isAdmin = admin != null;
             return res.json({ message: 'Logged in successfully', isAdmin });
         });
     })(req, res, next);
 });
 
-
 // Middleware to protect routes
 function ensureAuthenticated(req, res, next) {
+    console.log('ensureAuthenticated middleware called'); // Debug code
+
     if (req.isAuthenticated()) {
+        console.log('User is authenticated'); // Debug code
         return next();
     }
-    // Respond with error for non-authenticated access
+
+    console.log('User not authenticated'); // Debug code
     res.status(401).send('Access denied. Please log in.');
 }
 
 // Protected route - Client profile
 router.get('/profile', ensureAuthenticated, (req, res) => {
-    // Send back client profile data
-    res.json(req.user); 
+    console.log('Profile endpoint hit'); // Debug code
+    res.json(req.user); // Send back client profile data
 });
 
 // Logout route
 router.get('/logout', (req, res) => {
+    console.log('Logout endpoint hit'); // Debug code
     req.logout();
     res.send('Logged out successfully');
 });

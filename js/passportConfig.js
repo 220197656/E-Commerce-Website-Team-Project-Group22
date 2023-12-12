@@ -14,6 +14,7 @@ const Client = require('../models/Client');
 module.exports = function(passport) {
     passport.use(
         new LocalStrategy({ usernameField: 'username' }, async (username, password, done) => {
+            console.log('Local strategy called with', { username, password }); //debug step
             try {
                 // Match user 
                 const client = await Client.findOne({ where: { Username: username } });

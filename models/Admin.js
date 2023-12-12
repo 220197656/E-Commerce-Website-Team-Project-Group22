@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../js/database'); 
+const sequelize = require('../js/database');
+
 class Admin extends Model {}
 
 Admin.init({
@@ -14,5 +15,7 @@ Admin.init({
     modelName: 'Admin',
     timestamps: false
 });
+
+console.log('Admin model initialized'); // Debug code
 
 module.exports = Admin;
