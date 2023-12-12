@@ -1,3 +1,4 @@
+console.log(__dirname); //debug step
 console.log('Requiring bcrypt'); // Debug step
 const bcrypt = require('bcrypt');
 console.log('bcrypt required successfully'); // Debug step
