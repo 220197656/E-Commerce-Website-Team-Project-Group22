@@ -46,8 +46,9 @@ app.use(session({
 
 // Root route
 app.get('/', (req, res) => {
-    res.send('Welcome to My Node.js App!');
+    res.sendFile(__dirname + '/public/index.html'); // Serve  index.html file
 });
+
 
 // Routers
 const productsRouter = require('./routes/productsRouter');
