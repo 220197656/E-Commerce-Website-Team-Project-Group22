@@ -1,32 +1,13 @@
 {
-  "name": "e-commerce-website-team-project-group22",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/220197656/E-Commerce-Website-Team-Project-Group22.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/220197656/E-Commerce-Website-Team-Project-Group22/issues"
-  },
-  "homepage": "https://github.com/220197656/E-Commerce-Website-Team-Project-Group22#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "express-session": "^1.17.3",
-    "express-validator": "^7.0.1",
-    "mysql2": "^3.6.5",
-    "node": "^21.2.0",
-    "nodejs": "^0.0.0",
-    "passport": "^0.7.0",
-    "passport-local": "^1.0.0",
-    "sequelize": "^6.35.1"
-  }
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.6.4",
+        "laravel-vite-plugin": "^1.0.0",
+        "vite": "^5.0.0"
+    }
 }
