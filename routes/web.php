@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\loginUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
@@ -54,6 +55,12 @@ Route::get('terms', function () {
     return view('terms');
 });
 
+Route::post('/register/submit', [RegisteredUserController::class, 'store']);
+
+Route::post('/login/submit', [loginUserController::class, 'login'])->middleware('auth');
+
+
+
 /// Authentication routes with Breeze
 
 
@@ -80,4 +87,4 @@ Route::get('info', function () {
 //     return Auth('RegisteredUserController.php');
 // });
 
-Route::post('/register/submit', [RegisteredUserController::class, 'store']);
+

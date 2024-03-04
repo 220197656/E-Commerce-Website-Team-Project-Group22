@@ -17,11 +17,6 @@ use Psy\Readline\Hoa\Console;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function store(Request $request)
     {
         \Log::info('Store method called');
@@ -47,20 +42,9 @@ class RegisteredUserController extends Controller
             ]);
         } catch (\Exception $e) {
             Log::error($e->getMessage());
-            // Optionally, return an error response
             return redirect()->back()->withErrors(['msg' => 'User creation failed'])->withInput();
 
-        }
-
-
-        // $user = ::create([
-        //     'username' => $request->Username,
-        //     'email' => $request->Email,
-        //     'password' => Hash::make($request->Password),
-        //     'phone_number' => $request->PhoneNumber,
-        //     'first_name' => $request->FirstName,
-        //     'last_name' => $request->LastName,
-        // ]);
+        } 
 
         event(new Registered($clients));
 

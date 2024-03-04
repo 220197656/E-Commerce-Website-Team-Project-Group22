@@ -279,10 +279,10 @@
         <!-- Login Form -->
 <div class="login-container">
     <h1 class="login-header">Login</h1>
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="/login/submit">
         @csrf
-        <input type="email" id="loginEmail" name="email" required placeholder="Email">
-        <input type="password" id="loginPassword" name="password" required placeholder="Password">
+        <input type="email" id="loginEmail" name="email" placeholder="Email" required>
+        <input type="password" id="loginPassword" name="password" placeholder="Password" required>
         <div class="button-container">
             <a class="signup" href="/register">Sign Up</a>
             <button type="submit" class="send"><i class="fa-regular fa-arrow-right"></i> Login</button>
@@ -290,6 +290,17 @@
     </form>
     <a href="/forgot-password" class="forgot">Forgot Password?</a>
 </div>
+
+<!-- @if ($errors->any())
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif -->
+
 
 
         </div>
@@ -312,42 +323,6 @@
         <div id="message"></div>
       </div>
 
-      <!-- JavaScript to handle form submission -->
-      <script>
-        document.getElementById('loginForm').addEventListener('submit', async function (e) {
-          e.preventDefault();
-          const username = document.getElementById('loginUsername').value;
-          const password = document.getElementById('loginPassword').value;
-
-          const response = await fetch('/api/users/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-          });
-
-          const data = await response.text();
-          document.getElementById('message').textContent = 'Login: ' + data;
-        });
-
-        document.getElementById('signupForm').addEventListener('submit', async function (e) {
-          e.preventDefault();
-          const username = document.getElementById('signupUsername').value;
-          const password = document.getElementById('signupPassword').value;
-
-          const response = await fetch('/api/users/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-          });
-
-          const data = await response.text();
-          document.getElementById('message').textContent = 'Signup: ' + data;
-        });
-      </script>
 
 
 

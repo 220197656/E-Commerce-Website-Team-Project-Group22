@@ -287,18 +287,18 @@
           <form id="signupForm" method="POST" action="/register/submit">
             @csrf
 
-            <input type="text" placeholder="Username" id="signupUsername" name="Username" required><br>
+            <input type="text" placeholder="Username" id="signupUsername" name="username" required><br>
             <input type="email" placeholder="Email Address" id="signupEmail" name="Email" required><br>
             <input type="tel" placeholder="Phone Number" id="signupPhone" name="PhoneNumber" required><br>
             <input type="text" placeholder="First Name" id="signupFirstName" name="FirstName" required><br>
             <input type="text" placeholder="Last Name" id="signupLastName" name="LastName" required><br>
-            <input type="password" placeholder="Password" id="signupPassword" name="Password" required><br>
+            <input type="password" placeholder="Password" id="signupPassword" name="password" required><br>
             <input type="password" placeholder="Confirm Password" id="signupPasswordConfirmation" name="Password_confirmation" required><br>
 
             <button type="submit">Signup</button>
 
-            @if ($errors->has('Username'))
-            <div>{{ $errors->first('Username') }}</div>
+            @if ($errors->has('username'))
+            <div>{{ $errors->first('username') }}</div>
             @endif
             @if ($errors->has('Email'))
             <div>{{ $errors->first('Email') }}</div>
@@ -306,8 +306,8 @@
             @if ($errors->has('PhoneNumber'))
             <div>{{ $errors->first('PhoneNumber') }}</div>
             @endif
-            @if ($errors->has('Password'))
-            <div>{{ $errors->first('Password') }}</div>
+            @if ($errors->has('password'))
+            <div>{{ $errors->first('password') }}</div>
             @endif
           </form>
           <p id="message"></p>
