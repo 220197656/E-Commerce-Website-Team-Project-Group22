@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisteredUserController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +25,15 @@ Route::get('about', function () {
     return view('about');
 });
 
+Route::get('admin', function () {
+    return view('admin');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth');
+
+
 Route::get('contact-us', function () {
     return view('contact-us');
 });
@@ -33,22 +46,38 @@ Route::get('login', function () {
     return view('login');
 });
 
-Route::get('signup', function () {
+Route::get('register', function () {
     return view('register');
 });
 
-Route::get('terms-and-conditions', function () {
+Route::get('terms', function () {
     return view('terms');
 });
 
-Route::get('privacy-policy', function () {
-    return view('privacy-policy');
+/// Authentication routes with Breeze
+
+
+require __DIR__.'/auth.php';
+
+
+
+// Test
+
+Route::get('info', function () {
+    return view('info');
 });
 
-Route::get('return-policy', function () {
-    return view('return-policy');
-});
+//Temporary dashboard for logged in clients
 
-Route::get('FAQ', function () {
-    return view('FAQ');
-});
+
+
+
+
+
+
+
+// Route::get('RegisteredUserController.php', function () {
+//     return Auth('RegisteredUserController.php');
+// });
+
+Route::post('/register/submit', [RegisteredUserController::class, 'store']);

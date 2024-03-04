@@ -354,32 +354,32 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-</content>
+        </content>
 
-</main>
-<footer>
-  <content>
-    <div class="horizontal-footer">
-      <div class="vert">
-        <a href="about">About Us</a>
-        <a href="terms-and-conditions">Terms & Conditions</a>
-        <a href="return-policy">Return Policy</a>
-        <a href="privacy-policy">Privacy Policy</a>
-      </div>
-      <div class="vert">
-        <a href="FAQ">FAQs</a>
-        <a href="contact-us">Contact Us</a>
-      </div>
-      <div class="vert">
-        <a href="/products/phones/">Phones</a>
-        <a href="/products/tablets/">Tablets</a>
-        <a href="/products/computers/">Computers</a>
-        <a href="/products/consoles/">Consoles</a>
-        <a href="/products/misc/">Others</a>
-      </div>
-    </div>
-  </content>
-</footer>
+    </main>
+    <footer>
+        <content>
+            <div class="horizontal-footer">
+                <div class="vert">
+                    <a href="about">About Us</a>
+                    <a>Terms & Conditions</a>
+                    <a>Return Policy</a>
+                    <a>Privacy Policy</a>
+                </div>
+                <div class="vert">
+                    <a>FAQs</a>
+                    <a>Contact Us</a>
+                </div>
+                <div class="vert">
+                    <a>Phones</a>
+                    <a>Tablets</a>
+                    <a>Computers</a>
+                    <a>Consoles</a>
+                    <a>Others</a>
+                </div>
+            </div>
+        </content>
+    </footer>
 </body>
 
 </html>

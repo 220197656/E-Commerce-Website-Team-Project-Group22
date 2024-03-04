@@ -277,17 +277,20 @@
 
       <div class="form-container">
         <!-- Login Form -->
-        <div class="login-container">
-          <h1 class="login-header">Login</h1>
-          <form id="loginForm">
-            <input type="text" id="loginUsername" name="username" required placeholder="User">
-            <input type="password" id="loginPassword" name="password" required placeholder="Password">
-            <div class="button-container">
-              <a class="signup" href="../html/register.html">Sign Up</i></a>
-              <button class="send" type="submit"><i class="fa-regular fa-arrow-right"></i></button>
-            </div>
-          </form>
-          <a href="../html/reset-password.html" class="forgot">Forgot Password?</i></a>
+<div class="login-container">
+    <h1 class="login-header">Login</h1>
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <input type="email" id="loginEmail" name="email" required placeholder="Email">
+        <input type="password" id="loginPassword" name="password" required placeholder="Password">
+        <div class="button-container">
+            <a class="signup" href="/register">Sign Up</a>
+            <button type="submit" class="send"><i class="fa-regular fa-arrow-right"></i> Login</button>
+        </div>
+    </form>
+    <a href="/forgot-password" class="forgot">Forgot Password?</a>
+</div>
+
 
         </div>
 
@@ -374,32 +377,32 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-</content>
+    </content>
 
-</main>
-<footer>
-  <content>
-    <div class="horizontal-footer">
-      <div class="vert">
-        <a href="about">About Us</a>
-        <a href="terms-and-conditions">Terms & Conditions</a>
-        <a href="return-policy">Return Policy</a>
-        <a href="privacy-policy">Privacy Policy</a>
+  </main>
+  <footer>
+    <content>
+      <div class="horizontal-footer">
+        <div class="vert">
+          <a href="../html/about.html">About Us</a>
+          <a>Terms & Conditions</a>
+          <a>Return Policy</a>
+          <a>Privacy Policy</a>
+        </div>
+        <div class="vert">
+          <a>FAQs</a>
+          <a>Contact Us</a>
+        </div>
+        <div class="vert">
+          <a>Phones</a>
+          <a>Tablets</a>
+          <a>Computers</a>
+          <a>Consoles</a>
+          <a>Others</a>
+        </div>
       </div>
-      <div class="vert">
-        <a href="FAQ">FAQs</a>
-        <a href="contact-us">Contact Us</a>
-      </div>
-      <div class="vert">
-        <a href="/products/phones/">Phones</a>
-        <a href="/products/tablets/">Tablets</a>
-        <a href="/products/computers/">Computers</a>
-        <a href="/products/consoles/">Consoles</a>
-        <a href="/products/misc/">Others</a>
-      </div>
-    </div>
-  </content>
-</footer>
+    </content>
+  </footer>
 </body>
 
 </html>

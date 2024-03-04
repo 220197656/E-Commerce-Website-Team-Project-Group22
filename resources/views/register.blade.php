@@ -284,26 +284,31 @@
       <div class="form-container">
         <div class="register-container">
           <h2 class="register-header">Signup</h2>
-          <form id="signupForm">
+          <form id="signupForm" method="POST" action="/register/submit">
+            @csrf
 
-            <input type="text" placeholder="Username" id="signupUsername" name="username" required><br>
-
-
-            <input type="email" placeholder="Email Address" id="signupEmail" name="email" required><br>
-
-            <input type="tel" placeholder="Phone Number" id="signupPhone" name="phoneNumber" required><br>
-
-            <input type="text" placeholder="First Name" id="signupFirstName" name="firstName" required><br>
-
-            <input type="text" placeholder="Last Name" id="signupLastName" name="lastName" required><br>
-
-            <input type="password" placeholder="Password" id="signupPassword" name="password" required><br>
-
-
-            <input type="password" placeholder="Confrim Password" id="signupPasswordRepeat" name="passwordRepeat"
-              required><br>
+            <input type="text" placeholder="Username" id="signupUsername" name="Username" required><br>
+            <input type="email" placeholder="Email Address" id="signupEmail" name="Email" required><br>
+            <input type="tel" placeholder="Phone Number" id="signupPhone" name="PhoneNumber" required><br>
+            <input type="text" placeholder="First Name" id="signupFirstName" name="FirstName" required><br>
+            <input type="text" placeholder="Last Name" id="signupLastName" name="LastName" required><br>
+            <input type="password" placeholder="Password" id="signupPassword" name="Password" required><br>
+            <input type="password" placeholder="Confirm Password" id="signupPasswordConfirmation" name="Password_confirmation" required><br>
 
             <button type="submit">Signup</button>
+
+            @if ($errors->has('Username'))
+            <div>{{ $errors->first('Username') }}</div>
+            @endif
+            @if ($errors->has('Email'))
+            <div>{{ $errors->first('Email') }}</div>
+            @endif
+            @if ($errors->has('PhoneNumber'))
+            <div>{{ $errors->first('PhoneNumber') }}</div>
+            @endif
+            @if ($errors->has('Password'))
+            <div>{{ $errors->first('Password') }}</div>
+            @endif
           </form>
           <p id="message"></p>
         </div>
@@ -338,32 +343,32 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-</content>
+    </content>
 
-</main>
-<footer>
-  <content>
-    <div class="horizontal-footer">
-      <div class="vert">
-        <a href="about">About Us</a>
-        <a href="terms-and-conditions">Terms & Conditions</a>
-        <a href="return-policy">Return Policy</a>
-        <a href="privacy-policy">Privacy Policy</a>
+  </main>
+  <footer>
+    <content>
+      <div class="horizontal-footer">
+        <div class="vert">
+          <a href="../html/about.html">About Us</a>
+          <a>Terms & Conditions</a>
+          <a>Return Policy</a>
+          <a>Privacy Policy</a>
+        </div>
+        <div class="vert">
+          <a>FAQs</a>
+          <a href="/html/contact-us.html">Contact Us</a>
+        </div>
+        <div class="vert">
+          <a>Phones</a>
+          <a>Tablets</a>
+          <a>Computers</a>
+          <a>Consoles</a>
+          <a>Others</a>
+        </div>
       </div>
-      <div class="vert">
-        <a href="FAQ">FAQs</a>
-        <a href="contact-us">Contact Us</a>
-      </div>
-      <div class="vert">
-        <a href="/products/phones/">Phones</a>
-        <a href="/products/tablets/">Tablets</a>
-        <a href="/products/computers/">Computers</a>
-        <a href="/products/consoles/">Consoles</a>
-        <a href="/products/misc/">Others</a>
-      </div>
-    </div>
-  </content>
-</footer>
+    </content>
+  </footer>
 </body>
 
 </html>

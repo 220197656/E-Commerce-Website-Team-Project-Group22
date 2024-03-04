@@ -58,7 +58,7 @@
           <li><a href="#"><i class="fa-regular fa-laptop"></i>Computers</a></li>
           <li><a href="#"><i class="fa-regular fa-game-console-handheld"></i>Consoles</a></li>
           <li><a href="#"><i class="fa-regular fa-folder-plus"></i>Other</a></li>
-          <li><a href="login"><i class="fa-regular fa-user"></i>Profile</a></li>
+          <li><a href="/login"><i class="fa-regular fa-user"></i>Profile</a></li>
           <li><a href="#" data-theme-toggle1><i id="sun1" class="fa-regular fa-sun light-theme"></i><i id="moon1"
                 class="fa-regular fa-moon dark-theme"></i>Theme</a></li>
         </ul>
@@ -90,7 +90,7 @@
       <div class="main-menu">
         <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
             class="fa-regular fa-moon dark-theme"></i></a>
-        <a href="login"><i class="fa-regular fa-user"></i></a>
+        <a href="/login"><i class="fa-regular fa-user"></i></a>
         <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
       </div>
     </nav>
@@ -345,7 +345,7 @@
           <a href="privacy-policy">Privacy Policy</a>
         </div>
         <div class="vert">
-          <a href="FAQ">FAQs</a>
+          <a href="/FAQ/">FAQs</a>
           <a href="contact-us">Contact Us</a>
         </div>
         <div class="vert">
