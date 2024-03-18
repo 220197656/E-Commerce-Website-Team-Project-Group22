@@ -118,7 +118,6 @@
                     <a href="">Test Item long name blah</a>
                     <a href="">Test Item long name blah</a>
                     <a href="">Test Item long name blah</a>
-
                 </div>
 
             </dropdown>
@@ -128,7 +127,6 @@
                     <a href="">Test Item long name blah</a>
                     <a href="">Test Item long name blah</a>
                     <a href="">Test Item long name blah</a>
-
                 </div>
                 <div class="drop-column">
                     <a href="">Test Item long name</a>

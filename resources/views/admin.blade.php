@@ -106,31 +106,33 @@
         <!--test--> 
         <main>
             <div class="elements">
-                <div class="el-wrapper">
-                    <a href=""><span class="fa-regular fa-bags-shopping"></span>
-                        <h2>Orders</h2></a>
-                </div>
-                <div class="el-wrapper">
-                    <a href=""><span class="fa-regular fa-users"></span>
-                        <h2>Users</h2></a>
-                </div>
-                <div class="el-wrapper">
-                    <a href=""><span class="fa-regular fa-users"></span>
-                        <h2>Staff</h2></a>
-                </div>
-                <div class="el-wrapper">
-                    <a href=""><span class="fa-regular fa-layer-group"></span>
-                        <h2>Products</h2></a>
-                </div>
-                <div class="el-wrapper">
-                    <a href=""><span class="fa-regular fa-boxes-stacked"></span>
-                        <h2>Inventory</h2></a>
-                </div>
-                <div class="el-wrapper">
-                    <a href=""><span class="fa-regular fa-billboard"></span>
-                        <h2>Promotions</h2></a>
-                </div>
-            </div>
+        <div class="el-wrapper">
+            <a href="{{ route('admin.orders') }}"><span class="fa-regular fa-bags-shopping"></span>
+                <h2>Orders</h2></a>
+        </div>
+        <div class="el-wrapper">
+            <a href="{{ route('admin.users') }}"><span class="fa-regular fa-users"></span>
+                <h2>Users</h2></a>
+        </div>
+        <div class="el-wrapper">
+            <a href="{{ route('admin.staff') }}"><span class="fa-regular fa-users"></span>
+                <h2>Staff</h2></a>
+        </div>
+        <div class="el-wrapper">
+            <a href="{{ route('admin.products') }}"><span class="fa-regular fa-layer-group"></span>
+                <h2>Products</h2></a>
+        </div>
+        {{-- <div class="el-wrapper">
+            <a href="{{ route('admin.inventory') }}"><span class="fa-regular fa-boxes-stacked"></span>
+                <h2>Inventory</h2></a>/
+        </div> --}}
+        
+        <div class="el-wrapper">
+            <a href="{{ route('admin.promotions') }}"><span class="fa-regular fa-billboard"></span>
+                <h2>Promotions</h2></a>
+        </div>
+    </div>
+
             <div id="#orders" class="orders">orders</div>
         </main>
     </div>

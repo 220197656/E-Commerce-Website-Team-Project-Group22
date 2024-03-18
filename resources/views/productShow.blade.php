@@ -4,19 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
-  <link rel="stylesheet" href="../css/index.css">
-  <link rel="stylesheet" href="../css/login.css">
+  <title>SBEX Market</title>
+  <!-- This is the general CSS file for all pages default theme -->
+  <link rel="stylesheet" href="/css/index.css">
+  <!-- This lower line is css for this page only -->
+  <link rel="stylesheet" href="/css/home.css">  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
   <link rel="icon" href="/source/favicon.png" type="image/x-icon">
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <script src="../js/burger.js"></script>
+  <script src="js/slideshow.js"></script>
+  <script src="js/burger.js"></script>
 
 
 
@@ -46,8 +48,8 @@
     </div>
     <burger-nav>
       <i id="burger-button" class="fa-regular fa-bars"></i>
-      <a href="../index.html"><img id="logo-light1" src="../source/logo-light.png"><img id="logo-dark1"
-          src="../source/logo-dark.png"></a>
+      <a href="/"><img id="logo-light1" src="/source/logo-light.png"><img id="logo-dark1"
+          src="/source/logo-dark.png"></a>
       <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
       <div id="nav-menu" class="nav-menu">
         <ul class="menu">
@@ -56,7 +58,7 @@
           <li><a href="#"><i class="fa-regular fa-laptop"></i>Computers</a></li>
           <li><a href="#"><i class="fa-regular fa-game-console-handheld"></i>Consoles</a></li>
           <li><a href="#"><i class="fa-regular fa-folder-plus"></i>Other</a></li>
-          <li><a href="#"><i class="fa-regular fa-user"></i>Profile</a></li>
+          <li><a href="/login"><i class="fa-regular fa-user"></i>Profile</a></li>
           <li><a href="#" data-theme-toggle1><i id="sun1" class="fa-regular fa-sun light-theme"></i><i id="moon1"
                 class="fa-regular fa-moon dark-theme"></i>Theme</a></li>
         </ul>
@@ -66,27 +68,33 @@
     </burger-nav>
     <nav id="nav">
       <div class="logo-menu">
-        <a href="../index.html"><img id="logo-light2" src="../source/logo-light.png"><img id="logo-dark2"
-            src="../source/logo-dark.png"></a>
-        <a href="#"><i class="fa-regular fa-magnifying-glass"></i></a>
+        <a href="/"><img id="logo-light2" src="/source/logo-light.png"><img id="logo-dark2"
+            src="/source/logo-dark.png"></a>
+        <a href="#" id="search-button"><i class="fa-regular fa-magnifying-glass"></i></a>
+        <search id="searchbox" class="">
+          <search-box>
+            <input placeholder="Search for products" type="text">
+            <a href="#" id="search-close"><i class="fa-regular fa-arrow-right"></i></a>
+          </search-box>
+        </search>
+        <script src="../js/search-box.js"></script>
       </div>
       <div class="main-header">
-        <a href="../products/phones/" class="hover-underline-animation" id="dd1">Phones</a>
-        <a href="../products/tablets/" class="hover-underline-animation" id="dd2">Tablets</a>
-        <a href="../products/computers/" class="hover-underline-animation" id="dd3">Computers</a>
-        <a href="../products/consoles/" class="hover-underline-animation" id="dd4">Consoles</a>
-        <a href="../products/other/" class="hover-underline-animation" id="dd5">Other</a>
+        <a href="/products/phones/" class="hover-underline-animation" id="dd1">Phones</a>
+        <a href="/products/tablets/" class="hover-underline-animation" id="dd2">Tablets</a>
+        <a href="/products/computers/" class="hover-underline-animation" id="dd3">Computers</a>
+        <a href="/products/consoles/" class="hover-underline-animation" id="dd4">Consoles</a>
+        <a href="/products/other/" class="hover-underline-animation" id="dd5">Other</a>
 
       </div>
       <div class="main-menu">
         <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
             class="fa-regular fa-moon dark-theme"></i></a>
-        <a href="../html/login.html"><i class="fa-regular fa-user"></i></a>
+        <a href="/login"><i class="fa-regular fa-user"></i></a>
         <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
       </div>
     </nav>
-    <script src="../js/theme-toggle.js"></script>
-    <script src="/js/signup.js"></script>
+    <script src="/js/theme-toggle.js"></script>
     <div></div>
     <!-- Divs used for dropdown menus -->
     <dd-wrapper>
@@ -241,7 +249,7 @@
 
       </dropdown>
     </dd-wrapper>
-    <script src="../js/dropdown.js"></script>
+    <script src="js/dropdown.js"></script>
   </header>
 
 
@@ -265,57 +273,62 @@
         //...CCCCCCCCC....OOOOOOOOOO...NNN....NNNN......TTT....EEEEEEEEEEE.NNN....NNNN......TTT.....
         //.....CCCCCC.......OOOOOO.....NNN....NNNN......TTT....EEEEEEEEEEE.NNN....NNNN......TTT..... -->
 
+        <head>
+    <meta charset="UTF-8">
+    <title>{{ $product->productName }}</title>
+    <style>
+        .variant-details { display: none; }
+    </style>
+</head>
+<body>
+    <h1>{{ $product->productName }}</h1>
+    <img src="{{ $product->imageURL }}" alt="{{ $product->productName }}">
+    <p>{{ $product->description }}</p>
 
+    <h2>Available Variants</h2>
+    <div id="variantButtons">
+        @foreach ($product->variants as $variant)
+            <button class="variant-button" data-grade="{{ $variant->grade->gradeName }}">{{ $variant->grade->gradeName }}</button>
+        @endforeach
+    </div>
 
-      <!-- <div class="form-container">
-        <div class="login-container">
-            <h1 class="login-header">Login</h1>
-            <form id="loginForm">
-                <input type="text" id="loginUsername" name="username" required placeholder="User">
-                <input type="password" id="loginPassword" name="password" required placeholder="Password">
-                <div class="button-container">
-                    <button class="signup" type="button" href="../html/register.html">Sign Up</i></button>
-                    <button class="forgot" type="button" href="../html/reset-password.html">Forgot Password?</i></button>
-                    <button class="send" type="submit"><i class="fa-regular fa-arrow-right"></i></button>
-                </div>
-            </form>
-        </div> -->
-
-      <div class="form-container">
-        <div class="register-container">
-          <h2 class="register-header">Signup</h2>
-          <form id="signupForm" method="POST" action="/register/submit">
-            @csrf
-
-            <input type="text" placeholder="Username" id="signupUsername" name="username" required><br>
-            <input type="email" placeholder="Email Address" id="signupEmail" name="email" required><br>
-            <input type="tel" placeholder="Phone Number" id="signupPhone" name="phoneNumber" required><br>
-            <input type="text" placeholder="First Name" id="signupFirstName" name="firstName" required><br>
-            <input type="text" placeholder="Last Name" id="signupLastName" name="lastName" required><br>
-            <input type="password" placeholder="Password" id="signupPassword" name="password" required><br>
-            <input type="password" placeholder="Confirm Password" id="signupPasswordConfirmation" name="password_confirmation" required><br>
-
-            <button type="submit">Signup</button>
-
-            @if ($errors->has('username'))
-            <div>{{ $errors->first('username') }}</div>
-            @endif
-            @if ($errors->has('Email'))
-            <div>{{ $errors->first('Email') }}</div>
-            @endif
-            @if ($errors->has('PhoneNumber'))
-            <div>{{ $errors->first('PhoneNumber') }}</div>
-            @endif
-            @if ($errors->has('password'))
-            <div>{{ $errors->first('password') }}</div>
-            @endif
-          </form>
-          <p id="message"></p>
+    @foreach ($product->variants as $variant)
+        <div class="variant-details" id="details-{{ $variant->grade->gradeName }}">
+            <p>Grade: {{ $variant->grade->gradeName }}</p>
+            <p>Price: ${{ $variant->price }}</p>
+            <p>Quantity: {{ $variant->quantity }}</p>
         </div>
-      </div>
+    @endforeach
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.variant-button');
+            const variantDetails = document.querySelectorAll('.variant-details');
 
+            function showVariantDetails(gradeName) {
+                variantDetails.forEach(function(detail) {
+                    if (detail.id === "details-" + gradeName) {
+                        detail.style.display = 'block';
+                    } else {
+                        detail.style.display = 'none';
+                    }
+                });
+            }
 
+            buttons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    showVariantDetails(button.getAttribute('data-grade'));
+                });
+            });
+
+            // Automatically click the "Brand New" button on page load
+            const brandNewButton = document.querySelector('.variant-button[data-grade="Brand New"]');
+            if (brandNewButton) {
+                brandNewButton.click();
+            }
+        });
+    </script>
+</body>
 
 
 
@@ -350,21 +363,21 @@
     <content>
       <div class="horizontal-footer">
         <div class="vert">
-          <a href="../html/about.html">About Us</a>
-          <a>Terms & Conditions</a>
-          <a>Return Policy</a>
-          <a>Privacy Policy</a>
+          <a href="about">About Us</a>
+          <a href="terms-and-conditions">Terms & Conditions</a>
+          <a href="return-policy">Return Policy</a>
+          <a href="privacy-policy">Privacy Policy</a>
         </div>
         <div class="vert">
-          <a>FAQs</a>
-          <a href="/html/contact-us.html">Contact Us</a>
+          <a href="/FAQ/">FAQs</a>
+          <a href="contact-us">Contact Us</a>
         </div>
         <div class="vert">
-          <a>Phones</a>
-          <a>Tablets</a>
-          <a>Computers</a>
-          <a>Consoles</a>
-          <a>Others</a>
+          <a href="/products/phones/">Phones</a>
+          <a href="/products/tablets/">Tablets</a>
+          <a href="/products/computers/">Computers</a>
+          <a href="/products/consoles/">Consoles</a>
+          <a href="/products/misc/">Others</a>
         </div>
       </div>
     </content>

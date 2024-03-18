@@ -18,7 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var string
      */
-    protected $table = 'clients'; // Custom table name
+    protected $table = 'clients'; 
 
     public $timestamps = false; 
 
@@ -49,12 +49,13 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
+        'clientID',
         'username', 
         'password', 
-        'Email', 
-        'PhoneNumber', 
-        'FirstName', 
-        'LastName',
+        'email', 
+        'phoneNumber', 
+        'firstName', 
+        'lastName',
     ];
 
     /**
@@ -63,7 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $hidden = [
-        'Password', // Hiding the password from array serialization
+        'password', // Hiding the password from array serialization
     ];
 
     /**
@@ -84,7 +85,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function setPasswordAttribute($value)
     {
         if ($value) {
-            $this->attributes['Password'] = Hash::make($value);
+            $this->attributes['password'] = Hash::make($value);
         }
     }
 
@@ -95,6 +96,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getAuthPassword()
     {
-        return $this->Password; // Ensure this matches the case and name of your password column
+        return $this->password; // Ensure this matches the case and name of your password column
     }
 }

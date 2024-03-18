@@ -22,23 +22,23 @@ class RegisteredUserController extends Controller
         \Log::info('Store method called');
 
         $request->validate([
-            'Username' => ['required', 'string', 'max:255', 'unique:clients,Username'],
-            'Password' => ['required', 'string', 'min:8', 'confirmed'],
-            'Email' => ['required', 'string', 'email', 'max:255', 'unique:clients,Email'],
-            'PhoneNumber' => ['required', 'string', 'regex:/^[\d\s+\-()]*$/', 'unique:clients,PhoneNumber'],
-            'FirstName' => ['required', 'string', 'max:255'],
-            'LastName' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:clients,username'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:clients,email'],
+            'phoneNumber' => ['required', 'string', 'regex:/^[\d\s+\-()]*$/', 'unique:clients,phoneNumber'],
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
         ]);
         \Log::info('Validation passed');
         
         try {
             $clients = User::create([
-                'Username' => $request->Username,
-                'Email' => $request->Email,
-                'Password' => Hash::make($request->Password),
-                'PhoneNumber' => $request->PhoneNumber,
-                'FirstName' => $request->FirstName,
-                'LastName' => $request->LastName,
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'phoneNumber' => $request->phoneNumber,
+                'firstName' => $request->firstName,
+                'lastName' => $request->lastName,
             ]);
         } catch (\Exception $e) {
             Log::error($e->getMessage());
