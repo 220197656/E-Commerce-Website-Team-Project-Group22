@@ -85,7 +85,6 @@
         <a href="/products/computers/" class="hover-underline-animation" id="dd3">Computers</a>
         <a href="/products/consoles/" class="hover-underline-animation" id="dd4">Consoles</a>
         <a href="/products/other/" class="hover-underline-animation" id="dd5">Other</a>
-
       </div>
       <div class="main-menu">
         <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
@@ -143,7 +142,6 @@
           <a href="">Test Item long name blah</a>
           <a href="">Test Item long name blah</a>
           <a href="">Test Item long name blah</a>
-
         </div>
         <div class="drop-column">
           <a href="">Test Item long name</a>
