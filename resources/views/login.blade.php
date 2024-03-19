@@ -277,59 +277,43 @@
 
       <div class="form-container">
         <!-- Login Form -->
-<div class="login-container">
-    <h1 class="login-header">Login</h1>
-    <form method="POST" action="/login/submit">
-        @csrf
-        <input type="email" id="loginEmail" name="email" placeholder="Email" required>
-        <input type="password" id="loginPassword" name="password" placeholder="Password" required>
-        <div class="button-container">
-            <a class="signup" href="/register">Sign Up</a>
-            <button type="submit" class="send"><i class="fa-regular fa-arrow-right"></i> Login</button>
-        </div>
-    </form>
-    <a href="/forgot-password" class="forgot">Forgot Password?</a>
-</div>
+          <div class="login-container">
+              <h1 class="login-header">Login</h1>
+              <form method="POST" action="{{ route('login') }}">
+                @csrf
+                {{-- Email --}}
+                <div>
+                  <x-input-label for="email" :value="__('Email')" />
+                  <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                </div>  
+                {{-- Password --}}
+                <div class="mt-4">
+                  <x-input-label for="password" :value="__('Password')" />
+          
+                  <x-text-input id="password" class="block mt-1 w-full"
+                                  type="password"
+                                  name="password"
+                                  required autocomplete="current-password" />
+          
+                </div>
+                  <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
-<!-- @if ($errors->any())
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif -->
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
 
+                {{-- Remember Me --}}
 
+                  <div class="button-container">
+                      <a class="signup" href="/register">Sign Up</a>
+                      <button type="submit" class="send"><i class="fa-regular fa-arrow-right"></i> Login</button>
+                  </div>
 
-        </div>
+                  {{-- forgot password --}}
 
-        <!-- 
-        <div class="signup-container">
-            <h2>Signup</h2>
-            <form id="signupForm">
-                <label for="signupUsername">Username:</label>
-                <input type="text" id="signupUsername" name="username" required><br>
-
-                <label for="signupPassword">Password:</label>
-                <input type="password" id="signupPassword" name="password" required><br>
-
-                <button type="submit">Signup</button>
-            </form>
-        </div> -->
-
-        <!-- Messages -->
-        <div id="message"></div>
+              </form>
+              <a href="/forgot-password" class="forgot">Forgot Password?</a>
+          </div>
       </div>
-
-
-
-
-
-
-
-
+        
 
 
 
