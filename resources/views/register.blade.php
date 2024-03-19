@@ -288,12 +288,12 @@
             @csrf
 
             <input type="text" placeholder="Username" id="signupUsername" name="username" required><br>
-            <input type="email" placeholder="Email Address" id="signupEmail" name="email" required><br>
-            <input type="tel" placeholder="Phone Number" id="signupPhone" name="phoneNumber" required><br>
-            <input type="text" placeholder="First Name" id="signupFirstName" name="firstName" required><br>
-            <input type="text" placeholder="Last Name" id="signupLastName" name="lastName" required><br>
+            <input type="email" placeholder="Email Address" id="signupEmail" name="Email" required><br>
+            <input type="tel" placeholder="Phone Number" id="signupPhone" name="PhoneNumber" required><br>
+            <input type="text" placeholder="First Name" id="signupFirstName" name="FirstName" required><br>
+            <input type="text" placeholder="Last Name" id="signupLastName" name="LastName" required><br>
             <input type="password" placeholder="Password" id="signupPassword" name="password" required><br>
-            <input type="password" placeholder="Confirm Password" id="signupPasswordConfirmation" name="password_confirmation" required><br>
+            <input type="password" placeholder="Confirm Password" id="signupPasswordConfirmation" name="Password_confirmation" required><br>
 
             <button type="submit">Signup</button>
 
