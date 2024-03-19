@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Website</title>
   <link rel="stylesheet" href="../css/index.css">
-  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/register.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -283,37 +283,63 @@
 
       <div class="form-container">
         <div class="register-container">
-          <h2 class="register-header">Signup</h2>
-          <form id="signupForm" method="POST" action="/register/submit">
-            @csrf
-
-            <input type="text" placeholder="Username" id="signupUsername" name="username" required><br>
-            <input type="email" placeholder="Email Address" id="signupEmail" name="email" required><br>
-            <input type="tel" placeholder="Phone Number" id="signupPhone" name="phoneNumber" required><br>
-            <input type="text" placeholder="First Name" id="signupFirstName" name="firstName" required><br>
-            <input type="text" placeholder="Last Name" id="signupLastName" name="lastName" required><br>
-            <input type="password" placeholder="Password" id="signupPassword" name="password" required><br>
-            <input type="password" placeholder="Confirm Password" id="signupPasswordConfirmation" name="password_confirmation" required><br>
-
-            <button type="submit">Signup</button>
-
-            @if ($errors->has('username'))
-            <div>{{ $errors->first('username') }}</div>
-            @endif
-            @if ($errors->has('Email'))
-            <div>{{ $errors->first('Email') }}</div>
-            @endif
-            @if ($errors->has('PhoneNumber'))
-            <div>{{ $errors->first('PhoneNumber') }}</div>
-            @endif
-            @if ($errors->has('password'))
-            <div>{{ $errors->first('password') }}</div>
-            @endif
+          <h1 class="register-header">Signup</h1>
+            <form method="POST" action="{{ route('register') }}">
+              @csrf
+      
+              <!-- Name -->
+              <div>
+                  <x-input-label for="name" :value="__('Name')" />
+                  <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                  <x-input-error :messages="$errors->get('name')" class="mt-2" />
+              </div>
+      
+              <!-- Email Address -->
+              <div class="mt-4">
+                  <x-input-label for="email" :value="__('Email')" />
+                  <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                  <x-input-error :messages="$errors->get('email')" class="mt-2" />
+              </div>
+      
+              <!-- Password -->
+              <div class="mt-4">
+                  <x-input-label for="password" :value="__('Password')" />
+      
+                  <x-text-input id="password" class="block mt-1 w-full"
+                                  type="password"
+                                  name="password"
+                                  required autocomplete="new-password" />
+      
+                  <x-input-error :messages="$errors->get('password')" class="mt-2" />
+              </div>
+      
+              <!-- Confirm Password -->
+              <div class="mt-4">
+                  <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+      
+                  <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                                  type="password"
+                                  name="password_confirmation" required autocomplete="new-password" />
+      
+                  <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+              </div>
+      
+              <div class="button-container">
+                  <a href="{{ route('login') }}">
+                      {{ __('Already registered?') }}
+                  </a>
+      
+                  <x-primary-button class="ms-4">
+                      {{ __('Register') }}
+                  </x-primary-button>
+              </div>
           </form>
           <p id="message"></p>
         </div>
       </div>
 
+
+    
 
 
 

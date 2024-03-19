@@ -1,14 +1,16 @@
 .form-container {
-    padding: 2em 2em 0em 2em;
+    padding: 0em 2em 0em 2em;
     margin: 2em 0em;
     border-radius: var(--border-radius);
     background-color: var(--tertiary);
     color: var(--text);
     transition: 0.5s ease-in-out;
     width: 320px;
-    height: 358px;
+    height: 420px;
     h1 {
         font-weight: 500;
+        margin-top: 24px;
+        margin-bottom: 21px;
     }
 }
 
@@ -29,7 +31,7 @@
     border-radius: 0.5em;
     transition: 0.15s ease-in-out;
     cursor: pointer;
-    color: var(--text);
+    color: var(--background);
 }
 
 .button-container button:hover {
@@ -79,6 +81,15 @@
     text-align: center;
 }
 
+.signup {
+    color: var(--background);
+
+}
+
+.login-container a {
+    text-decoration: none;
+    border-radius: 0.5em;
+}
 .forgot {
     background-color: rgb(0, 0, 0, 0);
     margin: 1em 0em;
@@ -94,8 +105,8 @@ content {
     display: flex;
 }
 
-.login-container a {
+
+.forgot {
     color: var(--text);
-    text-decoration: none;
-    border-radius: 0.5em;
+
 }
