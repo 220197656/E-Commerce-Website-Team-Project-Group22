@@ -63,6 +63,23 @@ Route::get('terms', function () {
     return view('terms');
 });
 
+
+Route::get('privacy', function () {
+    return view('privacy');
+});
+
+Route::get('return', function () {
+    return view('return');
+});
+
+Route::get('faq', function () {
+    return view('faq');
+});
+
+Route::get('contact', function () {
+    return view('contact-us');
+});
+
 Route::get('/productsmain', [ProductsmainController::class, 'index'])->name('allproducts');
 
 // Routes for Admin namespace

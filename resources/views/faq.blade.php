@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="/css/index.css">
-    {{-- <link rel="stylesheet" href="/css/about.css"> --}}
+    <link rel="stylesheet" href="/css/faq.css">
     {{-- <link rel="stylesheet" href="/css/home.css"> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -272,63 +272,57 @@
         //...CCCCCCCCC....OOOOOOOOOO...NNN....NNNN......TTT....EEEEEEEEEEE.NNN....NNNN......TTT.....
         //.....CCCCCC.......OOOOOO.....NNN....NNNN......TTT....EEEEEEEEEEE.NNN....NNNN......TTT..... -->
 
-            <div class="about">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h1>Terms and Conditions</h1>
-
-    <p>Welcome to SBEX, the Sell Buy Exchange Marketplace. By accessing our website at hwalczak.co.uk, you agree to be bound by these terms and conditions, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site.</p>
-
-    <h2>1. Use License</h2>
-    <ul>
-        <li>Permission is granted to temporarily download one copy of the materials (information or software) on SBEX's website for personal, non-commercial transitory viewing only.</li>
-        <li>Under this license, you may not:
-            <ul>
-                <li>modify or copy the materials;</li>
-                <li>use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
-                <li>attempt to decompile or reverse engineer any software contained on SBEX's website;</li>
-                <li>transfer the materials to another person or "mirror" the materials on any other server.</li>
-            </ul>
-        </li>
-        <li>This license shall automatically terminate if you violate any of these restrictions and may be terminated by SBEX at any time.</li>
-    </ul>
-
-    <h2>2. Disclaimer</h2>
-    <p>The materials on SBEX's website are provided on an 'as is' basis. SBEX makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
-
-    <h2>3. Limitations</h2>
-    <p>In no event shall SBEX or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on SBEX's website.</p>
-
-    <h2>4. Accuracy of Materials</h2>
-    <p>The materials appearing on SBEX's website could include technical, typographical, or photographic errors. SBEX does not warrant that any of the materials on its website are accurate, complete, or current. SBEX may make changes to the materials contained on its website at any time without notice.</p>
-
-    <h2>5. Links</h2>
-    <p>SBEX has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by SBEX of the site. Use of any such linked website is at the user's own risk.</p>
-
-    <h2>6. Modifications</h2>
-    <p>SBEX may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.</p>
-
-    <h2>7. Governing Law</h2>
-    <p>These terms and conditions are governed by and construed in accordance with the laws of the United Kingdom and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
-
-    <h2>8. Marketplace Transactions</h2>
-    <p>Users are responsible for reading the full item listing before making a commitment to buy. SBEX provides a platform for third-party sellers and buyers to negotiate and complete transactions. SBEX is not involved in the actual transaction between sellers and buyers and is not the agent of and has no authority for either for any purpose. SBEX does not guarantee the truth or accuracy of listings, the ability of sellers to sell items, or the ability of buyers to pay for items.</p>
-
-    <h2>9. User Conduct</h2>
-    <p>Users agree not to post, list or upload content or items in inappropriate categories on our site. Users agree not to breach or circumvent any laws, third-party rights or our systems, policies, or determinations of your account status.</p>
-
-    <h2>10. Account Termination</h2>
-    <p>SBEX reserves the right to terminate your account and restrict your use of all or any part of the Website for any or no reason, without notice, and without liability to you or anyone else.</p>
-
-    <h2>Contact Us</h2>
-    <p>For any questions regarding these Terms and Conditions, please contact us via our contact form.</p>
-
-
-
-
-
+            <div class="returns">
+                <div class="returns-content">
+                    <div class="returns-text">
+                        <script>
+                            // Simple JavaScript function to toggle the visibility of an answer
+                            function toggleAnswer(faqId) {
+                                var answer = document.getElementById(faqId);
+                                if (answer.style.display === "none") {
+                                    answer.style.display = "block";
+                                } else {
+                                    answer.style.display = "none";
+                                }
+                            }
+                        </script>
+                        <h1>Frequently Asked Questions (FAQs)</h1>
+    
+                        <div onclick="toggleAnswer('faq1')" style="cursor:pointer;">
+                            <h2>Q: How do I create an account on SBEX?</h2>
+                        </div>
+                        <p id="faq1" style="display:none;">Creating an account is easy and free! Just click on the 'Profile' button at the top right corner of our homepage and follow the instructions. You'll need to provide some basic information like your name, email address, and a password. Once registered, you can start buying, selling, or exchanging electronics right away!</p>
+                        
+                        <div onclick="toggleAnswer('faq2')" style="cursor:pointer;">
+                            <h2>Q: What types of electronics can I buy, sell, or exchange on SBEX?</h2>
+                        </div>
+                        <p id="faq2" style="display:none;">At SBEX, you can deal with a wide range of electronics including smartphones, tablets, laptops, gaming consoles, and accessories. We ensure a diverse selection so you can find exactly what you're looking for or sell items you no longer need.</p>
+                        
+                        <div onclick="toggleAnswer('faq3')" style="cursor:pointer;">
+                            <h2>Q: How do I know the electronics I buy are in good condition?</h2>
+                        </div>
+                        <p id="faq3" style="display:none;">All electronics listed for sale undergo a thorough verification process to ensure they meet our quality standards. Sellers are required to provide detailed descriptions and photos of their items. We also encourage buyers to review seller ratings and ask questions directly to the seller for additional assurance.</p>
+                        
+                        <div onclick="toggleAnswer('faq4')" style="cursor:pointer;">
+                            <h2>Q: What should I do if I receive a defective item?</h2>
+                        </div>
+                        <p id="faq4" style="display:none;">If you receive a defective item, please contact our customer service team within 48 hours of receiving the product. Provide details of the defect and any relevant photos or documentation. Our team will assist you in arranging a return, exchange, or refund according to our return policy and the specifics of your case.</p>
+                        
+                        <div onclick="toggleAnswer('faq5')" style="cursor:pointer;">
+                            <h2>Q: Can I change or cancel my order after placing it?</h2>
+                        </div>
+                        <p id="faq5" style="display:none;">Yes, you can change or cancel your order within 24 hours of placing it. Please contact our customer service team with your order number and the changes you wish to make or to request a cancellation. Note that once the order is processed or shipped, changes and cancellations may not be possible.</p>
+                        
+                        <script>
+                            // Ensure that all the FAQs are hidden initially on page load
+                            document.addEventListener("DOMContentLoaded", function() {
+                                var faqs = document.querySelectorAll('p');
+                                faqs.forEach(function(faq) {
+                                    faq.style.display = 'none';
+                                });
+                            });
+                        </script>
                     </div>
-
                 </div>
             </div>
 

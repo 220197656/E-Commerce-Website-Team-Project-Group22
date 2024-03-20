@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/about.css">
-    <link rel="stylesheet" href="/css/home.css">
+    {{-- <link rel="stylesheet" href="/css/about.css"> --}}
+    {{-- <link rel="stylesheet" href="/css/home.css"> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -275,21 +275,40 @@
             <div class="privacy">
                 <div class="privacy-content">
                     <div class="privacy-text">
-                        <p>
-                        <h2>Privacy Policy</h2>
+                        <h1>Privacy Policy for SBEX</h1>
 
-                        ADD INFORMATION
-                        </p>
+                        <p>At SBEX, accessible from hwalczak.co.uk, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by SBEX and how we use it.</p>
+                    
+                        <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
+                    
+                        <h2>Consent</h2>
+                        <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+                    
+                        <h2>Information we collect</h2>
+                        <p>The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.</p>
+                        <p>If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</p>
+                        <p>When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.</p>
+                    
+                        <h2>How we use your information</h2>
+                        <p>We use the information we collect in various ways, including to:</p>
+                        <ul>
+                            <li>Provide, operate, and maintain our website</li>
+                            <li>Improve, personalize, and expand our website</li>
+                            <li>Understand and analyze how you use our website</li>
+                            <li>Develop new products, services, features, and functionality</li>
+                            <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
+                            <li>Send you emails</li>
+                            <li>Find and prevent fraud</li>
+                        </ul>
+                    
                     </div>
-
-                    <img src="../source/logo-light.png" alt="">
                 </div>
             </div>
 
 
 
 
-            <!-- //.............................................................................
+             <!-- //.............................................................................
 //.FFFFFFFFFF....OOOOOO........OOOOOO.....TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRR.....
 //.FFFFFFFFFF..OOOOOOOOOO....OOOOOOOOOO...TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
 //.FFFFFFFFFF.OOOOOOOOOOOO..OOOOOOOOOOOO..TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
@@ -304,32 +323,32 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-        </content>
+</content>
 
-    </main>
-    <footer>
-        <content>
-            <div class="horizontal-footer">
-                <div class="vert">
-                    <a href="../html/about.html">About Us</a>
-                    <a>Terms & Conditions</a>
-                    <a>Return Policy</a>
-                    <a>Privacy Policy</a>
-                </div>
-                <div class="vert">
-                    <a>FAQs</a>
-                    <a>Contact Us</a>
-                </div>
-                <div class="vert">
-                    <a>Phones</a>
-                    <a>Tablets</a>
-                    <a>Computers</a>
-                    <a>Consoles</a>
-                    <a>Others</a>
-                </div>
+</main>
+<footer>
+    <content>
+        <div class="horizontal-footer">
+            <div class="vert">
+                <a href="about">About Us</a>
+                <a href="terms">Terms & Conditions</a>
+                <a href="return">Return Policy</a>
+                <a href="privacy">Privacy Policy</a>
             </div>
-        </content>
-    </footer>
+            <div class="vert">
+                <a href="faq">FAQs</a>
+                <a href="contact">Contact Us</a>
+            </div>
+            <div class="vert">
+                <a>Phones</a>
+                <a>Tablets</a>
+                <a>Computers</a>
+                <a>Consoles</a>
+                <a>Others</a>
+            </div>
+        </div>
+    </content>
+</footer>
 </body>
 
 </html>

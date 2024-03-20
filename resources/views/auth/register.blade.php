@@ -46,7 +46,7 @@
     </div>
     <burger-nav>
       <i id="burger-button" class="fa-regular fa-bars"></i>
-      <a href="../index.html"><img id="logo-light1" src="../source/logo-light.png"><img id="logo-dark1"
+      <a href="/"><img id="logo-light1" src="../source/logo-light.png"><img id="logo-dark1"
           src="../source/logo-dark.png"></a>
       <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
       <div id="nav-menu" class="nav-menu">
@@ -56,7 +56,7 @@
           <li><a href="#"><i class="fa-regular fa-laptop"></i>Computers</a></li>
           <li><a href="#"><i class="fa-regular fa-game-console-handheld"></i>Consoles</a></li>
           <li><a href="#"><i class="fa-regular fa-folder-plus"></i>Other</a></li>
-          <li><a href="#"><i class="fa-regular fa-user"></i>Profile</a></li>
+          <li><a href="/login"><i class="fa-regular fa-user"></i>Profile</a></li>
           <li><a href="#" data-theme-toggle1><i id="sun1" class="fa-regular fa-sun light-theme"></i><i id="moon1"
                 class="fa-regular fa-moon dark-theme"></i>Theme</a></li>
         </ul>
@@ -66,7 +66,7 @@
     </burger-nav>
     <nav id="nav">
       <div class="logo-menu">
-        <a href="../index.html"><img id="logo-light2" src="../source/logo-light.png"><img id="logo-dark2"
+        <a href="/"><img id="logo-light2" src="../source/logo-light.png"><img id="logo-dark2"
             src="../source/logo-dark.png"></a>
         <a href="#"><i class="fa-regular fa-magnifying-glass"></i></a>
       </div>
@@ -81,7 +81,7 @@
       <div class="main-menu">
         <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
             class="fa-regular fa-moon dark-theme"></i></a>
-        <a href="../html/login.html"><i class="fa-regular fa-user"></i></a>
+        <a href="/login"><i class="fa-regular fa-user"></i></a>
         <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
       </div>
     </nav>
@@ -355,7 +355,7 @@
 
 
 
-      <!-- //.............................................................................
+            <!-- //.............................................................................
 //.FFFFFFFFFF....OOOOOO........OOOOOO.....TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRR.....
 //.FFFFFFFFFF..OOOOOOOOOO....OOOOOOOOOO...TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
 //.FFFFFFFFFF.OOOOOOOOOOOO..OOOOOOOOOOOO..TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
@@ -370,32 +370,32 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-    </content>
+</content>
 
-  </main>
-  <footer>
+</main>
+<footer>
     <content>
-      <div class="horizontal-footer">
-        <div class="vert">
-          <a href="../html/about.html">About Us</a>
-          <a>Terms & Conditions</a>
-          <a>Return Policy</a>
-          <a>Privacy Policy</a>
+        <div class="horizontal-footer">
+            <div class="vert">
+                <a href="about">About Us</a>
+                <a href="terms">Terms & Conditions</a>
+                <a href="return">Return Policy</a>
+                <a href="privacy">Privacy Policy</a>
+            </div>
+            <div class="vert">
+                <a href="faq">FAQs</a>
+                <a href="contact">Contact Us</a>
+            </div>
+            <div class="vert">
+                <a>Phones</a>
+                <a>Tablets</a>
+                <a>Computers</a>
+                <a>Consoles</a>
+                <a>Others</a>
+            </div>
         </div>
-        <div class="vert">
-          <a>FAQs</a>
-          <a href="/html/contact-us.html">Contact Us</a>
-        </div>
-        <div class="vert">
-          <a>Phones</a>
-          <a>Tablets</a>
-          <a>Computers</a>
-          <a>Consoles</a>
-          <a>Others</a>
-        </div>
-      </div>
     </content>
-  </footer>
+</footer>
 </body>
 
 </html>

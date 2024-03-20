@@ -274,15 +274,36 @@
 
             <div class="returns">
                 <div class="returns-content">
-                    <div class="returns-text">
-                        <p>
-                        <h2>Return Policy</h2>
-
-                        ADD INFORMATION
-                        </p>
+                    <div class="returns-text">    
+                        <h1>Return Policy</h1>
+                        <p>At SBEX (Sell Buy Exchange Marketplace), we understand that sometimes a product doesn't work out. Whether it's a mismatch, defect, or change of heart, we're here to help make returns as smooth as possible. Our return policy is designed with our customers' convenience in mind, especially when dealing with electronics.</p>
+                        <h2>Return Policy Overview</h2>
+                        <p>Our return policy lasts 30 days. If 30 days have gone by since your purchase, unfortunately, we can’t offer you a refund or exchange.</p>
+                        <ul>
+                            <li>To be eligible for a return, your item must be unused and in the same condition that you received it. It must also be in the original packaging.</li>
+                            <li>Several types of goods are exempt from being returned. Perishable goods such as food, flowers, newspapers, or magazines cannot be returned. We also do not accept products that are intimate or sanitary goods, hazardous materials, or flammable liquids or gases.</li>
+                            <li>To complete your return, we require a receipt or proof of purchase. Please do not send your purchase back to the manufacturer.</li>
+                        </ul>
+                        <h2>Return Process</h2>
+                        <p>To initiate a return, please follow these steps:</p>
+                        <ol>
+                            <li>Contact our Customer Support team at support@hwalczak.co.uk with your order number and reason for return.</li>
+                            <li>Wait for our team to send you a return authorization and shipping instructions.</li>
+                            <li>Package your item securely and send it to the address provided by our team.</li>
+                            <li>Once we receive and inspect your return, we will send you an email to notify you that we have received your returned item. We will also notify you of the approval or rejection of your refund.</li>
+                            <li>If approved, your refund will be processed, and a credit will automatically be applied to your original method of payment, within a certain amount of days.</li>
+                        </ol>
+                        <h2>Example Scenario</h2>
+                        <p>Imagine you've purchased a Bluetooth speaker from SBEX, but upon receiving it, you realize it doesn't connect well with your device. Here's how you can use our return policy:</p>
+                        <ol>
+                            <li>Email our support team at support@hwalczak.co.uk with your order number and explain the issue.</li>
+                            <li>After receiving return authorization, send the speaker back to us following the provided instructions.</li>
+                            <li>Once we inspect the speaker and confirm the issue, we'll process your refund or offer an exchange if preferred.</li>
+                        </ol>
+                        <p>This straightforward process ensures that you're not stuck with electronics that don't meet your needs, making your shopping experience with SBEX worry-free.</p>
+                        <p>For more information or assistance, please contact us at support@hwalczak.co.uk. We're here to help!</p>
+                    
                     </div>
-
-                    <img src="../source/logo-light.png" alt="">
                 </div>
             </div>
 
@@ -304,32 +325,32 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-        </content>
+</content>
 
-    </main>
-    <footer>
-        <content>
-            <div class="horizontal-footer">
-                <div class="vert">
-                    <a href="../html/about.html">About Us</a>
-                    <a>Terms & Conditions</a>
-                    <a>Return Policy</a>
-                    <a>Privacy Policy</a>
-                </div>
-                <div class="vert">
-                    <a>FAQs</a>
-                    <a>Contact Us</a>
-                </div>
-                <div class="vert">
-                    <a>Phones</a>
-                    <a>Tablets</a>
-                    <a>Computers</a>
-                    <a>Consoles</a>
-                    <a>Others</a>
-                </div>
+</main>
+<footer>
+    <content>
+        <div class="horizontal-footer">
+            <div class="vert">
+                <a href="about">About Us</a>
+                <a href="terms">Terms & Conditions</a>
+                <a href="return">Return Policy</a>
+                <a href="privacy">Privacy Policy</a>
             </div>
-        </content>
-    </footer>
+            <div class="vert">
+                <a href="faq">FAQs</a>
+                <a href="contact">Contact Us</a>
+            </div>
+            <div class="vert">
+                <a>Phones</a>
+                <a>Tablets</a>
+                <a>Computers</a>
+                <a>Consoles</a>
+                <a>Others</a>
+            </div>
+        </div>
+    </content>
+</footer>
 </body>
 
 </html>

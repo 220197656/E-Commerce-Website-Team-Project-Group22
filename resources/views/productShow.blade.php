@@ -341,7 +341,7 @@
 
 
 
-      <!-- //.............................................................................
+             <!-- //.............................................................................
 //.FFFFFFFFFF....OOOOOO........OOOOOO.....TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRR.....
 //.FFFFFFFFFF..OOOOOOOOOO....OOOOOOOOOO...TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
 //.FFFFFFFFFF.OOOOOOOOOOOO..OOOOOOOOOOOO..TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
@@ -356,32 +356,32 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-    </content>
+</content>
 
-  </main>
-  <footer>
+</main>
+<footer>
     <content>
-      <div class="horizontal-footer">
-        <div class="vert">
-          <a href="about">About Us</a>
-          <a href="terms-and-conditions">Terms & Conditions</a>
-          <a href="return-policy">Return Policy</a>
-          <a href="privacy-policy">Privacy Policy</a>
+        <div class="horizontal-footer">
+            <div class="vert">
+                <a href="about">About Us</a>
+                <a href="terms">Terms & Conditions</a>
+                <a href="return">Return Policy</a>
+                <a href="privacy">Privacy Policy</a>
+            </div>
+            <div class="vert">
+                <a href="faq">FAQs</a>
+                <a href="contact">Contact Us</a>
+            </div>
+            <div class="vert">
+                <a>Phones</a>
+                <a>Tablets</a>
+                <a>Computers</a>
+                <a>Consoles</a>
+                <a>Others</a>
+            </div>
         </div>
-        <div class="vert">
-          <a href="/FAQ/">FAQs</a>
-          <a href="contact-us">Contact Us</a>
-        </div>
-        <div class="vert">
-          <a href="/products/phones/">Phones</a>
-          <a href="/products/tablets/">Tablets</a>
-          <a href="/products/computers/">Computers</a>
-          <a href="/products/consoles/">Consoles</a>
-          <a href="/products/misc/">Others</a>
-        </div>
-      </div>
     </content>
-  </footer>
+</footer>
 </body>
 
 </html>

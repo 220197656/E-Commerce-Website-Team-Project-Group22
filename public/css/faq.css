@@ -1,0 +1,30 @@
+.returns-text { 
+    color: var(--text);
+
+}
+
+.returns-text div {
+    transition: 0.5s ease-in-out;
+    background-color: var(--secondary);
+    padding: 0.5em;
+    padding-left: 2em;
+    margin: 1em 0em;
+    border-radius: var(--border-radius);
+}
+.returns-text p {
+    color: var(--text);
+    margin-left: 3em;
+    margin-right: 3em;
+    transition: 0.25s ease-in-out;
+}
+
+.returns-text h2 {
+    color: var(--text);
+    transition: 0.25s ease-in-out;
+    text-align: center;
+}
+
+.returns-text h1 {
+    transition: 0.25s ease-in-out;
+    text-align: center;
+}
