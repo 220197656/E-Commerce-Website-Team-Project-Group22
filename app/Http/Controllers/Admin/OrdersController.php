@@ -16,9 +16,12 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        // Fetch all orders. You might want to adjust this to include related models like 'client'
-        $orders = Orders::all();
+        $orders = Orders::with('user')->get();
 
+        // Temporarily inspect the first order and its related user
+       //dd($orders->first()->toArray(), $orders->first()->user);
+
+        
         // Pass the orders to the 'ordershow' view
         return view('admin.ordersindex', compact('orders'));
     }
@@ -29,5 +32,7 @@ class OrdersController extends Controller
     // Assuming you have a view named 'admin.orders.show' for displaying order details
     return view('admin.orders.show', compact('order'));
 }
+
+
 
 }

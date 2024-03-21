@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Orders extends Model 
 {
@@ -14,7 +16,8 @@ class Orders extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'clientID',
+        'orderID',
+        'id',
         'orderDate',
         'totalAmount',
         'shippingAddressID',
@@ -24,10 +27,11 @@ class Orders extends Model
         'orderDate' => 'datetime',
     ];
 
-    public function client()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'clientID', 'clientID');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
+    
 
     public function shippingAddress()
     {
