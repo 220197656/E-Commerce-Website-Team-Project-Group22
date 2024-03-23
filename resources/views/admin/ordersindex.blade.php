@@ -20,8 +20,8 @@
         <thead>
             <tr>
                 <th>Order ID</th>
-                <th>Client ID</th>
-                <th>Client Name</th>
+                <th>users ID</th>
+                <th>Users Name</th>
                 <th>Total Amount</th>
                 <th>Order Date</th>
                 <th>Status</th>
@@ -32,14 +32,13 @@
             @forelse ($orders as $order)
                 
                 <tr>
-                
-                    <td class="first-el"><a href="/admin">{{ $order->orderID }}</a></td>
-                    <td><a href="/admin">{{ $order->client->clientID }}</a> </td>
-                    <td><a href="/admin">{{ $order->client->username ?? 'N/A' }}</a></td> 
-                    <td><a href="/admin">${{ number_format($order->totalAmount, 2) }}</a></td>
+                    <td class= "first-el"><a href="/admin">{{ $order->orderID }}</a></td>
+                    <td><a href="/admin">{{ $order->user->id }} </a></td>
+                    <td><a href="/admin">{{ $order->user->name ?? 'N/A' }}</a></td> 
+                    <td> <a href="/admin">${{ number_format($order->totalAmount, 2) }}</a></td>
                     <td><a href="/admin">{{ $order->orderDate ? $order->orderDate->format('Y-m-d') : 'Date not set' }}</a></td>
                     <td><a href="/admin">{{ $order->status ?? 'Pending' }}</a></td> <!-- Placeholder for status -->
-                    <td class="last-el">
+                    <td class = "last-el">
                     </td>
                 </tr>
                 

@@ -293,36 +293,44 @@
                     <h1>Our Team</h1>
                     <div class="members-content">
                         <div class="members">
+                            <img src="../source/members/hubert.png" alt="">
                             <h3>Hubert Walczak</h3>
-                            <p>basodbosabdoabsdd</p>
+                            <p>Project Leader & Design / Frontend Lead</p>
                         </div>
                         <div class="members">
+                            <img src="../source/members/kiaShahidi.png" alt="">
                             <h3>Kia Shahidi</h3>
-                            <p>basodbosabdoabsdd</p>
+                            <p>Admin Design & Functionality Lead</p>
                         </div>
                         <div class="members">
+                            <img src="../source/members/jareth.png" alt="">
                             <h3>Jareth Weir</h3>
-                            <p>basodbosabdoabsdd</p>
+                            <p>Backend & Implementation Lead</p>
                         </div>
                         <div class="members">
+                            <img src="../source/members/romi.png" alt="">
                             <h3>Romi Shur</h3>
-                            <p>basodbosabdoabsdd</p>
+                            <p>Front End Assistance Developer</p>
                         </div>
                         <div class="members">
+                            <img src="../source/members/blank.webp" alt="">
                             <h3>Kia Seifouri</h3>
-                            <p>basodbosabdoabsdd</p>
+                            <p>Backend Assistance Developer</p>
                         </div>
                         <div class="members">
+                            <img src="../source/members/manpreet.png" alt="">
                             <h3>Manpreet Singh</h3>
-                            <p>basodbosabdoabsdd</p>
+                            <p>Front End Helper</p>
                         </div>
                         <div class="members">
+                            <img src="../source/members/saikou.png" alt="">
                             <h3>Saikou Singhateh</h3>
-                            <p>basodbosabdoabsdd</p>
+                            <p>Backend Helper</p>
                         </div>
                         <div class="members">
+                            <img src="../source/members/salar.webp" alt="">
                             <h3>Salar</h3>
-                            <p>basodbosabdoabsdd</p>
+                            <p>Support.</p>
                         </div>
                     </div>
                 </div>
@@ -362,13 +370,13 @@
             <div class="horizontal-footer">
                 <div class="vert">
                     <a href="about">About Us</a>
-                    <a>Terms & Conditions</a>
-                    <a>Return Policy</a>
-                    <a>Privacy Policy</a>
+                    <a href="terms">Terms & Conditions</a>
+                    <a href="return">Return Policy</a>
+                    <a href="privacy">Privacy Policy</a>
                 </div>
                 <div class="vert">
-                    <a>FAQs</a>
-                    <a>Contact Us</a>
+                    <a href="faq">FAQs</a>
+                    <a href="contact">Contact Us</a>
                 </div>
                 <div class="vert">
                     <a>Phones</a>

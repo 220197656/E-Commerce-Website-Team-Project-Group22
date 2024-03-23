@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
-    <link rel="stylesheet" href="/css/users.css">
+    <link rel="stylesheet" href="../css/users.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,18 +22,18 @@
             <tr>
                 <th>ID</th>
                 <th>Email</th>
-                <th>Phone  Number</th>
-                <th>Last Name</th>
-             
+                <th>name</th>
+                <!-- Add columns here-->
             </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
                 <tr>
-                    <td>{{ $user->clientID }}</td>
+                    <td>{{ $user->id }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->phoneNumber }}</td>
-                    <td>{{ $user->lastName }}</td>
+                    <td>{{ $user->name }}</td>
+
+                    <!-- Add attributes here -->
                 </tr>
             @endforeach
         </tbody>

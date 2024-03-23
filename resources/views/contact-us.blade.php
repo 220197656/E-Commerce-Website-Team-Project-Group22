@@ -118,6 +118,7 @@
                     <a href="">Test Item long name blah</a>
                     <a href="">Test Item long name blah</a>
                     <a href="">Test Item long name blah</a>
+
                 </div>
 
             </dropdown>
@@ -127,6 +128,7 @@
                     <a href="">Test Item long name blah</a>
                     <a href="">Test Item long name blah</a>
                     <a href="">Test Item long name blah</a>
+
                 </div>
                 <div class="drop-column">
                     <a href="">Test Item long name</a>
@@ -292,8 +294,7 @@
 
 
 
-
-      <!-- //.............................................................................
+            <!-- //.............................................................................
 //.FFFFFFFFFF....OOOOOO........OOOOOO.....TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRR.....
 //.FFFFFFFFFF..OOOOOOOOOO....OOOOOOOOOO...TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
 //.FFFFFFFFFF.OOOOOOOOOOOO..OOOOOOOOOOOO..TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
@@ -308,32 +309,32 @@
 //.FFF.........OOOOOOOOOO....OOOOOOOOOO.......TTT....EEEEEEEEEEE.RRR....RRRR...
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
-    </content>
+</content>
 
-  </main>
-  <footer>
+</main>
+<footer>
     <content>
-      <div class="horizontal-footer">
-        <div class="vert">
-          <a href="../html/about.html">About Us</a>
-          <a>Terms & Conditions</a>
-          <a>Return Policy</a>
-          <a>Privacy Policy</a>
+        <div class="horizontal-footer">
+            <div class="vert">
+                <a href="about">About Us</a>
+                <a href="terms">Terms & Conditions</a>
+                <a href="return">Return Policy</a>
+                <a href="privacy">Privacy Policy</a>
+            </div>
+            <div class="vert">
+                <a href="faq">FAQs</a>
+                <a href="contact">Contact Us</a>
+            </div>
+            <div class="vert">
+                <a>Phones</a>
+                <a>Tablets</a>
+                <a>Computers</a>
+                <a>Consoles</a>
+                <a>Others</a>
+            </div>
         </div>
-        <div class="vert">
-          <a>FAQs</a>
-          <a href="/html/contact-us.html">Contact Us</a>
-        </div>
-        <div class="vert">
-          <a>Phones</a>
-          <a>Tablets</a>
-          <a>Computers</a>
-          <a>Consoles</a>
-          <a>Others</a>
-        </div>
-      </div>
     </content>
-  </footer>
+</footer>
 </body>
 
 </html>

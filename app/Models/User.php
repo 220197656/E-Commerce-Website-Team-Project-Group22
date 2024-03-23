@@ -2,46 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Support\Facades\Hash;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'clients'; 
-
-    public $timestamps = false; 
-
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'ClientID'; // Custom primary key
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = true; // Assuming ClientID is auto-incrementing
-
-    /**
-     * The data type of the auto-incrementing ID.
-     *
-     * @var string
-     */
-    protected $keyType = 'int'; // Assuming ClientID is an integer
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -49,13 +17,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'clientID',
-        'username', 
-        'password', 
-        'email', 
-        'phoneNumber', 
-        'firstName', 
-        'lastName',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -64,38 +28,20 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $hidden = [
-        'password', // Hiding the password from array serialization
+        'password',
+        'remember_token',
     ];
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime', // Assuming you have this column for email verification
-    ];
-
-    /**
-     * Automatically hash the password when setting it.
-     *
-     * @param  string  $value
-     * @return void
-     */
-    public function setPasswordAttribute($value)
+    protected function casts(): array
     {
-        if ($value) {
-            $this->attributes['password'] = Hash::make($value);
-        }
-    }
-
-    /**
-     * Get the password for the user.
-     *
-     * @return string
-     */
-    public function getAuthPassword()
-    {
-        return $this->password; // Ensure this matches the case and name of your password column
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
     }
 }

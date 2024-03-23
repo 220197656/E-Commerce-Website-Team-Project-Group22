@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Auth\loginUserController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\OrdersController;
@@ -12,28 +13,29 @@ use App\Http\Controllers\Admin\PromotionsController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\ProductsmainController;
 
-
-
-
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+//Laravel added routes
 
 Route::get('/productsmain', [ProductsmainController::class, 'index'])->name('allproducts');
 
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+//Add routes here
+
+Route::get('/productsmain', [ProductsmainController::class, 'index'])->name('allproducts');
 
 // Route for showing a specific product by ID
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
@@ -63,27 +65,29 @@ Route::get('checkout', function () {
     return view('checkout');
 });
 
-Route::get('login', function () {
-    return view('login');
-});
-
-Route::get('register', function () {
-    return view('register');
-});
-
 Route::get('terms', function () {
     return view('terms');
 });
 
-Route::post('/register/submit', [RegisteredUserController::class, 'store']);
 
-Route::post('/login/submit', [loginUserController::class, 'login']);
+Route::get('privacy', function () {
+    return view('privacy');
+});
 
 Route::get('/productsmain', [ProductsmainController::class, 'index'])->name('allproducts');
 
 
 // Admin page routes
 
+Route::get('faq', function () {
+    return view('faq');
+});
+
+Route::get('contact', function () {
+    return view('contact-us');
+});
+
+Route::get('/productsmain', [ProductsmainController::class, 'index'])->name('allproducts');
 
 // Routes for Admin namespace
 
@@ -98,46 +102,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
     //Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
     Route::get('/promotions', [PromotionsController::class, 'index'])->name('promotions');
 
-
 });
-
-
-
-
 
 Route::get('/orders/{order}', [OrdersController::class, 'show'])->name('admin.orders.show');
 
-
-
-
-/// Authentication routes with Breeze
-
-require __DIR__.'/auth.php';
-
- ////////////////////////////////////////////////////////////////
- // If routing has failed display a 404 error
-
-Route::fallback(function () {
-    return response()->json(['message' => 'Resource not found'], 404);
-});
-
-//////////////////////////////////////////////////////////////////
-// Test
+//Testing
 
 Route::get('info', function () {
     return view('info');
 });
-
-Route::get('testproductpage', function () {
-    return view('testproductpage');
-});
-
-
-// Route::get('RegisteredUserController.php', function () {
-//     return Auth('RegisteredUserController.php');
-// });
-
-Route::get('/test', function () {
-    return 'Route testing successful.';
-});
-
