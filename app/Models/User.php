@@ -44,4 +44,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function admin()
+{
+    return $this->hasOne(Admin::class, 'id', 'id');
+}
+
+    
+   // App\Models\User.php
+
+public function isAdmin()
+{
+    // Check if the user has an associated admin entry
+    return $this->admin()->exists();
+}
+
+
 }

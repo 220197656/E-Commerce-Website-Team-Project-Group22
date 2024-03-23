@@ -3,9 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Admin extends Authenticatable 
+class Admin extends Model
 {
-    protected $table = 'admin'; 
+    protected $table = 'admin';
+
+    public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id', 'id');
+    }
 }
+

@@ -30,7 +30,6 @@
         </thead>
         <tbody>
             @forelse ($orders as $order)
-                
                 <tr>
                     <td class= "first-el"><a href="/admin">{{ $order->orderID }}</a></td>
                     <td><a href="/admin">{{ $order->user->id }} </a></td>
@@ -41,7 +40,6 @@
                     <td class = "last-el">
                     </td>
                 </tr>
-                
             @empty
                 <tr>
                     <td colspan="6">No orders found.</td>
