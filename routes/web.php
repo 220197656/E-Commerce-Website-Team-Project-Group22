@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\InventoryController;
 use App\Http\Controllers\Admin\PromotionsController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\ProductsmainController;
 
 
 
@@ -28,6 +29,8 @@ use App\Http\Controllers\Admin\UsersController;
 |
 */
 
+Route::get('/productsmain', [ProductsmainController::class, 'index'])->name('allproducts');
+
 Route::get('/', function () {
     return view('index');
 });
@@ -41,6 +44,10 @@ Route::get('about', function () {
 
 Route::get('admin', function () {
     return view('admin');
+});
+
+Route::get('productsmain', function () {
+    return view('productsmain');
 });
 
 Route::get('/dashboard', function () {
@@ -71,6 +78,9 @@ Route::get('terms', function () {
 Route::post('/register/submit', [RegisteredUserController::class, 'store']);
 
 Route::post('/login/submit', [loginUserController::class, 'login']);
+
+Route::get('/productsmain', [ProductsmainController::class, 'index'])->name('allproducts');
+
 
 // Admin page routes
 

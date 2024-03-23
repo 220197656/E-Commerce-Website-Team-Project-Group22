@@ -15,14 +15,14 @@
   <body>
     <div class="navbar">
         <div class="logo">
-            <a href="#"><img src="/source/logo-light.png" alt=""></a>
+            <a href="/"><img src="/source/logo-light.png" alt=""></a>
         </div>
         <div class="nav-menu">
             <ul>
                 <li><a href=""><span class="fa-regular fa-chart-mixed"></span>
                     <span> Dashboard</span></a>
                     </li>
-                <li><a href="#orders" class="order-link">
+                <li><a href="{{ route('admin.orders') }}" class="order-link">
                     <span class="fa-regular fa-bags-shopping"></span>
                     <span> Orders</span></a>
                         <div class="dropdown-content">
@@ -31,7 +31,7 @@
                             <a href="#">Automated status emails</a>
                         </div></li>
                       <li>
-                        <a href="#users" class="user-link">
+                        <a href="{{ route('admin.users') }}" class="user-link">
                             <span class="fa-regular fa-users"></span>
                             <span>Users</span>
                         </a>
@@ -42,7 +42,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#staff" class="staff-link">
+                        <a href="{{ route('admin.staff') }}" class="staff-link">
                             <span class="fa-regular fa-users"></span>
                             <span>Staff</span>
                         </a>
@@ -52,7 +52,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#products" class="product-link">
+                        <a href="{{ route('admin.products') }}" class="product-link">
                             <span class="fa-regular fa-layer-group"></span>
                             <span>Products</span>
                         </a>
@@ -60,7 +60,7 @@
                             <a href="#" id="addRemoveProducts">Add/Remove Products</a>
                         </div>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#inventory" class="inventory-link">
                             <span class="fa-regular fa-boxes-stacked"></span>
                             <span>Inventory</span>
@@ -70,9 +70,9 @@
                             <a href="#" id="inventoryLink2">Link 2</a>
                             <a href="#" id="inventoryLink3">Link 3</a>
                         </div>
-                    </li>
-                    <li>
-                        <a href="#promotions" class="promotion-link">
+                    </li> -->
+                    <!-- <li>
+                        <a href="{{ route('admin.promotions') }}" class="promotion-link">
                             <span class="fa-regular fa-billboard"></span>
                             <span>Promotions</span>
                         </a>
@@ -81,9 +81,8 @@
                             <a href="#" id="promotionLink2">Link 2</a>
                             <a href="#" id="promotionLink3">Link 3</a>
                         </div>
-                    </li>
-                <li><a href=""><span class="fa-regular fa-billboard"></span>
-                    <span> Theme</span></a></li>
+                    </li> -->
+                <li><span class="fa-regular fa-billboard"> <button onclick="myFunction()" >Theme</button></li>
                 <li><a href=""><span class="fa-regular fa-right-from-bracket"></span>
                     <span> Log out</span></a></li>
             </ul>
@@ -122,19 +121,38 @@
             <a href="{{ route('admin.products') }}"><span class="fa-regular fa-layer-group"></span>
                 <h2>Products</h2></a>
         </div>
-        {{-- <div class="el-wrapper">
-            <a href="{{ route('admin.inventory') }}"><span class="fa-regular fa-boxes-stacked"></span>
-                <h2>Inventory</h2></a>/
-        </div> --}}
         
-        <div class="el-wrapper">
+        <!-- <div class="el-wrapper">
             <a href="{{ route('admin.promotions') }}"><span class="fa-regular fa-billboard"></span>
                 <h2>Promotions</h2></a>
-        </div>
+        </div> -->
     </div>
 
             <div id="#orders" class="orders">orders</div>
         </main>
     </div>
   </body>
+
+  <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            // Store the theme preference in local storage
+            var isDarkMode = element.classList.contains("dark-mode");
+            localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        }
+
+        // Remove the class to hide content once the page has loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.remove("hide-content");
+        });
+
+        // Apply the stored theme preference on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            var theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                document.body.classList.add("dark-mode");
+            }
+        });
+    </script>
 </html>

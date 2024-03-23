@@ -1,0 +1,317 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    transition: 150ms ease-in-out;
+}
+
+:root{
+    --text: rgb(18, 18, 18);
+    --background: rgb(237, 237, 237);
+    --primary: rgb(0, 173, 204);
+    --secondary: rgb(230, 230, 230);
+    --tertiary: rgb(225, 225, 225);
+    --accent: rgb(235, 29, 46);
+    --dropdown: rgb(237, 237, 237, 0.75);
+    --nav-line: rgb(204, 204, 204);
+    --border-radius: 1.5em;
+
+}
+
+:root{
+    --text2: rgb(211, 211, 211);
+    --background2: rgb(18, 18, 18);
+    --primary2: rgb(35, 138, 156);
+    --secondary2: rgb(26, 26, 26);
+    --tertiary2: rgb(30, 30, 30);
+    --accent2: rgb(235, 42, 77);
+    --dropdown2: rgb(18, 18, 18, 0.75);
+    --nav-line2: rgb(51, 51, 51);
+    --border-radius2: 1.5em;
+
+
+}
+
+body {
+    background-color: var(--background);
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+table {
+    background-color: var(--primary);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0px 20px 0px 20px;
+
+}
+
+tr {
+    font-size: 20px;
+    color: var(--text);
+
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+button {
+    position: relative;
+    width: 100px;
+}
+
+input {
+    width: 350px;
+    margin: 0px 0px 20px 0px;
+    padding: 0.5em 0em;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: var(--background);
+    height: 3em;
+    border-radius: 1.5em;
+    border: 0.5px solid black;
+    padding: 0px 1.5em 0px 1.5em;
+}
+.backbtn {
+    background-color: transparent;
+    text-decoration: none;
+    position: relative;
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin: 0px 1000px -50px 40px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 1.5px solid var(--primary) ;
+}
+
+.backbtn:hover{
+    background-color: rgb(0, 173, 204);
+    color: var(--text);
+}
+
+.popup .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+    /* transition: ease-in-out 1s; */
+    backdrop-filter: blur(2px)
+}
+.popup .content{
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: all 0.2s ease-in-out;
+    background-color: var(--tertiary);
+    width: 320px;
+    height:150px;
+    z-index: 2;
+    font-size: 18px;
+
+}
+
+.popup.active .overlay{
+    display: block;
+}
+
+.popup.active .content{
+    transition: all 0.2s ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+
+}
+
+.popup2 .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+    /* transition: ease-in-out 1s; */
+    backdrop-filter: blur(2px)
+}
+.popup2 .content{
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: all 0.2s ease-in-out;
+    background-color: var(--tertiary);
+    width: 320px;
+    height:350px;
+    z-index: 2;
+    font-size: 18px;
+
+}
+
+.popup2.active .overlay{
+    display: block;
+}
+
+.popup2.active .content{
+    transition: all 0.2s ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+
+}
+
+.popup3 .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+    /* transition: ease-in-out 1s; */
+    backdrop-filter: blur(2px)
+}
+.popup3 .content{
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: all 0.2s ease-in-out;
+    background-color: var(--tertiary);
+    width: 700px;
+    height:650px;
+    z-index: 2;
+    font-size: 18px;
+
+}
+
+.popup3.active .overlay{
+    display: block;
+}
+
+.popup3.active .content{
+    transition: all 0.2s ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+
+}
+.btnRemove{
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    height: 35px;
+    border-radius: 10px;
+    border: 1.2px solid var(--text) ;
+    font-size: 17px;
+}
+.btnRemove:hover{
+    background-color: var(--background);
+    border: none;
+}
+.btnPopupYes{
+    background-color: var(--primary);
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    height: 35px;
+    border-radius: 7px;
+    border: 0.1px solid var(--primary) ;
+    font-size: 17px;
+    margin-right: 10px;
+}
+.btnPopupYes:hover{
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+.btnPopupNo:hover{
+    filter: brightness(1.5);
+    cursor: pointer;
+
+}
+
+.btnPopupNo{
+    background-color: var(--accent);
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    height: 35px;
+    border-radius: 7px;
+    border: 0.1px solid var(--accent) ;
+    font-size: 17px;
+    margin-left: 10px;
+}
+.changeForm{
+    width: 90%;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: var(--background);
+    color: var(--text);
+    transition: 0.5s ease-in-out;
+}
+.formContent{
+    display: flex;
+    justify-content: space-around;
+    background-color: red;
+
+}
+.changeForm2{
+    margin: 10px;
+    width: 180px;
+    height: 20px;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: var(--background);
+    color: var(--text);
+    transition: 0.5s ease-in-out;
+}
+.btnChange{
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    height: 35px;
+    border-radius: 10px;
+    border: 1.2px solid var(--text) ;
+    font-size: 17px;
+}
+.btnChange:hover{
+    background-color: var(--background);
+    border: none;
+}
+
+.dark-mode {
+    background-color: var(--background2);
+    color: white;
+}
+.hide-content {
+    display: none;
+}
