@@ -16,7 +16,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Orders::with('user')->get();
+        $orders = orders::with('user')->get();
 
         // Temporarily inspect the first order and its related user
        //dd($orders->first()->toArray(), $orders->first()->user);
