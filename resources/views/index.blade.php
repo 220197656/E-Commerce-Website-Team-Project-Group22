@@ -209,6 +209,10 @@
 </main>
 <footer>
     <content>
+        <div class="info-footer">
+          <h1>          Made with love from TP22
+          </h1>
+        </div>
         <div class="horizontal-footer">
             <div class="vert">
                 <a href="about">About Us</a>
