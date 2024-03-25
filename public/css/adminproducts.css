@@ -519,6 +519,12 @@ textarea::placeholder{
     color: white;
     border-color: var(--primary2);  
 }
+.dark-mode .changeForm2{
+    color: var(--text2);
+}
+.dark-mode .formContent input::placeholder{
+    color: var(--text2);
+}
 .dark-mode .btnAdd:hover {
     background-color: var(--primary2);
 }
@@ -554,5 +560,5 @@ textarea::placeholder{
 }
 
 .hide-content {
-    display: none;
+    display: none;
 }
