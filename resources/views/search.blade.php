@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,7 @@
   <!-- This is the general CSS file for all pages default theme -->
   <link rel="stylesheet" href="/css/index.css">
   <!-- This lower line is css for this page only -->
-  <link rel="stylesheet" href="/css/home.css">  
+  <link rel="stylesheet" href="/css/search.css">  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -71,16 +70,37 @@
         <a href="/"><img id="logo-light2" src="/source/logo-light.png"><img id="logo-dark2"
             src="/source/logo-dark.png"></a>
         <a href="#" id="search-button"><i class="fa-regular fa-magnifying-glass"></i></a>
-        <search id="searchbox" class="">
-          <search-box>
-          <<form id="searchForm" action="/search" method="GET">
-            <input name="query" placeholder="Search for products" type="text" required>
-            <button type="submit" id="search-button" style="border: none; background: none;"><i class="fa-regular fa-arrow-right"></i></button>
-          </form>
+        <form id="search-form" action="/search-results" method="GET">
+          <input name="query" placeholder="Search for products" type="text" required>
+          <button type="submit" id="search-button">Search</button>
+        </form>
 
-          </search-box>
-        </search>
-        <script src="../js/search-box.js"></script>
+      
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('search-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        const query = this.query.value; // Get the search query
+
+        fetch(`/search-results?query=${encodeURIComponent(query)}`)
+            .then(response => response.text())
+            .then(html => {
+                // Display the fetched HTML in the search-results div
+                document.getElementById('search-results').innerHTML = html;
+            })
+            //.catch(error => console.error('Error fetching search results:', error));
+    });
+});
+</script>
+
+
+     
+
+
+      
+
+        {{-- <script src="../js/search-box.js"></script> --}}
       </div>
       <div class="main-header">
         <a href="/products/phones/" class="hover-underline-animation" id="dd1">Phones</a>
@@ -277,23 +297,30 @@
         //.....CCCCCC.......OOOOOO.....NNN....NNNN......TTT....EEEEEEEEEEE.NNN....NNNN......TTT..... -->
 
 
+        
+        <div class="content-wrapper">
+    <div class="filters-wrapper">
+        {{-- Any filters or interactive elements can go here --}}
+    </div>
+    <div class="results-wrapper">
+        <h2 class="section-heading">All Products</h2>
+        <div class="results" id="search-results">
+            @foreach($products as $product)
+                <a href="{{ route('product.show', ['id' => $product->productID]) }}" class="product-item">
+                    <img src="{{ $product->imageURL }}" alt="Image of {{ $product->productName }}" style="max-width:100%; height:auto;">
+                    <div class="title">{{ $product->productName }}</div>
+                    <div class="subtitle">{{ $product->description }}</div>
+                    <p>Brand New Price</p>
+                    <h3 class="hover-animation">£{{ number_format($product->brandNewPrice, 2) }}</h3>
+                    <!-- Placeholder for additional product details -->  
+                </a>
+            @endforeach
+        </div>
+    </div>
+</div>
 
 
-
-
-
-      <div class="slideshow-wrapper">
-        <figure class="slideshow-1"></figure>
-        <figure class="slideshow-2"></figure>
-        <figure class="slideshow-3"></figure>
-        <figure class="slideshow-4"></figure>
-      </div>
-      <div class="slideshow-spacer"></div>
-
-      <!-- <script src="ts/index.js"></script> -->
-      <h2 class="section-heading">Search results for "Sammie Sungie S23123"</h2>
-          <div class="results">
-            <a href=""> 
+<!-- <a href=""> 
               <img src="source/logo-light.png">
               <div class="title">Let's say there's this random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
               <div class="subtitle">this is a subtitle for the product and it can do a lot of things that i cannot otherwise dooduct n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
@@ -301,39 +328,9 @@
               <p>Starts from </p>
               <h3 class="hover-animation">£159.92</h3>
             </a>
-            <a href=""> 
-              <img src="source/logo-light.png">
-              <div class="title">Let's say there's this random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              <div class="subtitle">this is a subtitle for the product and it can do a lot of things that i cannot otherwise dooduct n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              
-              <p>Starts from </p>
-              <h3 class="hover-animation">£159.92</h3>
-            </a>
-            <a href=""> 
-              <img src="source/logo-light.png">
-              <div class="title">Let's say there's this random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              <div class="subtitle">this is a subtitle for the product and it can do a lot of things that i cannot otherwise dooduct n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              
-              <p>Starts from </p>
-              <h3 class="hover-animation">£159.92</h3>
-            </a>
-            <a href=""> 
-              <img src="source/logo-light.png">
-              <div class="title">Let's say there's this random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              <div class="subtitle">this is a subtitle for the product and it can do a lot of things that i cannot otherwise dooduct n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              
-              <p>Starts from </p>
-              <h3 class="hover-animation">£159.92</h3>
-            </a>
-          </div>
 
 
-
-
-
-
-
-
+ -->
 
 
 
