@@ -1,4 +1,3 @@
-{{-- resources/views/admin/staffindex.blade.php --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,13 +16,21 @@
     <a href="/admin" class = "backbtn"><i class="fa-regular fa-arrow-left"></i></a>
 
     <table>
-        <thead>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Level of Admin</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($admins as $admin)
             <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Level of Admin</th>
+                <td>{{ $admin->user->id }}</td>
+                <td>{{ $admin->user->name }}</td> <!-- Assuming the 'name' field exists in your users table -->
+                <td>{{ $admin->user->email }}</td>
+                <td>{{ $admin->adminLevel }}</td> <!-- Assuming 'levelOfAdmin' is the correct field name -->
             </tr>
         </thead>
         <tbody>

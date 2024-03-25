@@ -20,26 +20,28 @@
         <thead>
             <tr>
                 <th>Order ID</th>
-                <th>users ID</th>
-                <th>Users Name</th>
+                <th>Client ID</th>
+                <th>Client Name</th>
                 <th>Total Amount</th>
                 <th>Order Date</th>
                 <th>Status</th>
-                <th>Actions</th>
+                <th>Remove</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($orders as $order)
+                
                 <tr>
-                    <td class= "first-el"><a href="/admin">{{ $order->orderID }}</a></td>
-                    <td><a href="/admin">{{ $order->user->id }} </a></td>
-                    <td><a href="/admin">{{ $order->user->name ?? 'N/A' }}</a></td> 
-                    <td> <a href="/admin">${{ number_format($order->totalAmount, 2) }}</a></td>
-                    <td><a href="/admin">{{ $order->orderDate ? $order->orderDate->format('Y-m-d') : 'Date not set' }}</a></td>
-                    <td><a href="/admin">{{ $order->status ?? 'Pending' }}</a></td> <!-- Placeholder for status -->
-                    <td class = "last-el">
-                    </td>
+                
+                    <td class="first-el"><a href="/admin">{{ $order->orderID }}</a></td>
+                    <td class ="el"><a href="/admin">{{ $order->user->id }}</a> </td>
+                    <td class ="el"><a href="/admin">{{ $order->user->name ?? 'N/A' }}</a></td> 
+                    <td class ="el"><a href="/admin">${{ number_format($order->totalAmount, 2) }}</a></td>
+                    <td class ="el"><a href="/admin">{{ $order->orderDate ? $order->orderDate->format('Y-m-d') : 'Date not set' }}</a></td>
+                    <td class ="el"><a href="/admin">{{ $order->status ?? 'Pending' }}</a></td> <!-- Placeholder for status -->
+                    <td class= "last-el"><button class="btnRemove" onclick="togglePopup(this)">Remove</button></td>
                 </tr>
+                
             @empty
                 <tr>
                     <td colspan="6">No orders found.</td>
@@ -47,5 +49,51 @@
             @endforelse
         </tbody>
     </table>
+    <div class="popup" id= "popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+            <p>Do You Want to Remove this Product?</p>
+            <button class="btnPopupYes">Yes</button>
+            <button class="btnPopupNo" onclick="togglePopup()">No</button>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            var isDarkMode = element.classList.contains("dark-mode");
+            localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        }
+
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.remove("hide-content");
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                document.body.classList.add("dark-mode");
+            }
+        });
+        function togglePopup(button){
+        const popup = document.getElementById("popup-1");
+        popup.classList.toggle("active");
+
+        const popupContent = popup.querySelector(".content");
+
+        if (popup.classList.contains("active")) {
+            popupContent.style.position = "fixed";
+            popupContent.style.top = "50%";
+            popupContent.style.left = "50%";
+            popupContent.style.transform = "translate(-50%, -50%)";
+        } else {
+            popupContent.style.position = "";
+            popupContent.style.top = "";
+            popupContent.style.left = "";
+            popupContent.style.transform = "";
+        }
+    }
+    </script>
 </body>
 </html>

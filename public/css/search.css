@@ -1,0 +1,126 @@
+
+
+.content-wrapper .filters-wrapper {
+    height: 120px;
+
+}
+
+
+
+
+
+
+.content-wrapper .results-wrapper {
+
+}
+
+.content-wrapper .results-wrapper .section-heading {
+    color: var(--text);
+
+
+}
+
+
+.content-wrapper .results-wrapper .results {
+    margin-top: 1em;
+    display: grid;
+    flex-direction: row;
+    background-color: var(--background);
+    justify-content: center;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    transition: 0.5s ease-in-out;
+    margin: 0px;
+}
+
+.results a {
+    color: var(--text);
+    text-decoration: none;
+    background-color: var(--secondary);
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    transition: 0.25s ease-in-out;
+
+}
+
+:root[data-theme="light"] .results a:hover {
+    filter: brightness(103%);
+    box-shadow: 2px 1px 10px rgba(100, 100, 100, 0.3);
+}
+
+:root[data-theme="dark"] .results a:hover {
+    background-color: rgb(30, 30, 30);
+    box-shadow: 2px 1px 10px rgba(255, 255, 255, 0.16);
+}
+
+.results a img {
+    padding: 1em 2em 1.5em 2em;
+}
+
+.results a .title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2em;
+    max-height: 2.4em;
+    color: var(--text);
+}
+
+.results a .subtitle {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* line-height: 0.9em; */
+    /* max-height: 0.8em; */
+    color: var(--text);
+    margin-top: 0.5em;
+    font-weight: 200;
+    font-size: 0.9em;
+}
+
+.results a p {
+    font-weight: 300;
+    margin: 0px;
+    margin-top: 4px;
+
+}
+
+
+
+.results .hover-animation {
+    display: inline-block;
+    position: relative;
+    color: var(--text);
+  }
+  
+  .results a .hover-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transform-origin: bottom right;
+    transition: transform 0.15s ease-out;
+  }
+  
+  .results a:hover .hover-animation::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  
+.results a h3 {
+    font-weight: 400;
+    margin: -8px 0px 0px 0px;
+    color: var(--text);
+    width: max-content;
+}

@@ -1,9 +1,8 @@
 * {
     font-family: 'Poppins', sans-serif;
-    transition: 150ms ease-in-out;
+    /* transition: 150ms ease-in-out; */
 }
-
-:root[data-theme="light"] {
+:root{
     --text: rgb(18, 18, 18);
     --background: rgb(237, 237, 237);
     --primary: rgb(0, 173, 204);
@@ -16,17 +15,16 @@
 
 }
 
-:root[data-theme='dark'] {
-    --text: rgb(211, 211, 211);
-    --background: rgb(18, 18, 18);
-    --primary: rgb(35, 138, 156);
-    --secondary: rgb(26, 26, 26);
-    --tertiary: rgb(30, 30, 30);
-    --accent: rgb(235, 42, 77);
-    --dropdown: rgb(18, 18, 18, 0.75);
-    --nav-line: rgb(51, 51, 51);
-    --border-radius: 1.5em;
-
+:root{
+    --text2: rgb(211, 211, 211);
+    --background2: rgb(18, 18, 18);
+    --primary2: rgb(35, 138, 156);
+    --secondary2: rgb(26, 26, 26);
+    --tertiary2: rgb(30, 30, 30);
+    --accent2: rgb(235, 42, 77);
+    --dropdown2: rgb(18, 18, 18, 0.75);
+    --nav-line2: rgb(51, 51, 51);
+    --border-radius2: 1.5em;
 
 }
 
@@ -36,38 +34,13 @@ body {
     text-align: center;
     flex-direction: column;
     justify-content: center;
-    
-}
-
-table {
-    background-color: rgb(0, 173, 204);
-    border-radius: 20px;
-    padding: 30px;
-    margin: 0px 20px 0px 20px;
 
 }
 
-tr {
-    font-size: 20px;
-    color: rgb(18, 18, 18);
-    
-}
-
-th,
-td {
-    padding: 10px;
-}
-
-button{
-    position: relative;
-    width: 100px;
-}
 .backbtn {
     background-color: transparent;
     position: relative;
     align-items: center;
-    text-decoration: none;
-    color: black;
     justify-content: center;
     display: flex;
     width: 50px;
@@ -76,9 +49,210 @@ button{
     font-size: 30px;
     border-radius: 10px;
     border: 1.5px solid rgb(0, 173, 204) ;
+    transition: 150ms ease-in-out; 
 }
 
 .backbtn:hover{
     background-color: rgb(0, 173, 204);
     color: black;
+    transition: 150ms ease-in-out; 
+}
+a {
+    text-decoration: none;
+    color: rgb(18, 18, 18);
+}
+
+a:hover {
+    color: rgb(0, 173, 204);
+    transition: 150ms ease-in-out; 
+}
+
+table {
+    background-color: rgb(0, 173, 204);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0px 20px 0px 20px;
+}
+
+tr {
+    font-size: 20px;
+    color: rgb(18, 18, 18);
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+
+.first-el {
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.last-el {
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.popup .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+    /* transition: ease-in-out 1s; */
+    backdrop-filter: blur(2px)
+}
+.popup .content{
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 10px 10px 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: all 0.2s ease-in-out;
+    background-color: var(--tertiary);
+    width: 320px;
+    height:150px;
+    z-index: 2;
+    font-size: 18px;
+
+}
+
+.popup.active .overlay{
+    display: block;
+}
+
+.popup.active .content{
+    transition: all 0.2s ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+}
+.btnPopupYes{
+    background-color: var(--primary);
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    height: 35px;
+    border-radius: 7px;
+    width: 90px;
+    border: 0.1px solid var(--primary) ;
+    font-size: 17px;
+    margin-right: 10px;
+}
+.btnPopupYes:hover{
+    filter: brightness(1.2);
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+}
+.btnPopupNo:hover{
+    filter: brightness(1.5);
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+
+}
+
+.btnPopupNo{
+    background-color: var(--accent);
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    width: 90px;
+    height: 35px;
+    border-radius: 7px;
+    border: 0.1px solid var(--accent) ;
+    font-size: 17px;
+    margin-left: 10px;
+}
+.btnRemove{
+    background-color: transparent;
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    height: 35px;
+    border-radius: 10px;
+    border: 1.2px solid var(--text) ;
+    transition: 150ms ease-in-out;
+    font-size: 17px;
+}
+.btnRemove:hover{
+    transition: 150ms ease-in-out; 
+    background-color: var(--primary);
+    border: none;
+}
+tbody:hover .first-el{
+    transition: 150ms ease-in-out; 
+    background-color: rgb(237, 237, 237);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+tbody td{
+    transition: 150ms ease-in-out; 
+}
+tbody:hover .last-el{
+    transition: 150ms ease-in-out; 
+    background-color: rgb(237, 237, 237);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+tbody:hover .el{
+    transition: 150ms ease-in-out; 
+    background-color: var(--background);
+}
+.dark-mode {
+    background-color: var(--background2);
+    color: white;
+}
+.dark-mode .backbtn{
+   border-color:var(--primary2);;
+    color: white;
+}
+.dark-mode .backbtn:hover{
+    background-color: var(--primary2);
+    transition: 150ms ease-in-out;
+}
+.dark-mode .popup .content{
+    background-color: var(--tertiary2);
+}
+.dark-mode table{
+    background-color: var(--primary2);
+}
+
+.dark-mode tbody:hover .btnRemove {
+    transition: 150ms ease-in-out; 
+    background-color: transparent;
+    border-color: var(--text2);
+    color: var(--text2);
+}
+.dark-mode tbody:hover .btnRemove:hover {
+    transition: 150ms ease-in-out; 
+    background-color: var(--primary2);
+}
+.dark-mode tbody:hover a{
+    transition: 150ms ease-in-out; 
+   color: var(--text2);
+}
+.dark-mode tbody:hover a:hover{
+   color: var(--primary2);
+   transition: 150ms ease-in-out; 
+}
+
+.dark-mode tbody:hover .el{
+    transition: 150ms ease-in-out; 
+    background-color: var(--background2);
+}
+.dark-mode tbody:hover .first-el {
+    transition: 150ms ease-in-out; 
+    background-color: var(--background2);
+}
+
+.dark-mode tbody:hover .last-el {
+    transition: 150ms ease-in-out; 
+    background-color: var(--background2);
 }

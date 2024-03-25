@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/css/index.css">
   <!-- This lower line is css for this page only -->
   <link rel="stylesheet" href="/css/home.css">  
+  <link rel="stylesheet" href="/css/product.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -17,7 +18,6 @@
   <link rel="icon" href="/source/favicon.png" type="image/x-icon">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <script src="js/slideshow.js"></script>
   <script src="js/burger.js"></script>
 
 
@@ -73,11 +73,8 @@
         <a href="#" id="search-button"><i class="fa-regular fa-magnifying-glass"></i></a>
         <search id="searchbox" class="">
           <search-box>
-          <<form id="searchForm" action="/search" method="GET">
-            <input name="query" placeholder="Search for products" type="text" required>
-            <button type="submit" id="search-button" style="border: none; background: none;"><i class="fa-regular fa-arrow-right"></i></button>
-          </form>
-
+            <input placeholder="Search for products" type="text">
+            <a href="#" id="search-close"><i class="fa-regular fa-arrow-right"></i></a>
           </search-box>
         </search>
         <script src="../js/search-box.js"></script>
@@ -281,52 +278,185 @@
 
 
 
+      <div class="product-page">
+        <div class="product-cat">
+          Phones > Samsung > Galaxy S23
+        </div>
+        <div class="title-wrapper">
 
-      <div class="slideshow-wrapper">
-        <figure class="slideshow-1"></figure>
-        <figure class="slideshow-2"></figure>
-        <figure class="slideshow-3"></figure>
-        <figure class="slideshow-4"></figure>
-      </div>
-      <div class="slideshow-spacer"></div>
-
-      <!-- <script src="ts/index.js"></script> -->
-      <h2 class="section-heading">Search results for "Sammie Sungie S23123"</h2>
-          <div class="results">
-            <a href=""> 
-              <img src="source/logo-light.png">
-              <div class="title">Let's say there's this random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              <div class="subtitle">this is a subtitle for the product and it can do a lot of things that i cannot otherwise dooduct n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              
-              <p>Starts from </p>
-              <h3 class="hover-animation">£159.92</h3>
-            </a>
-            <a href=""> 
-              <img src="source/logo-light.png">
-              <div class="title">Let's say there's this random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              <div class="subtitle">this is a subtitle for the product and it can do a lot of things that i cannot otherwise dooduct n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              
-              <p>Starts from </p>
-              <h3 class="hover-animation">£159.92</h3>
-            </a>
-            <a href=""> 
-              <img src="source/logo-light.png">
-              <div class="title">Let's say there's this random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              <div class="subtitle">this is a subtitle for the product and it can do a lot of things that i cannot otherwise dooduct n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              
-              <p>Starts from </p>
-              <h3 class="hover-animation">£159.92</h3>
-            </a>
-            <a href=""> 
-              <img src="source/logo-light.png">
-              <div class="title">Let's say there's this random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              <div class="subtitle">this is a subtitle for the product and it can do a lot of things that i cannot otherwise dooduct n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product n random long ass product name</div>
-              
-              <p>Starts from </p>
-              <h3 class="hover-animation">£159.92</h3>
-            </a>
+          <div class="image-box">
+            <div class="main-img">
+              <img src="{{ $product->imageURL }}" alt="{{ $product->productName }}">
+            </div>
+            <button id="left-button"><i class="fa-regular fa-arrow-left"></i></button>
+            <div class="image-gallery">
+              <img src="source/slideshow_1.jpg" alt="">
+              <img src="source/slideshow_2.webp" alt="">
+              <img src="source/slideshow_3.webp" alt="">
+              <img src="source/slideshow_4.jpeg" alt="">
+              <img src="source/slideshow_3.webp" alt="">
+              <img src="source/slideshow_4.jpeg" alt="">
+            </div>
+            <button id="right-button"><i class="fa-regular fa-arrow-right"></i></button>
           </div>
 
+          <div class="product-title">
+        
+            <h1>{{ $product->productName }}</h1>
+            <p>Summary</p>
+            <h2>Model selection</h2>
+            <p id="grades-popup-button"><i class="fa-regular fa-circle-info"></i>   What do the different grades mean?</p> 
+            
+            <div id="modal-popup" class="grades-popup-wrapper hidden hidden-opacity">
+              <div class="grades-popup">
+                <i id="grades-popup-close-button" class="fa-regular fa-x"></i>
+                <h1>Our item grading</h1>
+                <h3 class="new">Brand New</h3>
+                <p>Brand new items are boxed, unopened and brand new.</p>
+                <h3>A Grade</h3>
+                <p>A Grade items have minimal wear, and come with their original packaging. Expected wear includes very light scratches, and/or packaging damage. </p>
+                <h3>B Grade</h3>
+                <p>B Grade items typically have small scuffs, scratches, and are in overall good cosmetic condition. These items will sometime have their original packaging included</p>
+                <h3>C Grade</h3>
+                <p>C Grade items are fairly worn, with scuff, deeper scratches, and cosmetic faults. There will be no cracks, chipped glass/plastic, and will still be fully functional. These items won't have their original packaging included </p>
+
+              </div>
+            </div>
+            
+            <script src="js/grade-modal.js"></script>
+
+            @php
+              $brandNewVariant = $product->variants->firstWhere('gradeID', 1);
+              $excellentVariant = $product->variants->firstWhere('gradeID', 2);
+              $goodVariant = $product->variants->firstWhere('gradeID', 3);
+              $fairVariant = $product->variants->firstWhere('gradeID', 4);
+            @endphp
+
+            
+            <!-- <div class="button-wrapper">
+              <button class="n-grade" id="selected-variant-id" data-variant-id="{{ $brandNewVariant->variantID ?? '' }}">
+                @if($brandNewVariant)              
+                <h3>Brand New</h3>
+                <h2>£{{ number_format($brandNewVariant->price, 2) }}</h2>
+                <p>In stock</p>
+                @else
+                <p>Out of stock</p>
+                @endif
+              </button>
+        
+              <button class="a-grade"  id="selected-variant-id" data-variant-id="{{ $excellentVariant->variantID ?? '' }}">
+              @if($excellentVariant) 
+                <h3>Excellent</h3>
+                <h2>£{{ number_format($excellentVariant->price, 2) }}</h2>
+                <p>In stock</p>
+                @else
+                <p>Out of stock</p>
+                @endif
+              </button>
+
+              <button class="b-grade"  id="selected-variant-id" data-variant-id="{{ $goodVariant->variantID ?? '' }}">
+              @if($goodVariant)
+                <h3>Good</h3>
+                <h2>£{{ number_format($goodVariant->price, 2) }}</h2>
+                <p>In stock</p>
+                @else
+                <p>Out of stock</p>
+                @endif
+              </button>
+              
+              <button class="c-grade" id="selected-variant-id" data-variant-id="{{ $fairVariant->variantID ?? '' }}">
+              @if($fairVariant)
+                <h3>Fair</h3>
+                <h2>£{{ number_format($fairVariant->price, 2) }}</h2>
+                <p>In stock</p>
+                @else
+                <p>Out of stock</p>
+              @endif
+              </button>
+            </div> -->
+
+            <!-- <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                  const variantButtons = document.querySelectorAll('.button-wrapper button');
+                  const selectedVariantInput = document.getElementById('selected-variant-id');
+
+                  variantButtons.forEach(button => {
+                      button.addEventListener('click', function() {
+                          // Remove highlight from all buttons
+                          variantButtons.forEach(btn => btn.classList.remove('selected'));
+
+                          // Highlight the clicked button
+                          this.classList.add('selected');
+                          console.log(document.getElementById('selected-variant-id'))
+                          // Update the hidden input with the selected variant ID
+                          selectedVariantInput.value = this.dataset.variantID;
+                      });
+                  });
+              });
+            </script> -->
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                  const buttons = document.querySelectorAll('.button-wrapper .variant-button');
+
+                  buttons.forEach(button => {
+                      button.addEventListener('click', function() {
+                          // Remove 'selected' class from all buttons
+                          buttons.forEach(btn => btn.classList.remove('selected'));
+
+                          // Add 'selected' class to clicked button
+                          this.classList.add('selected');
+
+                          // Optional: Handle the selected variant ID
+                          // For example, store in a hidden input or use directly in a JavaScript function
+                          const selectedVariantId = this.dataset.variantId;
+                      });
+                  });
+              });
+            </script>
+            <div class="button-wrapper">
+              @foreach($product->variants as $variant)
+              <button class="n-grade variant-button" data-variant-id="{{ $variant->variantID }}">  
+              @if($variant->quantity > 0)
+                  <h3>{{ $variant->grade->gradeName }}</h3>
+                  <h2>£{{ number_format($variant->price, 2) }}</h2>
+                  <p>In stock</p>
+                  @else
+                  <p>Out of stock</p>
+                  @endif
+                </button>
+              @endforeach
+            </div>
+
+
+            <div class="buy-buttons">
+              <button class="buy-now">
+                <h3>Buy it now</h3>
+              </button>
+
+
+              <form id="add-to-basket-form" action="/path/to/cart/shoppingBasket" method="POST">
+                  @csrf 
+                  <input type="hidden" name="variant_id" id="variant-id-input" value="">
+                  
+                  <button type="submit" class="add-to-basket">
+                      <h3>Add to basket</h3>
+                  </button>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="product-description">
+          <h2>Product Description</h2>
+          <p>{{ $product->description }}</p>
+        </div>
+      
+
+      </div>
+      <script src="js/grid-cycle.js"></script>
+      <script src="js/image-gallery.js"></script>
 
 
 
@@ -337,6 +467,29 @@
 
 
 
+
+
+
+
+
+
+
+
+      <h2 class="section-heading">Other Products you may be interested in</h2>
+      <div class="pages">
+        <a class="first" href=""> <img src="source/logo-light.png">
+          <p>Test 1 Page</p>
+        </a>
+        <a href=""> <img src="source/logo-light.png">
+          <p>Test 2 Page</p>
+        </a>
+        <a href=""> <img src="source/logo-light.png">
+          <p>Test 3 Page</p>
+        </a>
+        <a class="fourth" href=""><img src="source/logo-light.png">
+          <p>Test 4 Page</p>
+        </a>
+      </div>
 
 
 
@@ -360,6 +513,10 @@
 </main>
 <footer>
     <content>
+        <div class="info-footer">
+          <h1>          Made with love from TP22
+          </h1>
+        </div>
         <div class="horizontal-footer">
             <div class="vert">
                 <a href="about">About Us</a>
@@ -384,3 +541,4 @@
 </body>
 
 </html>
+

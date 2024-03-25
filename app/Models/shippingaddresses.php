@@ -11,4 +11,12 @@ class shippingaddresses extends Model
 
     protected $table = 'shippingaddresses'; 
     protected $primaryKey = 'addressID';
+
+    public function user()
+{
+    // Explicitly specify 'id' as the foreign key and 'addressID' as the local key
+    return $this->belongsTo(User::class, 'id', 'id');
 }
+}
+
+

@@ -5,7 +5,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
+
 
 class Orders extends Model 
 {
@@ -40,6 +40,6 @@ class Orders extends Model
 
     public function items()
     {
-        return $this->hasMany(OrderItems::class, 'orderID', 'orderID');
+        return $this->hasMany(orderitems ::class, 'orderID', 'orderID');
     }
 }

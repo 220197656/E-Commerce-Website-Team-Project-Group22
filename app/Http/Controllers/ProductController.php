@@ -17,6 +17,6 @@ class ProductController extends Controller
     {
         $product = Product::with('variants.grade')->findOrFail($id);
 
-        return view('productshow', compact('product'));
+        return view('product', compact('product'));
     }
 }

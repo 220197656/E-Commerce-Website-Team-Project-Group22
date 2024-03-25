@@ -22,7 +22,7 @@
             <tr>
                 <th>ID</th>
                 <th>Email</th>
-                <th>name</th>
+                <th>Name</th>
                 <!-- Add columns here-->
             </tr>
         </thead>

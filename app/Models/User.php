@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\Orders;
+use App\Models\shippingaddresses;
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -44,6 +47,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    
 
     public function admin()
 {
@@ -59,5 +63,13 @@ public function isAdmin()
     return $this->admin()->exists();
 }
 
+public function orders()
+    {
+        return $this->hasMany(Orders::class);
+    }
+    public function shippingAddresses()
+    {
+        return $this->hasMany(ShippingAddresses::class, 'id');
+    }
 
 }
