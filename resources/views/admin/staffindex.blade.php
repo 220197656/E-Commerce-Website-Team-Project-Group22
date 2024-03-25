@@ -32,40 +32,8 @@
                 <td>{{ $admin->user->email }}</td>
                 <td>{{ $admin->adminLevel }}</td> <!-- Assuming 'levelOfAdmin' is the correct field name -->
             </tr>
-        </thead>
-        <tbody>
-            @foreach ($staff as $admin)
-                <tr>
-                    <td>{{ $admin->adminID }}</td>
-                    <td>{{ $admin->username }}</td>
-                    <td>{{ $admin->email }}</td>
-                    <td>{{ $admin->phoneNumber }}</td>
-                    <td>{{ $admin->levelOfAdmin }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <script>
-        function myFunction() {
-            var element = document.body;
-            element.classList.toggle("dark-mode");
-            // Store the theme preference in local storage
-            var isDarkMode = element.classList.contains("dark-mode");
-            localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-        }
-
-        // Remove the class to hide content once the page has loaded
-        document.addEventListener("DOMContentLoaded", function() {
-            document.body.classList.remove("hide-content");
-        });
-
-        // Apply the stored theme preference on page load
-        document.addEventListener("DOMContentLoaded", function() {
-            var theme = localStorage.getItem("theme");
-            if (theme === "dark") {
-                document.body.classList.add("dark-mode");
-            }
-        });
-    </script>
+        @endforeach
+    </tbody>
+</table>
 </body>
 </html>
