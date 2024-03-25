@@ -5,20 +5,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductVariant;
+Use App\models\Categories;
 
 class SearchController extends Controller
 {
-    // public function index()
-    // {
-        
-    //     // Retrieve products with pagination (10 products per page)
-    //     $products = Product::all();
-    //     \Log::debug('Number of products fetched:', ['count' => $products->count()]);
-    //     // Pass the products to the view
-    //     return view('search', compact('products'));
-    // }
-
-    
 
 public function index()
 {
@@ -33,31 +23,37 @@ public function index()
     return view('search', compact('products'));
 }
 
-
-
-// public function searchResults(Request $request)
-// {
-//     $query = $request->input('query', '');
-//     $products = Product::where('productName', 'like', "%{$query}%")->get();
-    
-//     // Return a view that's just for the search results portion
-//     return view('partials.search_results', compact('products'));
-// }
-
 public function searchResults(Request $request)
 {
     $query = $request->input('query', '');
+    $categoryName = $request->input('category', '');
 
-    $products = Product::where('productName', 'like', "%{$query}%")
-                    ->get()
-                    ->map(function ($product) {
-                        $brandNewVariant = $product->variants()->where('gradeID', 1)->first();
-                        $product->brandNewPrice = $brandNewVariant ? $brandNewVariant->price : null;
-                        return $product;
-                    });
+    $productsQuery = Product::query();
+
+    // If a search query is provided, filter products by name
+    if (!empty($query)) {
+        $productsQuery->where('productName', 'like', "%{$query}%");
+    }
+
+    // If a category is provided, filter products by category
+    // Adjust the field name ('categoryName' in this case) as necessary
+    if (!empty($categoryName)) {
+        $productsQuery->whereHas('category', function ($query) use ($categoryName) {
+            $query->where('categoryName', '=', $categoryName);
+        });
+    }
+
+    $products = $productsQuery->get()->map(function ($product) {
+        $brandNewVariant = $product->variants()->where('gradeID', 1)->first();
+        $product->brandNewPrice = $brandNewVariant ? $brandNewVariant->price : null;
+        return $product;
+    });
 
     return view('partials.search_results', compact('products'));
 }
+
+
+
 
 
 

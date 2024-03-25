@@ -70,7 +70,7 @@
       <div class="logo-menu">
         <a href="/"><img id="logo-light2" src="/source/logo-light.png"><img id="logo-dark2"
             src="/source/logo-dark.png"></a>
-        <a href="#" id="search-button"><i class="fa-regular fa-magnifying-glass"></i></a>
+        <a href="/search"><i class="fa-regular fa-magnifying-glass"></i></a>
         <search id="searchbox" class="">
           <search-box>
           <<form id="searchForm" action="/search" method="GET">
@@ -80,16 +80,18 @@
 
           </search-box>
         </search>
-        <script src="../js/search-box.js"></script>
       </div>
       <div class="main-header">
-        <a href="/products/phones/" class="hover-underline-animation" id="dd1">Phones</a>
-        <a href="/products/tablets/" class="hover-underline-animation" id="dd2">Tablets</a>
-        <a href="/products/computers/" class="hover-underline-animation" id="dd3">Computers</a>
-        <a href="/products/consoles/" class="hover-underline-animation" id="dd4">Consoles</a>
-        <a href="/products/other/" class="hover-underline-animation" id="dd5">Other</a>
+      <a href="/search?category=phones" class="hover-underline-animation">Phones</a>
+      <a href="/search?category=tablets" class="hover-underline-animation">Tablets</a>
+      <a href="/search?category=computers" class="hover-underline-animation">Computers</a>
+      <a href="/search?category=consoles" class="hover-underline-animation">Consoles</a>
+      <a href="/search?category=other" class="hover-underline-animation">Other</a>
+    </div>
+
 
       </div>
+
       <div class="main-menu">
         <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
             class="fa-regular fa-moon dark-theme"></i></a>
