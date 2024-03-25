@@ -1,9 +1,16 @@
-@ -1,317 +0,0 @@
 * {
     font-family: 'Poppins', sans-serif;
-    transition: 150ms ease-in-out;
+    /* transition: 150ms ease-in-out; */
+    text-align: center;
 }
-
+.searchAndBack{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 10px;
+}
 :root{
     --text: rgb(18, 18, 18);
     --background: rgb(237, 237, 237);
@@ -27,7 +34,6 @@
     --dropdown2: rgb(18, 18, 18, 0.75);
     --nav-line2: rgb(51, 51, 51);
     --border-radius2: 1.5em;
-
 
 }
 
@@ -67,7 +73,6 @@ button {
 
 input {
     width: 350px;
-    margin: 0px 0px 20px 0px;
     padding: 0.5em 0em;
     cursor: pointer;
     box-sizing: border-box;
@@ -75,10 +80,11 @@ input {
     height: 3em;
     border-radius: 1.5em;
     border: 0.5px solid black;
-    padding: 0px 1.5em 0px 1.5em;
+    padding: 0px 1.5em 0px 0px;
 }
 .backbtn {
     background-color: transparent;
+    transition: 150ms ease-in-out;
     text-decoration: none;
     position: relative;
     color: var(--text);
@@ -87,15 +93,14 @@ input {
     display: flex;
     width: 50px;
     height: 50px;
-    margin: 0px 1000px -50px 40px;
+    /* margin: 0px 1000px -50px 40px; */
     font-size: 30px;
     border-radius: 10px;
-    border: 1.5px solid var(--primary) ;
+    border: 1.5px solid var(--primary);
 }
 
 .backbtn:hover{
     background-color: rgb(0, 173, 204);
-    color: var(--text);
 }
 
 .popup .overlay{
@@ -110,12 +115,13 @@ input {
     backdrop-filter: blur(2px)
 }
 .popup .content{
+    
     position: absolute;
     border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 10px;
+    padding: 20px 10px 0px 10px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(0);
@@ -125,6 +131,7 @@ input {
     height:150px;
     z-index: 2;
     font-size: 18px;
+    
 
 }
 
@@ -162,9 +169,10 @@ input {
     transition: all 0.2s ease-in-out;
     background-color: var(--tertiary);
     width: 320px;
-    height:350px;
+    height:220px;
     z-index: 2;
     font-size: 18px;
+    overflow-y: auto;
 
 }
 
@@ -177,6 +185,15 @@ input {
     transform: translate(-50%,-50%) scale(1);
 
 }
+.popup2 input{
+    margin: 7px;
+}
+.popup2 button{
+    margin-top: 7px;
+}
+p{
+    margin: 0px;
+}
 
 .popup3 .overlay{
     position: fixed;
@@ -187,28 +204,107 @@ input {
     z-index: 1;
     display: none;
     /* transition: ease-in-out 1s; */
-    backdrop-filter: blur(2px)
+    backdrop-filter: blur(2px);
 }
+textarea{
+    resize: none;
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--background);
+}
+input::file-selector-button{
+    background-color: var(--primary);
+    text-decoration: none;
+    color: var(--text);
+    height: 30px;
+    border-radius: 7px;
+    border: 0.1px solid var(--primary) ;
+    font-size: 13px;
+}
+
+select{
+    background-color: var(--background);
+    border-radius: 15px;
+    width: 150px;
+    resize: none;
+    height: 37px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+}
+.popup3 form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .popup3 .content{
     position: absolute;
     border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    padding: 10px;
+    padding: 0px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(0);
     transition: all 0.2s ease-in-out;
     background-color: var(--tertiary);
-    width: 700px;
-    height:650px;
+    width: 600px;
+    /* height:400px; */
     z-index: 2;
     font-size: 18px;
+    overflow-y: auto;
+}
+#removeVariantBtn{
+    width:200px
+}
+.popup3 input{
+    width: 90%;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: var(--background);
+    color: var(--text);
+    transition: 0.5s ease-in-out;
 
 }
 
+
+#productName{
+    height: 20px;
+    width: 330px;
+}
+.popup3 p{
+    padding: 12px 0px 0px 0px;
+}
+#variantp{
+    padding: 0px;
+    margin-top: 10px;
+}
+#imageURL{
+    height: 60px;
+    margin: 10px 0px 0px 0px;
+    width: 300px;
+    border: none;
+    text-align: center;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    font-size: 15px;
+    background-color: var(--background);
+    color: var(--text);
+    transition: 0.5s ease-in-out;
+}
+
+.popup3 input::placeholder{
+    font-size: 15px;
+}
+textarea::placeholder{
+    font-size: 15px;
+    text-align: center;
+}
 .popup3.active .overlay{
     display: block;
 }
@@ -216,8 +312,38 @@ input {
 .popup3.active .content{
     transition: all 0.2s ease-in-out;
     transform: translate(-50%,-50%) scale(1);
-
 }
+ #Estock{
+   margin-left: 30px;
+}
+#Gstock{
+    margin-left: 60px;
+ }
+ #Fstock{
+    margin-left: 75px;
+ }
+
+ .btnAdd{
+    background-color: transparent;
+    text-decoration: none;
+    position: relative;
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    /* margin: 0px 1000px -50px 40px; */
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1.5px solid var(--primary);
+ }
+ .btnAdd:hover{
+    background-color: var(--primary);
+    border: none;
+    transition: 150ms ease-in-out;
+}
+  
 .btnRemove{
     background-color: transparent;
     text-decoration: none;
@@ -231,6 +357,7 @@ input {
 .btnRemove:hover{
     background-color: var(--background);
     border: none;
+    transition: 150ms ease-in-out;
 }
 .btnPopupYes{
     background-color: var(--primary);
@@ -243,13 +370,34 @@ input {
     font-size: 17px;
     margin-right: 10px;
 }
+.btnAdd{
+    background-color: transparent;
+    transition: 150ms ease-in-out;
+    text-decoration: none;
+    position: relative;
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    /* margin: 0px 1000px -50px 40px; */
+    font-size: 17px;
+    border-radius: 10px;
+    border: 1.5px solid var(--primary);
+}
+.btnAdd:hover{
+    background-color: rgb(0, 173, 204);
+}
 .btnPopupYes:hover{
     filter: brightness(1.2);
     cursor: pointer;
+    transition: 150ms ease-in-out;
 }
 .btnPopupNo:hover{
     filter: brightness(1.5);
     cursor: pointer;
+    transition: 150ms ease-in-out;
 
 }
 
@@ -264,6 +412,18 @@ input {
     font-size: 17px;
     margin-left: 10px;
 }
+.btnPopupVar{
+    background-color: var(--primary);
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    height: 35px;
+    width: 120px;
+    border-radius: 7px;
+    border: 0.1px solid var(--primary) ;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
 .changeForm{
     width: 90%;
     border: none;
@@ -275,15 +435,33 @@ input {
     color: var(--text);
     transition: 0.5s ease-in-out;
 }
+.functionButtons{
+    margin: 10px;
+}
+.variantcontainer{
+    margin: 0px 10px 10px 10px;
+}
+.variantcontainer #read{
+    background-color: transparent;
+    font-size: 16px;
+    width: 150px;
+    cursor:default;
+}
 .formContent{
+    height: 50px;
     display: flex;
     justify-content: space-around;
-    background-color: red;
-
+    align-items: center;
+}
+.formContentButton{
+    align-items: center;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
 }
 .changeForm2{
     margin: 10px;
-    width: 180px;
+    width: 150px;
     height: 20px;
     border: none;
     padding: 1em 2em;
@@ -294,6 +472,20 @@ input {
     color: var(--text);
     transition: 0.5s ease-in-out;
 }
+.changeFormProduct{
+    margin: 10px;
+    width: 250px;
+    height: 20px;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: var(--background);
+    color: var(--text);
+    transition: 0.5s ease-in-out;
+}
+
 .btnChange{
     background-color: transparent;
     text-decoration: none;
@@ -307,12 +499,66 @@ input {
 .btnChange:hover{
     background-color: var(--background);
     border: none;
+    transition: 150ms ease-in-out;
 }
 
 .dark-mode {
     background-color: var(--background2);
     color: white;
 }
+.dark-mode .backbtn{
+    transition: 150ms ease-in-out;
+    color: white;
+    border-color: var(--primary2);
+}
+.dark-mode .backbtn:hover {
+    background-color: var(--primary2);
+}
+.dark-mode .btnAdd{
+    transition: 150ms ease-in-out;
+    color: white;
+    border-color: var(--primary2);  
+}
+.dark-mode .changeForm2{
+    color: var(--text2);
+}
+.dark-mode .formContent input::placeholder{
+    color: var(--text2);
+}
+.dark-mode .btnAdd:hover {
+    background-color: var(--primary2);
+}
+.dark-mode .btnRemove{
+    transition: 150ms ease-in-out;
+}
+.dark-mode .btnRemove:hover{
+    transition: 150ms ease-in-out;
+    background-color: var(--background2); 
+    color: var(--text2);
+}
+.dark-mode .btnChange:hover{
+    transition: 150ms ease-in-out;
+    background-color: var(--background2); 
+    color: var(--text2);
+}
+.dark-mode .btnChange{
+    transition: 150ms ease-in-out;
+    
+}
+
+.dark-mode .popup .content{
+    background-color: var(--tertiary2);
+}
+.dark-mode .popup2 .content{
+    background-color: var(--tertiary2);
+}
+.dark-mode .popup3 .content{
+    background-color: var(--tertiary2);
+}
+.dark-mode table{
+    background-color: var(--primary2);
+}
+
 .hide-content {
     display: none;
 }
