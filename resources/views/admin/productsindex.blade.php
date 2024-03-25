@@ -33,7 +33,7 @@
             let query = $(this).val();
 
             $.ajax({
-                url: "{{ route('Admin.products.liveSearch') }}",
+                url: "{{ route('admin.products.liveSearch') }}",
         method: 'GET',
         data: {query: query},
         success: function(data) {
