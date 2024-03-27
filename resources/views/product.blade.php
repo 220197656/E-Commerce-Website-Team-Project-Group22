@@ -335,24 +335,6 @@ Welcome to Team 22's Project    </div>
 
 
 
-      <h2 class="section-heading">Other Products you may be interested in</h2>
-      <div class="pages">
-        <a class="first" href=""> <img src="source/logo-light.png">
-          <p>Test 1 Page</p>
-        </a>
-        <a href=""> <img src="source/logo-light.png">
-          <p>Test 2 Page</p>
-        </a>
-        <a href=""> <img src="source/logo-light.png">
-          <p>Test 3 Page</p>
-        </a>
-        <a class="fourth" href=""><img src="source/logo-light.png">
-          <p>Test 4 Page</p>
-        </a>
-      </div>
-
-
-
 
             <!-- //.............................................................................
 //.FFFFFFFFFF....OOOOOO........OOOOOO.....TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRR.....
