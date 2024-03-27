@@ -24,6 +24,7 @@
 
   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
 </head>
+
 <!-- //......................................................
 //.BBBBBBBBB.......OOOOOO.....DDDDDDDDD...DYYY....YYYY..
 //.BBBBBBBBBBB...OOOOOOOOOO...DDDDDDDDDD..DYYY....YYY...
@@ -91,7 +92,7 @@
         <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
             class="fa-regular fa-moon dark-theme"></i></a>
         <a href="/login"><i class="fa-regular fa-user"></i></a>
-        <a href="checkout"><i class="fa-regular fa-cart-shopping"></i></a>
+        <a href="/checkout"><i class="fa-regular fa-cart-shopping"></i></a>
       </div>
     </nav>
     <script src="/js/theme-toggle.js"></script>
@@ -102,9 +103,6 @@
 
   <main>
     <content>
-
-
-
 
 
 

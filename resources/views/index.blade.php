@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
 </head>
 
+
 <!-- //......................................................
 //.BBBBBBBBB.......OOOOOO.....DDDDDDDDD...DYYY....YYYY..
 //.BBBBBBBBBBB...OOOOOOOOOO...DDDDDDDDDD..DYYY....YYY...
@@ -44,8 +45,7 @@
 <body id="body">
   <header>
     <div class="announcement-bar">
-      SALE: USE CODE 50OFF FOR 50% OFF
-    </div>
+Welcome to Team 22's Project    </div>
     <burger-nav>
       <i id="burger-button" class="fa-regular fa-bars"></i>
       <a href="/"><img id="logo-light1" src="/source/logo-light.png"><img id="logo-dark1"
@@ -103,6 +103,7 @@
 
   <main>
     <content>
+
 
 
 

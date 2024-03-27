@@ -46,7 +46,7 @@ Route::get('about', function () {
     return view('about');
 });
 
-// Route::get('/checkout', function(){
+// Route::get('/checkoutd', function(){
 //     return view('checkout');
 // });
 
