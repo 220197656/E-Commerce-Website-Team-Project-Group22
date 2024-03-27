@@ -67,16 +67,38 @@ Welcome to Team 22's Project    </div>
       <div class="logo-menu">
         <a href="/"><img id="logo-light2" src="/source/logo-light.png"><img id="logo-dark2"
             src="/source/logo-dark.png"></a>
-        <a href="/search"><i class="fa-regular fa-magnifying-glass"></i></a>
-        <search id="searchbox" class="">
-          <search-box>
-          <<form id="searchForm" action="/search" method="GET">
-            <input name="query" placeholder="Search for products" type="text" required>
-            <button type="submit" id="search-button" style="border: none; background: none;"><i class="fa-regular fa-arrow-right"></i></button>
-          </form>
+            <a href="#" id="search-button"><i class="fa-regular fa-magnifying-glass"></i></a>
+        <form id="search-form" action="/search-results" method="GET">
+          <input name="query" placeholder="Search for products" type="text" required>
+          <button type="submit" id="search-button">Search</button>
+        </form>
 
-          </search-box>
-        </search>
+      
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('search-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        const query = this.query.value; // Get the search query
+
+        fetch(`/search-results?query=${encodeURIComponent(query)}`)
+            .then(response => response.text())
+            .then(html => {
+                // Display the fetched HTML in the search-results div
+                document.getElementById('search-results').innerHTML = html;
+            })
+            //.catch(error => console.error('Error fetching search results:', error));
+    });
+});
+</script>
+
+
+     
+
+
+      
+
+        {{-- <script src="../js/search-box.js"></script> --}}
       </div>
       <div class="main-header">
       <a href="/search-results?category=Phones" class="hover-underline-animation">Phones</a>
