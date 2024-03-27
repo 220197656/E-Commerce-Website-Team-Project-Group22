@@ -19,7 +19,7 @@
     <h1>Product Catalogue</h1>
     <div class="searchAndBack">
 
-    <a href="{{ route('admin.home') }}" class = "backbtn"><i class="fa-regular fa-arrow-left"></i></a>
+    <a href="/admin" class = "backbtn"><i class="fa-regular fa-arrow-left"></i></a>
     <input type="text" id="live_search" name="live_search" placeholder="Search Products...">
     <button class="btnAdd"onclick="togglePopupThree(this)">Add</button>
 

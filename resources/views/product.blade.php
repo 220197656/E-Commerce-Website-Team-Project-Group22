@@ -397,7 +397,7 @@
             <script>
               document.addEventListener('DOMContentLoaded', function() {
                   const buttons = document.querySelectorAll('.button-wrapper .variant-button');
-
+                  const variantInput = document.getElementById('variant-id-input');
                   buttons.forEach(button => {
                       button.addEventListener('click', function() {
                           // Remove 'selected' class from all buttons
@@ -409,6 +409,8 @@
                           // Optional: Handle the selected variant ID
                           // For example, store in a hidden input or use directly in a JavaScript function
                           const selectedVariantId = this.dataset.variantId;
+                          
+                          variantInput.value = selectedVariantId;
                       });
                   });
               });
@@ -433,16 +435,13 @@
                 <h3>Buy it now</h3>
               </button>
 
-
-              <form id="add-to-basket-form" action="/path/to/cart/shoppingBasket" method="POST">
-                  @csrf 
-                  <input type="hidden" name="variant_id" id="variant-id-input" value="">
-                  
-                  <button type="submit" class="add-to-basket">
-                      <h3>Add to basket</h3>
-                  </button>
-              </form>
-
+              <form id="add-to-basket-form" action="{{ route('checkout.addToBasket') }}" method="POST">
+                @csrf
+                <input type="hidden" name="variant_id" id="variant-id-input" value="{{ $variant->variantID }}">
+                <button type="submit" class="add-to-basket" id="add-button">
+                    <h3>Add to basket</h3>
+                </button>
+            </form>
             </div>
 
           </div>
@@ -455,6 +454,8 @@
       
 
       </div>
+      
+  
       <script src="js/grid-cycle.js"></script>
       <script src="js/image-gallery.js"></script>
 

@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\VariantController;
 USE App\Http\Controllers\SearchController;
 USE App\Http\Controllers\UserDashboardController;
-
+use App\Http\Controllers\CheckoutController;
 
 //Laravel added routes
 
@@ -45,6 +45,10 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.s
 Route::get('about', function () {
     return view('about');
 });
+
+Route::post('checkout', [CheckoutController::class, 'addToBasket'])->name('checkout.addToBasket');
+
+
 Route::get('userdashboard', function () {
     return view('dashboard');
 });
@@ -87,9 +91,6 @@ Route::get('contact', function () {
     return view('contact-us');
 });
 
-Route::get('productdev', function () {
-    return view('product');
-});
 
 Route::get('search', function () {
     return view('search');
@@ -109,9 +110,11 @@ Route::get('/search-results', [SearchController::class, 'searchResults'])->name(
 //Route::get('/productsmain', [ProductsmainController::class, 'index'])->name('allproducts');
 
 // Grouped routes for admin with middleware applied
+// Route::middleware('auth')->group(function () {
+// }
 // middleware(['auth', 'isAdmin'])->
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/orders', [OrdersController::class, 'index'])->name('orders');
     Route::get('/users', [UsersController::class, 'index'])->name('users');
     Route::get('/staff', [StaffController::class, 'index'])->name('staff');
@@ -120,7 +123,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::DELETE('/products/{product}', [ProductsController::class, 'destroy'])->name('products.destroy');
     Route::post('/variants/update', [VariantController::class, 'update'])->name('variant.update');
     Route::post('/products', [ProductsController::class, 'store'])->name('products.store');
-    Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
+    // Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 });
 
 

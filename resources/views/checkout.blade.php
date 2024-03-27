@@ -309,6 +309,11 @@
                 <a>£1000.00</a>
                 <a>2</a>
                 <a>£2000.00</a>
+                @if(isset($item))
+                <p>Product Name: {{ $item->name }}</p>
+                <p>Price: {{ $item->price }}</p>
+                <p>Quantity: {{ $item->quantity }}</p> {{-- Assuming you have quantity; adjust as needed --}}
+                @endif
               </div>
 
               

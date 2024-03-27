@@ -12,5 +12,10 @@ class Grade extends Model
 
     protected $table = 'grades'; 
     public $timestamps = false;
+
+    public function grade()
+    {
+        return $this->belongsTo(Grade::class, 'gradeID' , 'gradeID'); // Use the actual foreign key column name
+    } 
 }
 

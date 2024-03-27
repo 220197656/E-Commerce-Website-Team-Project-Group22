@@ -60,7 +60,7 @@ public function destroy($productId)
 
     public function store(Request $request)
     {
-        \Log::info($request->all());
+        Log::info($request->all());
         // First, create the Product
         $product = new Product();
         $product->productName = $request->productName;
@@ -87,7 +87,7 @@ public function destroy($productId)
         
 
         // Redirect or return response
-        return redirect()->route('admin.products.index')->with('success', 'Product and its variants have been added successfully.');
+        return redirect()->route('admin.products')->with('success', 'Product and its variants have been added successfully.');
     }
 
 }

@@ -24,7 +24,12 @@ class orderitems extends Model
     }
     public function grade()
     {
-        return $this->belongsTo(Grade::class, 'grade_id'); // Use the actual foreign key column name
+        return $this->belongsTo(Grade::class, 'gradeID' , 'gradeID'); // Use the actual foreign key column name
     } 
+    public function productVariant()
+    {
+        return $this->belongsTo(ProductVariant::class,'variantID', 'variantID');
+    }
+    
 }
 

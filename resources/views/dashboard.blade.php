@@ -394,10 +394,11 @@
                 @foreach($order->items as $item)
                 <a><img src="{{ $item->product->imageURL }}" alt=""></a>
                 <a href="/product/{{$item->product->productID}}">{{ $item->product->productName }}</a>
-                <a>{{ $item->grade }}</a>
-                <a>£1000.00</a>
-                <a>2</a>
-                <a>£2000.00</a>
+                <a></a>
+                {{-- {{ $item->grade->gradeID}} --}}
+                <a>£{{ $item->productVariant->price}}</a>
+                <a>{{ $item->quantity }}</a>
+                <a>£{{ $item->productVariant->price * $item->quantity }}</a>
                 @endforeach
               </div>
               

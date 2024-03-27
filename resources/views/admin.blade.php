@@ -63,7 +63,15 @@
                 
                 <li class = "theme"><span class="fa-regular fa-billboard"> <button onclick="myFunction()" >Theme</button></li>
                 <li><a href=""><span class="fa-regular fa-right-from-bracket"></span>
-                    <span> Log out</span></a></li>
+                    <form method="POST" class="logout" action="{{ route('logout') }}">
+                        @csrf
+                          <x-dropdown-link :href="route('logout')"
+                          onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                          <h3>Log Out</h3>
+                      </x-dropdown-link>
+                      </form></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -73,7 +81,7 @@
             <div class="user">
                 <img src="/source/logo-light.png" alt="">
                 <div>
-                    <h4> User Name</h4>
+                    <h4>{{ Auth::user()->name }}</h4>
                     <p>Admin</p>
                 </div>
             </div>
