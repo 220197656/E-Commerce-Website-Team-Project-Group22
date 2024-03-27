@@ -105,9 +105,9 @@ Route::get('search', function () {
     return view('search');
 });
 
-Route::get('checkout', function () {
-    return view('checkout');
-});
+// Route::get('checkout', function () {
+//     return view('checkout');
+// });
 
 Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 Route::get('/search-results', [SearchController::class, 'searchResults'])->name('search.results');
