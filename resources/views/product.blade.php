@@ -130,7 +130,6 @@ Welcome to Team 22's Project    </div>
 
       <div class="product-page">
         <div class="product-cat">
-          Phones > Samsung > Galaxy S23
         </div>
         <div class="title-wrapper">
 
@@ -140,12 +139,11 @@ Welcome to Team 22's Project    </div>
             </div>
             <button id="left-button"><i class="fa-regular fa-arrow-left"></i></button>
             <div class="image-gallery">
-              <img src="source/slideshow_1.jpg" alt="">
-              <img src="source/slideshow_2.webp" alt="">
-              <img src="source/slideshow_3.webp" alt="">
-              <img src="source/slideshow_4.jpeg" alt="">
-              <img src="source/slideshow_3.webp" alt="">
-              <img src="source/slideshow_4.jpeg" alt="">
+              <img src="{{ $product->imageURL }}" alt="{{ $product->productName }}" alt="">
+              <img src="{{ $product->imageURL }}" alt="{{ $product->productName }}" alt="">
+              <img src="{{ $product->imageURL }}" alt="{{ $product->productName }}" alt="">
+              <img src="{{ $product->imageURL }}" alt="{{ $product->productName }}" alt="">
+              <img src="{{ $product->imageURL }}" alt="{{ $product->productName }}" alt="">
             </div>
             <button id="right-button"><i class="fa-regular fa-arrow-right"></i></button>
           </div>
