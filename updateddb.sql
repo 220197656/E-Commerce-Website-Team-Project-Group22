@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 11:29 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 27, 2024 at 02:55 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hubertlaravel`
+-- Database: `updateddb`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `adminLevel`) VALUES
 (2, 0),
-(3, 1);
+(6, 1);
 
 -- --------------------------------------------------------
 
@@ -48,10 +48,32 @@ INSERT INTO `admin` (`id`, `adminLevel`) VALUES
 
 CREATE TABLE `basketproductquantity` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `productID` int(11) NOT NULL,
+  `productVariantID` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `basketproductquantity`
+--
+
+INSERT INTO `basketproductquantity` (`id`, `productVariantID`, `quantity`, `price`) VALUES
+(7, 1, 3, 1099),
+(7, 1, 3, 1099),
+(7, 1, 3, 1099),
+(7, 1, 3, 1099),
+(7, 1, 1, 1099),
+(7, 1, 1, 1099),
+(7, 1, 1, 1099),
+(7, 1, 1, 1099),
+(7, 2, 1, 1000),
+(7, 3, 1, 900),
+(7, 3, 1, 900),
+(7, 3, 1, 900),
+(7, 3, 1, 900),
+(7, 3, 1, 900),
+(7, 3, 1, 900),
+(7, 3, 1, 900);
 
 -- --------------------------------------------------------
 
@@ -246,17 +268,18 @@ CREATE TABLE `orderitems` (
   `orderID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` decimal(10,2) NOT NULL
+  `variantID` int(11) NOT NULL,
+  `orderItemID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `orderitems`
 --
 
-INSERT INTO `orderitems` (`orderID`, `productID`, `quantity`, `price`) VALUES
-(1, 1, 1, '1099.99'),
-(2, 1, 1, '1099.99'),
-(2, 3, 2, '799.99');
+INSERT INTO `orderitems` (`orderID`, `productID`, `quantity`, `variantID`, `orderItemID`) VALUES
+(1, 1, 1, 1, 1),
+(2, 1, 1, 1, 2),
+(2, 3, 1, 9, 3);
 
 -- --------------------------------------------------------
 
@@ -277,8 +300,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderID`, `user_id`, `orderDate`, `totalAmount`, `shippingAddressID`) VALUES
-(1, 1, '2024-03-14 00:00:00', '1099.99', 1),
-(2, 6, '2024-03-25 09:04:36', '1899.99', 4);
+(1, 7, '2024-03-14 00:00:00', 1099.99, 1),
+(2, 6, '2024-03-25 09:04:36', 1899.99, 4);
 
 -- --------------------------------------------------------
 
@@ -371,164 +394,164 @@ CREATE TABLE `productvariants` (
 --
 
 INSERT INTO `productvariants` (`variantID`, `productID`, `gradeID`, `price`, `quantity`) VALUES
-(1, 1, 1, '1099.00', 25),
-(2, 1, 2, '999.99', 15),
-(3, 1, 3, '899.99', 10),
-(4, 1, 4, '799.99', 5),
-(5, 2, 1, '1299.99', 20),
-(6, 2, 2, '1199.99', 15),
-(7, 2, 3, '999.99', 10),
-(8, 2, 4, '899.99', 5),
-(9, 3, 1, '799.99', 20),
-(10, 3, 2, '699.99', 15),
-(11, 3, 3, '599.99', 10),
-(12, 3, 4, '499.99', 5),
-(13, 4, 1, '899.99', 20),
-(14, 4, 2, '849.99', 15),
-(15, 4, 3, '799.99', 10),
-(16, 4, 4, '749.99', 5),
-(17, 5, 1, '849.99', 20),
-(18, 5, 2, '799.99', 15),
-(19, 5, 3, '749.99', 10),
-(20, 5, 4, '699.99', 5),
-(21, 6, 1, '399.99', 20),
-(22, 6, 2, '359.99', 15),
-(23, 6, 3, '319.99', 10),
-(24, 6, 4, '279.99', 5),
-(25, 7, 1, '1099.99', 20),
-(26, 7, 2, '1049.99', 15),
-(27, 7, 3, '999.99', 10),
-(28, 7, 4, '949.99', 5),
-(29, 8, 1, '199.99', 25),
-(30, 8, 2, '179.99', 20),
-(31, 8, 3, '159.99', 15),
-(32, 8, 4, '139.99', 10),
-(33, 9, 1, '349.99', 20),
-(34, 9, 2, '319.99', 15),
-(35, 9, 3, '289.99', 10),
-(36, 9, 4, '259.99', 5),
-(37, 10, 1, '499.99', 18),
-(38, 10, 2, '469.99', 14),
-(39, 10, 3, '439.99', 10),
-(40, 10, 4, '409.99', 6),
-(41, 11, 1, '1099.99', 20),
-(42, 11, 2, '1049.99', 15),
-(43, 11, 3, '999.99', 10),
-(44, 11, 4, '949.99', 5),
-(45, 12, 1, '799.99', 15),
-(46, 12, 2, '759.99', 12),
-(47, 12, 3, '719.99', 9),
-(48, 12, 4, '679.99', 6),
-(49, 13, 1, '899.99', 12),
-(50, 13, 2, '859.99', 9),
-(51, 13, 3, '819.99', 7),
-(52, 13, 4, '779.99', 4),
-(53, 14, 1, '299.99', 20),
-(54, 14, 2, '269.99', 15),
-(55, 14, 3, '239.99', 10),
-(56, 14, 4, '209.99', 5),
-(57, 15, 1, '149.99', 30),
-(58, 15, 2, '129.99', 25),
-(59, 15, 3, '109.99', 20),
-(60, 15, 4, '89.99', 15),
-(61, 16, 1, '179.99', 18),
-(62, 16, 2, '159.99', 14),
-(63, 16, 3, '139.99', 10),
-(64, 16, 4, '119.99', 6),
-(65, 17, 1, '249.99', 12),
-(66, 17, 2, '229.99', 9),
-(67, 17, 3, '209.99', 6),
-(68, 17, 4, '189.99', 3),
-(69, 18, 1, '399.99', 15),
-(70, 18, 2, '379.99', 11),
-(71, 18, 3, '359.99', 7),
-(72, 18, 4, '339.99', 4),
-(73, 19, 1, '229.99', 20),
-(74, 19, 2, '209.99', 15),
-(75, 19, 3, '189.99', 10),
-(76, 19, 4, '169.99', 5),
-(77, 20, 1, '149.99', 25),
-(78, 20, 2, '129.99', 20),
-(79, 20, 3, '109.99', 15),
-(80, 20, 4, '89.99', 10),
-(81, 21, 1, '499.99', 5),
-(82, 21, 2, '469.99', 3),
-(83, 21, 3, '439.99', 2),
-(84, 21, 4, '409.99', 1),
-(85, 22, 1, '499.99', 8),
-(86, 22, 2, '469.99', 6),
-(87, 22, 3, '439.99', 4),
-(88, 22, 4, '409.99', 2),
-(89, 23, 1, '349.99', 10),
-(90, 23, 2, '319.99', 8),
-(91, 23, 3, '289.99', 6),
-(92, 23, 4, '259.99', 4),
-(93, 24, 2, '399.99', 5),
-(94, 24, 3, '369.99', 3),
-(95, 24, 4, '339.99', 2),
-(96, 25, 1, '249.99', 14),
-(97, 25, 2, '219.99', 11),
-(98, 25, 3, '189.99', 8),
-(99, 25, 4, '159.99', 5),
-(100, 26, 1, '199.99', 15),
-(101, 26, 2, '179.99', 12),
-(102, 26, 3, '159.99', 9),
-(103, 26, 4, '139.99', 6),
-(104, 27, 2, '299.99', 10),
-(105, 27, 3, '269.99', 7),
-(106, 27, 4, '239.99', 4),
-(107, 28, 1, '299.99', 12),
-(108, 28, 2, '269.99', 9),
-(109, 28, 3, '239.99', 6),
-(110, 28, 4, '209.99', 3),
-(111, 29, 1, '399.99', 8),
-(112, 29, 2, '369.99', 6),
-(113, 29, 3, '339.99', 4),
-(114, 29, 4, '309.99', 2),
-(115, 30, 1, '79.99', 20),
-(116, 30, 2, '69.99', 15),
-(117, 30, 3, '59.99', 10),
-(118, 30, 4, '49.99', 5),
-(119, 31, 1, '129.99', 20),
-(120, 31, 2, '119.99', 18),
-(121, 31, 3, '109.99', 15),
-(122, 31, 4, '99.99', 12),
-(123, 32, 1, '29.99', 50),
-(124, 32, 2, '27.99', 45),
-(125, 32, 3, '25.99', 40),
-(126, 32, 4, '23.99', 35),
-(127, 33, 1, '279.99', 8),
-(128, 33, 2, '259.99', 7),
-(129, 33, 3, '239.99', 6),
-(130, 33, 4, '219.99', 5),
-(131, 34, 1, '49.99', 30),
-(132, 34, 2, '44.99', 27),
-(133, 34, 3, '39.99', 24),
-(134, 34, 4, '34.99', 21),
-(135, 35, 1, '19.99', 35),
-(136, 35, 2, '17.99', 32),
-(137, 35, 3, '15.99', 29),
-(138, 35, 4, '13.99', 26),
-(139, 36, 1, '119.99', 20),
-(140, 36, 2, '109.99', 18),
-(141, 36, 3, '99.99', 16),
-(142, 36, 4, '89.99', 14),
-(143, 37, 1, '39.99', 30),
-(144, 37, 2, '35.99', 27),
-(145, 37, 3, '31.99', 24),
-(146, 37, 4, '27.99', 21),
-(147, 38, 1, '149.99', 15),
-(148, 38, 2, '139.99', 13),
-(149, 38, 3, '129.99', 11),
-(150, 38, 4, '119.99', 9),
-(151, 39, 1, '24.99', 25),
-(152, 39, 2, '22.99', 22),
-(153, 39, 3, '20.99', 19),
-(154, 39, 4, '18.99', 16),
-(155, 40, 1, '19.99', 35),
-(156, 40, 2, '17.99', 32),
-(157, 40, 3, '15.99', 29),
-(158, 40, 4, '13.99', 26);
+(1, 1, 1, 1099.00, 25),
+(2, 1, 2, 999.99, 15),
+(3, 1, 3, 899.99, 10),
+(4, 1, 4, 799.99, 5),
+(5, 2, 1, 1299.99, 20),
+(6, 2, 2, 1199.99, 15),
+(7, 2, 3, 999.99, 10),
+(8, 2, 4, 899.99, 5),
+(9, 3, 1, 799.99, 20),
+(10, 3, 2, 699.99, 15),
+(11, 3, 3, 599.99, 10),
+(12, 3, 4, 499.99, 5),
+(13, 4, 1, 899.99, 20),
+(14, 4, 2, 849.99, 15),
+(15, 4, 3, 799.99, 10),
+(16, 4, 4, 749.99, 5),
+(17, 5, 1, 849.99, 20),
+(18, 5, 2, 799.99, 15),
+(19, 5, 3, 749.99, 10),
+(20, 5, 4, 699.99, 5),
+(21, 6, 1, 399.99, 20),
+(22, 6, 2, 359.99, 15),
+(23, 6, 3, 319.99, 10),
+(24, 6, 4, 279.99, 5),
+(25, 7, 1, 1099.99, 20),
+(26, 7, 2, 1049.99, 15),
+(27, 7, 3, 999.99, 10),
+(28, 7, 4, 949.99, 5),
+(29, 8, 1, 199.99, 25),
+(30, 8, 2, 179.99, 20),
+(31, 8, 3, 159.99, 15),
+(32, 8, 4, 139.99, 10),
+(33, 9, 1, 349.99, 20),
+(34, 9, 2, 319.99, 15),
+(35, 9, 3, 289.99, 10),
+(36, 9, 4, 259.99, 5),
+(37, 10, 1, 499.99, 18),
+(38, 10, 2, 469.99, 14),
+(39, 10, 3, 439.99, 10),
+(40, 10, 4, 409.99, 6),
+(41, 11, 1, 1099.99, 20),
+(42, 11, 2, 1049.99, 15),
+(43, 11, 3, 999.99, 10),
+(44, 11, 4, 949.99, 5),
+(45, 12, 1, 799.99, 15),
+(46, 12, 2, 759.99, 12),
+(47, 12, 3, 719.99, 9),
+(48, 12, 4, 679.99, 6),
+(49, 13, 1, 899.99, 12),
+(50, 13, 2, 859.99, 9),
+(51, 13, 3, 819.99, 7),
+(52, 13, 4, 779.99, 4),
+(53, 14, 1, 299.99, 20),
+(54, 14, 2, 269.99, 15),
+(55, 14, 3, 239.99, 10),
+(56, 14, 4, 209.99, 5),
+(57, 15, 1, 149.99, 30),
+(58, 15, 2, 129.99, 25),
+(59, 15, 3, 109.99, 20),
+(60, 15, 4, 89.99, 15),
+(61, 16, 1, 179.99, 18),
+(62, 16, 2, 159.99, 14),
+(63, 16, 3, 139.99, 10),
+(64, 16, 4, 119.99, 6),
+(65, 17, 1, 249.99, 12),
+(66, 17, 2, 229.99, 9),
+(67, 17, 3, 209.99, 6),
+(68, 17, 4, 189.99, 3),
+(69, 18, 1, 399.99, 15),
+(70, 18, 2, 379.99, 11),
+(71, 18, 3, 359.99, 7),
+(72, 18, 4, 339.99, 4),
+(73, 19, 1, 229.99, 20),
+(74, 19, 2, 209.99, 15),
+(75, 19, 3, 189.99, 10),
+(76, 19, 4, 169.99, 5),
+(77, 20, 1, 149.99, 25),
+(78, 20, 2, 129.99, 20),
+(79, 20, 3, 109.99, 15),
+(80, 20, 4, 89.99, 10),
+(81, 21, 1, 499.99, 5),
+(82, 21, 2, 469.99, 3),
+(83, 21, 3, 439.99, 2),
+(84, 21, 4, 409.99, 1),
+(85, 22, 1, 499.99, 8),
+(86, 22, 2, 469.99, 6),
+(87, 22, 3, 439.99, 4),
+(88, 22, 4, 409.99, 2),
+(89, 23, 1, 349.99, 10),
+(90, 23, 2, 319.99, 8),
+(91, 23, 3, 289.99, 6),
+(92, 23, 4, 259.99, 4),
+(93, 24, 2, 399.99, 5),
+(94, 24, 3, 369.99, 3),
+(95, 24, 4, 339.99, 2),
+(96, 25, 1, 249.99, 14),
+(97, 25, 2, 219.99, 11),
+(98, 25, 3, 189.99, 8),
+(99, 25, 4, 159.99, 5),
+(100, 26, 1, 199.99, 15),
+(101, 26, 2, 179.99, 12),
+(102, 26, 3, 159.99, 9),
+(103, 26, 4, 139.99, 6),
+(104, 27, 2, 299.99, 10),
+(105, 27, 3, 269.99, 7),
+(106, 27, 4, 239.99, 4),
+(107, 28, 1, 299.99, 12),
+(108, 28, 2, 269.99, 9),
+(109, 28, 3, 239.99, 6),
+(110, 28, 4, 209.99, 3),
+(111, 29, 1, 399.99, 8),
+(112, 29, 2, 369.99, 6),
+(113, 29, 3, 339.99, 4),
+(114, 29, 4, 309.99, 2),
+(115, 30, 1, 79.99, 20),
+(116, 30, 2, 69.99, 15),
+(117, 30, 3, 59.99, 10),
+(118, 30, 4, 49.99, 5),
+(119, 31, 1, 129.99, 20),
+(120, 31, 2, 119.99, 18),
+(121, 31, 3, 109.99, 15),
+(122, 31, 4, 99.99, 12),
+(123, 32, 1, 29.99, 50),
+(124, 32, 2, 27.99, 45),
+(125, 32, 3, 25.99, 40),
+(126, 32, 4, 23.99, 35),
+(127, 33, 1, 279.99, 8),
+(128, 33, 2, 259.99, 7),
+(129, 33, 3, 239.99, 6),
+(130, 33, 4, 219.99, 5),
+(131, 34, 1, 49.99, 30),
+(132, 34, 2, 44.99, 27),
+(133, 34, 3, 39.99, 24),
+(134, 34, 4, 34.99, 21),
+(135, 35, 1, 19.99, 35),
+(136, 35, 2, 17.99, 32),
+(137, 35, 3, 15.99, 29),
+(138, 35, 4, 13.99, 26),
+(139, 36, 1, 119.99, 20),
+(140, 36, 2, 109.99, 18),
+(141, 36, 3, 99.99, 16),
+(142, 36, 4, 89.99, 14),
+(143, 37, 1, 39.99, 30),
+(144, 37, 2, 35.99, 27),
+(145, 37, 3, 31.99, 24),
+(146, 37, 4, 27.99, 21),
+(147, 38, 1, 149.99, 15),
+(148, 38, 2, 139.99, 13),
+(149, 38, 3, 129.99, 11),
+(150, 38, 4, 119.99, 9),
+(151, 39, 1, 24.99, 25),
+(152, 39, 2, 22.99, 22),
+(153, 39, 3, 20.99, 19),
+(154, 39, 4, 18.99, 16),
+(155, 40, 1, 19.99, 35),
+(156, 40, 2, 17.99, 32),
+(157, 40, 3, 15.99, 29),
+(158, 40, 4, 13.99, 26);
 
 -- --------------------------------------------------------
 
@@ -565,9 +588,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('kiPkeeeaU77koR3NULLom6N3gOkLxR9Kx6dgO92j', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiak5mZ25UQVlwOUxFakFpSWNRajdxUE96Y0FNRE9YS2QzZWFXQmZOTCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9vcmRlcnMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1711348298),
-('oIh2xhnA9YSTNWcx73JFjHor80CH5JvMOlaMnCkp', 6, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQjFqWlN1b25HVEVTVVBiRkFNNUw3TnBWTVhtTWRwUVJoRExhVGY0USI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zZWFyY2giO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo2O30=', 1711362387),
-('suzKxxic6n5X51KQ1oWf15snOn5hQzHRwyXFud0Z', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibUZ5T3g2VE15cHpGSXpmNE9jT05USnhyREVkWFRUSnU0WHlOQ3pwQSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2Rhc2hib2FyZCI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvZGFzaGJvYXJkIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1711352993);
+('2QPwoNFfb4JUdx4QUthlQs7vX0Xh0bdo6CEtcpQ2', 7, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 OPR/108.0.0.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidzE0NHBrTXFmclBBVU9PZlBORXk2WGxYODJldzZkR0Z1VGhEOXVRaCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0LzEiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo3O30=', 1711502099);
 
 -- --------------------------------------------------------
 
@@ -639,7 +660,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (3, 'admin2', 'admin2@gmail.com', NULL, '$2y$12$fLVeYlOZ1OwOCk1C0oxXVeuTx7MF/QSVBTJmbkikrX.pjlZoe9r2C', NULL, '2024-03-22 17:26:13', '2024-03-22 17:26:13'),
 (4, 'john', 'john@gmail.com', NULL, '$2y$12$1iirHMP8.fci9gz484piMOVKu8MXgJcMg7.XeZZ7qi9wPDm0lvuBy', NULL, '2024-03-23 14:16:16', '2024-03-23 14:16:16'),
 (5, 'JohnDoe', 'johndoe@example.com', NULL, '$2y$12$3nbW6NI9M3dfFPzySPnHb.VGXrQt/SEkea5NoKwdhffP830mMZxQK', NULL, '2024-03-24 18:51:38', '2024-03-24 18:51:38'),
-(6, 'testuser', 'tetsuser@gmail.com', NULL, '$2y$12$LFOczJHDuhntLQCjiBcgl.ugu0JLHUzpAA7zSy3oQYAUtKkotT2bO', NULL, '2024-03-24 20:48:47', '2024-03-24 20:48:47');
+(6, 'testuser', 'tetsuser@gmail.com', NULL, '$2y$12$LFOczJHDuhntLQCjiBcgl.ugu0JLHUzpAA7zSy3oQYAUtKkotT2bO', NULL, '2024-03-24 20:48:47', '2024-03-24 20:48:47'),
+(7, 'hubert', 'hubert@gmail.com', NULL, '$2y$12$KqvKSlR1cUUTJc6jobpGCeI7XXeVOocRLUD/3SIIrWl1lFIvYtmgK', NULL, '2024-03-26 19:02:32', '2024-03-26 19:02:32');
 
 --
 -- Indexes for dumped tables
@@ -655,7 +677,8 @@ ALTER TABLE `admin`
 -- Indexes for table `basketproductquantity`
 --
 ALTER TABLE `basketproductquantity`
-  ADD KEY `fk_bid_id` (`id`);
+  ADD KEY `fk_bid_id` (`id`),
+  ADD KEY `fk_productvariantid` (`productVariantID`);
 
 --
 -- Indexes for table `billingaddresses`
@@ -726,8 +749,10 @@ ALTER TABLE `migrations`
 -- Indexes for table `orderitems`
 --
 ALTER TABLE `orderitems`
+  ADD PRIMARY KEY (`orderItemID`),
+  ADD KEY `fk_productId_productID` (`productID`),
   ADD KEY `fk_orderID` (`orderID`),
-  ADD KEY `fk_productId_productID` (`productID`);
+  ADD KEY `fk_pvariantid` (`variantID`);
 
 --
 -- Indexes for table `orders`
@@ -836,6 +861,12 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `orderitems`
+--
+ALTER TABLE `orderitems`
+  MODIFY `orderItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
@@ -845,13 +876,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `productvariants`
 --
 ALTER TABLE `productvariants`
-  MODIFY `variantID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `variantID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
 
 --
 -- AUTO_INCREMENT for table `shippingaddresses`
@@ -863,7 +894,7 @@ ALTER TABLE `shippingaddresses`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -879,14 +910,16 @@ ALTER TABLE `admin`
 -- Constraints for table `basketproductquantity`
 --
 ALTER TABLE `basketproductquantity`
-  ADD CONSTRAINT `fk_bid_id` FOREIGN KEY (`id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `fk_bid_id` FOREIGN KEY (`id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `fk_productvariantid` FOREIGN KEY (`productVariantID`) REFERENCES `productvariants` (`variantID`);
 
 --
 -- Constraints for table `orderitems`
 --
 ALTER TABLE `orderitems`
   ADD CONSTRAINT `fk_orderID` FOREIGN KEY (`orderID`) REFERENCES `orders` (`orderID`),
-  ADD CONSTRAINT `fk_productId_productID` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`);
+  ADD CONSTRAINT `fk_productId_productID` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`),
+  ADD CONSTRAINT `fk_pvariantid` FOREIGN KEY (`variantID`) REFERENCES `productvariants` (`variantID`);
 
 --
 -- Constraints for table `orders`
