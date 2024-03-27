@@ -25,6 +25,7 @@ class ProductVariant extends Model
     {
         return $this->belongsTo(Product::class, 'productID', 'productID');
     }
+    
 
     public function grade()
     {

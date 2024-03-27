@@ -288,32 +288,13 @@
                 <h3>Unit Price</h3>
                 <h3>Qty</h3>
                 <h3>Total Price</h3>
-                {{-- add more items here --}}
-                <a><img src="source/slideshow_1.jpg" alt=""></a>
-                <a>Sammy sungie s69 pro maxx</a>
-                <a>B Grade</a>
-                <a>£1000.00</a>
-                <a>2</a>
-                <a>£2000.00</a>
-                {{-- item 2 v --}}
-                <a><img src="source/slideshow_1.jpg" alt=""></a>
-                <a>Sammy sungie s69 pro maxx</a>
-                <a>B Grade</a>
-                <a>£1000.00</a>
-                <a>2</a>
-                <a>£2000.00</a>
-                {{-- item 3 v --}}
-                <a><img src="source/slideshow_1.jpg" alt=""></a>
-                <a>Sammy sungie s69 pro maxx</a>
-                <a>B Grade</a>
-                <a>£1000.00</a>
-                <a>2</a>
-                <a>£2000.00</a>
-                @if(isset($item))
-                <p>Product Name: {{ $item->name }}</p>
-                <p>Price: {{ $item->price }}</p>
-                <p>Quantity: {{ $item->quantity }}</p> {{-- Assuming you have quantity; adjust as needed --}}
-                @endif
+
+                @foreach($basketItems as $bItem)
+                    <a>{{ $bItem->productVariant->product->grade->gradeName }}</a> 
+                    <a>{{ $bItem->quantity }}</a>
+                    <a>£{{ number_format($bItem->price, 2) }}</a>
+                    <img src="{{ asset('storage/'.$bItem->productVariant->product->imageURL) }}" alt="Product Image"> {{-- Adjust path as needed --}}
+            @endforeach
               </div>
 
               

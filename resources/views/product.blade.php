@@ -435,13 +435,22 @@
                 <h3>Buy it now</h3>
               </button>
 
-              <form id="add-to-basket-form" action="{{ route('checkout.addToBasket') }}" method="POST">
+              {{-- <form id="add-to-basket-form" action="{{ route('checkout.addToBasket') }}" method="POST">
                 @csrf
                 <input type="hidden" name="variant_id" id="variant-id-input" value="{{ $variant->variantID }}">
                 <button type="submit" class="add-to-basket" id="add-button">
                     <h3>Add to basket</h3>
                 </button>
-            </form>
+            </form> --}}
+            <form id="add-to-basket-form" action="{{ route('checkout.addToBasket') }}" method="POST">
+              @csrf
+              <input type="hidden" name="variant_id" id="variant-id-input" value="">
+              <input type="number" name="quantity" id="quantity-input" value="1" min="1" required>
+              <button type="submit" class="add-to-basket" id="add-button">
+                  <h3>Add to basket</h3>
+              </button>
+          </form>
+          
             </div>
 
           </div>
