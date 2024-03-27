@@ -23,7 +23,6 @@
 
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
 </head>
-
 <!-- //......................................................
 //.BBBBBBBBB.......OOOOOO.....DDDDDDDDD...DYYY....YYYY..
 //.BBBBBBBBBBB...OOOOOOOOOO...DDDDDDDDDD..DYYY....YYY...
@@ -41,219 +40,67 @@
 //...................................................... -->
 
 <body id="body">
-    <header>
-        <div class="announcement-bar">
-            SALE: USE CODE 50OFF FOR 50% OFF
-        </div>
-        <burger-nav>
-            <i id="burger-button" class="fa-regular fa-bars"></i>
-            <a href="/index.html"><img id="logo-light1" src="/source/logo-light.png"><img id="logo-dark1"
-                    src="/source/logo-dark.png"></a>
-            <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
-            <div id="nav-menu" class="nav-menu">
-                <ul class="menu">
-                    <li><a href="#"><i class="fa-regular fa-mobile"></i>Phones</a></li>
-                    <li><a href="#"><i class="fa-regular fa-tablet"></i>Tablets</a> </li>
-                    <li><a href="#"><i class="fa-regular fa-laptop"></i>Computers</a></li>
-                    <li><a href="#"><i class="fa-regular fa-game-console-handheld"></i>Consoles</a></li>
-                    <li><a href="#"><i class="fa-regular fa-folder-plus"></i>Other</a></li>
-                    <li><a href="/html/login.html"><i class="fa-regular fa-user"></i>Profile</a></li>
-                    <li><a href="#" data-theme-toggle1><i id="sun1" class="fa-regular fa-sun light-theme"></i><i
-                                id="moon1" class="fa-regular fa-moon dark-theme"></i>Theme</a></li>
-                </ul>
-            </div>
-            <!-- <i class="fa-regular fa-moon"></i> MOOOOOONNNNNNN    -->
+  <header>
+    <div class="announcement-bar">
+      SALE: USE CODE 50OFF FOR 50% OFF
+    </div>
+    <burger-nav>
+      <i id="burger-button" class="fa-regular fa-bars"></i>
+      <a href="/"><img id="logo-light1" src="/source/logo-light.png"><img id="logo-dark1"
+          src="/source/logo-dark.png"></a>
+      <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
+      <div id="nav-menu" class="nav-menu">
+        <ul class="menu">
+          <li><a href="#"><i class="fa-regular fa-mobile"></i>Phones</a></li>
+          <li><a href="#"><i class="fa-regular fa-tablet"></i>Tablets</a> </li>
+          <li><a href="#"><i class="fa-regular fa-game-console-handheld"></i>Consoles</a></li>
+          <li><a href="#"><i class="fa-regular fa-folder-plus"></i>Other</a></li>
+          <li><a href="/login"><i class="fa-regular fa-user"></i>Profile</a></li>
+          <li><a href="#" data-theme-toggle1><i id="sun1" class="fa-regular fa-sun light-theme"></i><i id="moon1"
+                class="fa-regular fa-moon dark-theme"></i>Theme</a></li>
+        </ul>
+      </div>
+      <!-- <i class="fa-regular fa-moon"></i> MOOOOOONNNNNNN    -->
 
-        </burger-nav>
-        <nav id="nav">
-            <div class="logo-menu">
-                <a href="/index.html"><img id="logo-light2" src="/source/logo-light.png"><img id="logo-dark2"
-                        src="/source/logo-dark.png"></a>
-                <a href="#" id="search-button"><i class="fa-regular fa-magnifying-glass"></i></a>
-                <search id="searchbox" class="">
-                    <search-box>
-                        <input placeholder="Search for products" type="text">
-                        <a href="#" id="search-close"><i class="fa-regular fa-arrow-right"></i></a>
-                    </search-box>
-                </search>
-                <script src="../js/search-box.js"></script>
-            </div>
-            <div class="main-header">
-                <a href="/products/phones/" class="hover-underline-animation" id="dd1">Phones</a>
-                <a href="/products/tablets/" class="hover-underline-animation" id="dd2">Tablets</a>
-                <a href="/products/computers/" class="hover-underline-animation" id="dd3">Computers</a>
-                <a href="/products/consoles/" class="hover-underline-animation" id="dd4">Consoles</a>
-                <a href="/products/other/" class="hover-underline-animation" id="dd5">Other</a>
+    </burger-nav>
+    <nav id="nav">
+      <div class="logo-menu">
+        <a href="/"><img id="logo-light2" src="/source/logo-light.png"><img id="logo-dark2"
+            src="/source/logo-dark.png"></a>
+        <a href="/search"><i class="fa-regular fa-magnifying-glass"></i></a>
+        <search id="searchbox" class="">
+          <search-box>
+          <<form id="searchForm" action="/search" method="GET">
+            <input name="query" placeholder="Search for products" type="text" required>
+            <button type="submit" id="search-button" style="border: none; background: none;"><i class="fa-regular fa-arrow-right"></i></button>
+          </form>
 
-            </div>
-            <div class="main-menu">
-                <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
-                        class="fa-regular fa-moon dark-theme"></i></a>
-                <a href="/html/login.html"><i class="fa-regular fa-user"></i></a>
-                <a href=""><i class="fa-regular fa-cart-shopping"></i></a>
-            </div>
-        </nav>
-        <script src="../js/theme-toggle.js"></script>
-        <div></div>
-        <!-- Divs used for dropdown menus -->
-        <dd-wrapper>
+          </search-box>
+        </search>
+      </div>
+      <div class="main-header">
+      <a href="/search-results?category=Phones" class="hover-underline-animation">Phones</a>
+      <a href="/search-results?category=Tablets" class="hover-underline-animation">Tablets</a>
+      <a href="/search-results?category=Computers" class="hover-underline-animation">Consoles</a>
+      <a href="/search-results?category=Consoles" class="hover-underline-animation">Other</a>
+    </div>
+      </div>
 
-            <dropdown class="dd-dd1" id="dd-dd1">
-                <div class="drop-column">
-                    <a href="">Test Item long 1me</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
+      <div class="main-menu">
+        <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
+            class="fa-regular fa-moon dark-theme"></i></a>
+        <a href="/login"><i class="fa-regular fa-user"></i></a>
+        <a href="checkout"><i class="fa-regular fa-cart-shopping"></i></a>
+      </div>
+    </nav>
+    <script src="/js/theme-toggle.js"></script>
+    <div></div>
 
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-
-            </dropdown>
-            <dropdown class="dd-dd2" id="dd-dd2">
-                <div class="drop-column">
-                    <a href="">Test Item long 2</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-
-            </dropdown>
-
-            <dropdown class="dd-dd3" id="dd-dd3">
-                <div class="drop-column">
-                    <a href="">Test Item long 3</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-            </dropdown>
-
-            <dropdown class="dd-dd4" id="dd-dd4">
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-            </dropdown>
-
-            <dropdown class="dd-dd5" id="dd-dd5">
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-                <div class="drop-column">
-                    <a href="">Test Item long name</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-                    <a href="">Test Item long name blah</a>
-
-                </div>
-
-            </dropdown>
-        </dd-wrapper>
-        <script src="../js/dropdown.js"></script>
-    </header>
+  </header>
 
 
-    <main>
-        <content>
+  <main>
+    <content>
 
 
 
@@ -329,6 +176,7 @@
 
 
 
+
             <!-- //.............................................................................
 //.FFFFFFFFFF....OOOOOO........OOOOOO.....TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRR.....
 //.FFFFFFFFFF..OOOOOOOOOO....OOOOOOOOOO...TTTTTTTTTTTEEEEEEEEEE..RRRRRRRRRRR...
@@ -345,7 +193,6 @@
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
 </content>
-
 </main>
 <footer>
     <content>
@@ -364,13 +211,14 @@
                 <a href="faq">FAQs</a>
                 <a href="contact">Contact Us</a>
             </div>
+            <ul class="ul">
             <div class="vert">
-                <a>Phones</a>
-                <a>Tablets</a>
-                <a>Computers</a>
-                <a>Consoles</a>
-                <a>Others</a>
+            <a href="/search-results?category=Phones" class="hover-underline-animation">Phones</a>
+            <a href="/search-results?category=Tablets" class="hover-underline-animation">Tablets</a>
+            <a href="/search-results?category=Computers" class="hover-underline-animation">Consoles</a>
+            <a href="/search-results?category=Consoles" class="hover-underline-animation">Other</a>
             </div>
+            </ul>
         </div>
     </content>
 </footer>

@@ -30,13 +30,12 @@ public function searchResults(Request $request)
 
     $productsQuery = Product::query();
 
-    // If a search query is provided, filter products by name
+    
     if (!empty($query)) {
         $productsQuery->where('productName', 'like', "%{$query}%");
     }
 
-    // If a category is provided, filter products by category
-    // Adjust the field name ('categoryName' in this case) as necessary
+    
     if (!empty($categoryName)) {
         $productsQuery->whereHas('category', function ($query) use ($categoryName) {
             $query->where('categoryName', '=', $categoryName);

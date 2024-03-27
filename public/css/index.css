@@ -258,7 +258,7 @@ header {
   .hover-underline-animation {
     display: inline-block;
     position: relative;
-    color: var(--accent);
+    color: var(--text);
   }
   
   .hover-underline-animation::after {

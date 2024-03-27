@@ -19,7 +19,7 @@
         </div>
         <div class="nav-menu">
             <ul>
-                <li><a href=""><span class="fa-regular fa-chart-mixed"></span>
+                <li><a href="dashboard"><span class="fa-regular fa-chart-mixed"></span>
                     <span> Dashboard</span></a>
                     </li>
                 <li><a href="{{ route('admin.orders') }}" class="order-link">

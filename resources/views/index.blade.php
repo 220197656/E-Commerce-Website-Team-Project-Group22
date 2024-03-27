@@ -55,7 +55,6 @@
         <ul class="menu">
           <li><a href="#"><i class="fa-regular fa-mobile"></i>Phones</a></li>
           <li><a href="#"><i class="fa-regular fa-tablet"></i>Tablets</a> </li>
-          <li><a href="#"><i class="fa-regular fa-laptop"></i>Computers</a></li>
           <li><a href="#"><i class="fa-regular fa-game-console-handheld"></i>Consoles</a></li>
           <li><a href="#"><i class="fa-regular fa-folder-plus"></i>Other</a></li>
           <li><a href="/login"><i class="fa-regular fa-user"></i>Profile</a></li>
@@ -82,21 +81,18 @@
         </search>
       </div>
       <div class="main-header">
-      <a href="/search?category=phones" class="hover-underline-animation">Phones</a>
-      <a href="/search?category=tablets" class="hover-underline-animation">Tablets</a>
-      <a href="/search?category=computers" class="hover-underline-animation">Computers</a>
-      <a href="/search?category=consoles" class="hover-underline-animation">Consoles</a>
-      <a href="/search?category=other" class="hover-underline-animation">Other</a>
+      <a href="/search-results?category=Phones" class="hover-underline-animation">Phones</a>
+      <a href="/search-results?category=Tablets" class="hover-underline-animation">Tablets</a>
+      <a href="/search-results?category=Computers" class="hover-underline-animation">Consoles</a>
+      <a href="/search-results?category=Consoles" class="hover-underline-animation">Other</a>
     </div>
-
-
       </div>
 
       <div class="main-menu">
         <a data-theme-toggle><i id="sun2" class="fa-regular fa-sun light-theme"></i><i id="moon2"
             class="fa-regular fa-moon dark-theme"></i></a>
         <a href="/login"><i class="fa-regular fa-user"></i></a>
-        <a href="checkout"><i class="fa-regular fa-cart-shopping"></i></a>
+        <a href="/checkout"><i class="fa-regular fa-cart-shopping"></i></a>
       </div>
     </nav>
     <script src="/js/theme-toggle.js"></script>
@@ -205,7 +201,6 @@
 //.FFF...........OOOOOO........OOOOOO.........TTT....EEEEEEEEEEE.RRR.....RRRR..
 //............................................................................. -->
 </content>
-
 </main>
 <footer>
     <content>
@@ -224,13 +219,14 @@
                 <a href="faq">FAQs</a>
                 <a href="contact">Contact Us</a>
             </div>
+            <ul class="ul">
             <div class="vert">
-                <a>Phones</a>
-                <a>Tablets</a>
-                <a>Computers</a>
-                <a>Consoles</a>
-                <a>Others</a>
+            <a href="/search-results?category=Phones" class="hover-underline-animation">Phones</a>
+            <a href="/search-results?category=Tablets" class="hover-underline-animation">Tablets</a>
+            <a href="/search-results?category=Computers" class="hover-underline-animation">Consoles</a>
+            <a href="/search-results?category=Consoles" class="hover-underline-animation">Other</a>
             </div>
+            </ul>
         </div>
     </content>
 </footer>

@@ -46,12 +46,16 @@ Route::get('about', function () {
     return view('about');
 });
 
+// Route::get('/checkout', function(){
+//     return view('checkout');
+// });
+
 Route::post('checkout', [CheckoutController::class, 'addToBasket'])->name('checkout.addToBasket');
-// Route::post('/checkout', [CheckoutController::class, 'addToBasket'])
-//     ->name('checkout.addToBasket')
-//     ->middleware('auth');
+
 
 Route::get('/checkout', [CheckoutController::class, 'viewBasket'])->name('checkout.view');
+
+
 
 
 Route::get('userdashboard', function () {

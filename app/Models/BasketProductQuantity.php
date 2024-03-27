@@ -9,11 +9,10 @@ class BasketProductQuantity extends Model
 {
     public $timestamps = false; 
     protected $fillable = ['id', 'productVariantID', 'quantity', 'price'];
-    // Ensure your table name is correct if it doesn't follow Laravel's naming convention
     protected $table = 'basketproductquantity';
 
     public function productVariant()
 {
-    return $this->belongsTo(ProductVariant::class, 'productVariantID', 'id'); // Adjust the foreignKey and ownerKey if needed
+    return $this->belongsTo(ProductVariant::class,'productVariantID', 'variantID'); 
 }
 }
