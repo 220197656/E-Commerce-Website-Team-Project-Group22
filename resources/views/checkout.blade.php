@@ -149,61 +149,7 @@ Welcome to Team 22's Project    </div>
             {{-- Items ^^^^^ --}}
           </div>
         </div>
-        <div class="checkout-wrapper">  
-          <div class="price-total">
-            <p>Base total: </p>
-            <h3>£8000.00</h3>
-            <p>Shipping: </p>
-            <h3>£0.00 (Free)</h3>
-            <p>Final order price: </p>
-            <h3>£8000.00</h3>
-          </div>
-          <div class="address-list">
-            <script>
-              function toggleAddressDropdown(addressId) {
-                var address = document.getElementById(addressId);
-                var address = document.getElementById(addressId);
-                if (address.classList.contains("open")) {
-                  address.classList.remove("open");
-                } else {
-                  address.classList.add("open");
-                }
-              }
-            </script>
-            <h3 class="address-list-title">Address List</h3>
-            <button class="add-address" onclick="togglePopup3('popup-3')">Add New Address</button>
-            <div id="address" class="items">
-              <div id="address1" class="address">
-                <div class="stack1">
-                  <div class="field">
-                    <h3>First Name</h3>
-                    <p>John</p>
-                  </div>
-                  <div class="field">
-                  <h3>1st Line of address</h3>
-                  <p>123 Main St</p>
-                  </div>
-                </div>
-                <div class="stack1">
-                  <div class="field">
-                    <h3>City</h3>
-                    <p>Birmingham</p>
-                  </div>
-                  <div class="field">
-                  <h3>Post Code</h3>
-                  <p>B69 420</p>
-                  </div>
-                </div>
-                {{-- Edit Buton, remove --}}
-                <div class="button-wrapper">
-                  <button onclick=""><i class="fa-regular fa-check"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-
-        </div>
         <button class="purchase" onclick=""><h2>Purchase Now</h2></button>
 
       </div>
